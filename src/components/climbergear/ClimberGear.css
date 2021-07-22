@@ -2,7 +2,7 @@
 	display: flex;
 	flex-wrap: wrap;
 	text-align: center;
-
+	justify-content:space-evenly ;
 }
 
 
@@ -11,6 +11,7 @@
 	padding: 1rem;
 	border: solid grey .05rem;
 	flex-basis: 20%;
+	
 } 
 
 .gear_list_header{

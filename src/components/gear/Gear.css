@@ -9,6 +9,18 @@
 .gear_card{
 	margin: 1rem;
 	padding: 1rem;
-	border: solid grey .05rem;
+	border: solid rgba(128, 128, 128, 0.519) .05rem;
+	border-radius: .5rem;
 	flex-basis: 20%;
+	box-shadow: .2rem .2rem rgba(128, 128, 128, 0.356);
 }
+
+.gear_card:hover{
+	box-shadow: .2rem .2rem .2rem .2rem grey;
+}
+
+.gear_list_header{
+	text-align: center;
+	margin: 2rem;
+}
+

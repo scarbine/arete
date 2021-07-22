@@ -5,8 +5,11 @@ import { ClimberGearProvider } from "./components/climbergear/ClimberGearProvide
 import { ClimberDetail } from "./components/climbers/ClimberDetail";
 import { ClimberList } from "./components/climbers/ClimberList";
 import { ClimberProvider } from "./components/climbers/ClimberProvider";
+import { CragProvider } from "./components/crags/CragProvider";
 import { GearList } from "./components/gear/GearList";
 import { GearProvider } from "./components/gear/GearProvider";
+import { GradesProvider } from "./components/grades/GradesProvider";
+import { NewRouteForm } from "./components/routes/NewRouteForm";
 import { RouteList } from "./components/routes/RouteList";
 import { RouteProvider } from "./components/routes/RouteProvider";
 import { WallList } from "./components/walls/WallList";
@@ -35,9 +38,21 @@ export const ApplicationViews = () => {
       </ClimberProvider>
 
       <RouteProvider>
+        <GradesProvider>
         <Route exact path="/routes">
           <RouteList />
         </Route>
+        </GradesProvider>
+      </RouteProvider>
+
+      <RouteProvider>
+        <CragProvider>
+        <GradesProvider>
+        <Route exact path="/routes/create">
+          <NewRouteForm />
+        </Route>
+        </GradesProvider>
+        </CragProvider>
       </RouteProvider>
 
       <GearProvider>

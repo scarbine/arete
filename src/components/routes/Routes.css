@@ -13,4 +13,28 @@
 
 .button{
 	margin: .5rem;
+	
 }
+
+.routes-header{
+	text-align: center;
+	margin: 2rem;
+}
+
+.form {
+	margin: 4rem 15rem 0rem 15rem;
+	border:.15rem grey solid;
+	border-radius: .5rem;
+	padding: 1rem;
+}
+
+.form-control{
+	margin: 1rem 0rem 1rem 0rem;
+	
+}
+
+.form-header{
+	text-align: center;
+}
+
+

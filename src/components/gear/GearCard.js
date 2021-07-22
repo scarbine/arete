@@ -14,16 +14,16 @@ export const GearCard = ({ gear }) => {
   }
 
 
-  const handleAddGear = () => {
-      addClimberGear(addClimberGearObj)
-      .then(window.alert("This gear has been added to your list!"))
-  }
+  // const handleAddGear = () => {
+  //     addClimberGear(addClimberGearObj)
+  //     .then(window.alert("This gear has been added to your list!"))
+  // }
   return (
     <>
       <section className="gear_card">
 	<img src={gear.image} alt={gear.name} />     
         <h3 className="gear_name">{gear.name}</h3>
-        <button onClick={handleAddGear} id={gear.id}>Add to My Gear List</button>
+        {/* <button onClick={handleAddGear} id={gear.id}>Add to My Gear List</button> */}
       </section>
     </>
   );

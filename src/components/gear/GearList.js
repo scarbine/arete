@@ -13,6 +13,7 @@ export const GearList = () => {
 
   return (
     <>
+   <h1 className="gear_list_header">Arete Gear Shop</h1>
       <section className="gear">
         {console.log("GearList: Render", gear)}
         {gear.map((g) => {

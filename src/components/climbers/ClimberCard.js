@@ -5,11 +5,16 @@ import "./Climbers.css";
 export const ClimberCard = ({ climber }) => {
   return (
     <>
-      <section className="climber">
+      <section className="card">
+        <div>
         <Link to={`/climbers/detail/${climber.id}`} className="climber_name">
-          {climber.firstName} {climber.lastName}
+          <div>{climber.firstName} {climber.lastName}</div>
+          <div>
+            {climber.userName}
+          </div>
         </Link>
-        
+        </div>
+     
       </section>
     </>
   );
