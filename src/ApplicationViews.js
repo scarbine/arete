@@ -41,9 +41,11 @@ export const ApplicationViews = () => {
       </RouteProvider>
 
       <GearProvider>
+        <ClimberGearProvider>
         <Route exact path="/gear">
           <GearList />
         </Route>
+        </ClimberGearProvider>
       </GearProvider>
 
       <WallProvider>

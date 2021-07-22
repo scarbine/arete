@@ -4,6 +4,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import "./index.css";
 import { Arete } from "./Arete";
 import reportWebVitals from "./reportWebVitals";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 

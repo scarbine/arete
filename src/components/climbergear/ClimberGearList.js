@@ -27,13 +27,17 @@ export const ClimberGearList = () => {
 
   return (
     <>
-    <h1 className="gear_list_header">My Gear List</h1>
-    <section className="gear">
+    <h1 className="gear_list_header">Gear List</h1>
+   <button className="btn">Edit Gear List</button>
+    <section className=" gear">
       {console.log("ClimberGearList - Render: climberGear", climberGear)}
       {foundGearList.map((climbGear) => {
         return <ClimberGearCard key={climbGear.id} climbGear={climbGear} />;
       })}
+      
+      
     </section>
+  
     </>
   );
 };
