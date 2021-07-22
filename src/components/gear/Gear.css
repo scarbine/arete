@@ -1,0 +1,14 @@
+.gear{
+	display: flex;
+	flex-wrap: wrap;
+	text-align: center;
+
+}
+
+
+.gear_card{
+	margin: 1rem;
+	padding: 1rem;
+	border: solid grey .05rem;
+	flex-basis: 20%;
+}

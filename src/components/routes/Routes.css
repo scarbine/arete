@@ -1,0 +1,16 @@
+.route{
+	display: flex;
+	justify-content: space-between;
+	margin: 1rem;
+	padding: 1rem;
+	border: solid grey .05rem;
+}
+
+.route_detail{
+	margin: .5rem;
+}
+
+
+.button{
+	margin: .5rem;
+}
