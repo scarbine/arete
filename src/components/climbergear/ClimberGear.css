@@ -16,3 +16,9 @@
 .gear_list_header{
 	text-align: center;
 }
+
+
+.btn{
+	border: grey .15rem solid;
+	margin: 1rem;
+      }

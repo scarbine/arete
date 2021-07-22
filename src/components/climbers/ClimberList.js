@@ -13,6 +13,7 @@ export const ClimberList = () => {
 
   return (
     <>
+    <h1 className="climbers_header"> Climbers </h1>
       <div className="climber_list">
         {console.log("ClimbersList - Render", climbers)}
         {climbers.map((climber) => {

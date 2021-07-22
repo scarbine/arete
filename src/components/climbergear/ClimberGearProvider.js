@@ -12,10 +12,21 @@ export const ClimberGearProvider = (props) => {
 		.then(setClimberGear)
 	}
 
+	const addClimberGear = (climberGearObj) => {
+		return fetch("http://localhost:8088/climberGear",{
+		method: "POST",
+		headers:{
+			"Content-Type": "application/json"
+		},
+		body:JSON.stringify(climberGearObj)
+	
+	}).then(getClimberGear)
+	}
+
 
 	return(
 
-		<ClimberGearContext.Provider value={{climberGear , getClimberGear}}>
+		<ClimberGearContext.Provider value={{climberGear , getClimberGear, addClimberGear}}>
 			{props.children}
 		</ClimberGearContext.Provider>
 

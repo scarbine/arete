@@ -1,11 +1,14 @@
 .navbar {
-	display: flex;
-	flex-wrap: nowrap;
-	justify-content: left;
-    }
-    
-    .navbar_item {
-	flex-basis: 20%;
-	list-style-type: none;
-	
-    }
+  display: flex;
+  flex-wrap: nowrap;
+  /* justify-content: left; */
+}
+
+.navbar_item {
+  flex-basis: 10%;
+  list-style-type: none;
+}
+
+.navbar_link {
+  text-decoration: none;
+}
