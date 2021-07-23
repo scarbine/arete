@@ -23,10 +23,16 @@ export const ClimberGearProvider = (props) => {
 	}).then(getClimberGear)
 	}
 
+	const removeClimberGear = (id) => {
+		return fetch(`http://localhost:8088/climberGear/${id}`,{
+		method:"DELETE"
+		}).then(getClimberGear)
+	}
+
 
 	return(
 
-		<ClimberGearContext.Provider value={{climberGear , getClimberGear, addClimberGear}}>
+		<ClimberGearContext.Provider value={{climberGear , getClimberGear, addClimberGear, removeClimberGear}}>
 			{props.children}
 		</ClimberGearContext.Provider>
 

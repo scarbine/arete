@@ -35,6 +35,7 @@ export const GearDetails = () => {
   const addClimberGearObj = {
     climberId: climberId,
     gearId: parseInt(gearId),
+    dateAdded: Date.now()
   };
 
   const handleAddGear = () => {
