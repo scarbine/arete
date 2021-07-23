@@ -7,7 +7,7 @@ export const RoutesHeaderImage = () => {
       <section className="route_list">
         <div className="route_header">
           <img
-            src="https://res.cloudinary.com/ddaeunjfu/image/upload/c_crop,g_north,h_491,w_1200/v1627066555/Arete/Backgrounds/backgrounds9_ho1kw2.jpg"
+            src="https://res.cloudinary.com/ddaeunjfu/image/upload/c_crop,g_north,h_639,w_1876/v1627005099/Arete/Backgrounds/climber.6_xjnu4i.jpg"
             alt="mountain landscape"
             className="routes_img"
           />

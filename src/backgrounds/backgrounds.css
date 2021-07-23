@@ -39,6 +39,15 @@
 	color:whitesmoke
 }
 
+.gear_shop_title{
+	position: absolute; top: 15rem; left: 55rem;
+	text-shadow: .2rem .2rem rgba(47, 47, 47, 0.493);
+	color:whitesmoke	
+}
+
+.route_header{
+	box-shadow: 0rem 0rem 1rem rgba(112, 128, 144, 0.473);
+}
 
 
 

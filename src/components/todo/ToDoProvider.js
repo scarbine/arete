@@ -7,7 +7,7 @@ export const ToDoListProvider = (props) => {
 	const [todos, setTodo] = useState([])
 
 	const getTodos = () => {
-		return fetch("http://localhost:8088/toDoList?_expand=climber")
+		return fetch("http://localhost:8088/toDoList?_expand=climber&_expand=route")
 		.then(res => res.json())
 		.then(setTodo)
 		.then(console.log(todos))

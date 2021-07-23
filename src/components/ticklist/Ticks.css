@@ -1,0 +1,10 @@
+.tick_list_details{
+	display: flex;
+	flex-direction: column;
+	margin: 1rem;
+	border: .3rem rgba(112, 128, 144, 0.575);
+}
+
+.tick_list_header{
+	text-align: center;
+}
