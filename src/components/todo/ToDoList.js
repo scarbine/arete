@@ -23,7 +23,7 @@ export const ToDoList = () => {
 	return(
 		<>
 		<section className="todo_list">
-			<h1 className="todo_list_header">Tick List</h1>
+			<h1 className="todo_list_header">Todo List</h1>
 			<div>
 			{filteredTodos.map((todo)=>{
 				return(
