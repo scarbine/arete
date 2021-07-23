@@ -17,7 +17,7 @@ export const ClimberCard = ({ climber }) => {
     <>
       <section className="card climber_card">
         <div onClick={handleOnClick}  className="climber_name">
-          <img alt={fullName} src="https://res.cloudinary.com/ddaeunjfu/image/upload/v1627007000/Arete/climbers/avatar_osynpi.jpg"/>
+          <img alt={fullName} src={climber.profile_pic}/>
           <div className="climber_card_info">{fullName}</div>
           {/* <div className="climber_card_info">
             {climber.userName}
