@@ -1,9 +1,10 @@
-.tick_list_details{
+.todo_list_details{
 	display: flex;
 	justify-content: space-between;
-	margin: 1rem 5rem 1rem 5rem;
+	margin: 1rem 2rem 1rem 5rem;
 	border: .3rem rgba(112, 128, 144, 0.575);
 }
-.tick_list_header{
+
+.todo_list_header{
 	text-align: center;
 }
