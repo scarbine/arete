@@ -19,6 +19,11 @@ import "./ApplicationViews.css";
 import { GearShopBackground } from "./backgrounds/GearShopBackground";
 import { TrainingHeaderImage } from "./backgrounds/TrainingHeaderImage";
 import { GearDetails } from "./components/gear/GearDetails";
+import { ClimbersHeaderImage } from "./backgrounds/ClimbersHeader";
+import { RoutesHeaderImage } from "./backgrounds/RoutesHeader";
+import { TickListProvider } from "./components/ticklist/TickListProvider";
+import { TickForm } from "./components/ticklist/TickForm";
+import { ToDoListContext, ToDoListProvider } from "./components/todo/ToDoProvider";
 
 export const ApplicationViews = () => {
   return (
@@ -28,6 +33,7 @@ export const ApplicationViews = () => {
       </Route>
       <ClimberProvider>
         <Route exact path="/climbers">
+          <ClimbersHeaderImage />
           <ClimberList />
         </Route>
       </ClimberProvider>
@@ -42,11 +48,16 @@ export const ApplicationViews = () => {
       </ClimberProvider>
 
       <RouteProvider>
-        <GradesProvider>
-          <Route exact path="/routes">
-            <RouteList />
-          </Route>
-        </GradesProvider>
+        <ToDoListProvider>
+        <TickListProvider>
+          <GradesProvider>
+            <Route exact path="/routes">
+              <RoutesHeaderImage />
+              <RouteList />
+            </Route>
+          </GradesProvider>
+        </TickListProvider>
+        </ToDoListProvider>
       </RouteProvider>
 
       <RouteProvider>
@@ -86,6 +97,14 @@ export const ApplicationViews = () => {
       <Route exact path="/training">
         <TrainingHeaderImage />
       </Route>
+
+      <TickListProvider>
+        <RouteProvider>
+          <Route exact path="/ticks/add">
+            <TickForm />
+          </Route>
+        </RouteProvider>
+      </TickListProvider>
     </>
   );
 };

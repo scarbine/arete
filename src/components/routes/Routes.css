@@ -8,6 +8,7 @@
 
 .route_detail{
 	margin: .5rem;
+	
 }
 
 
@@ -43,8 +44,12 @@
 }
 
 
-.routes_title{
+/* .routes_title{
 	position: absolute; top: 10rem; left: 60rem;
 	color: whitesmoke;
-}
+} */
 
+.route_buttons{
+	display: flex;
+	flex-direction: column;
+}
