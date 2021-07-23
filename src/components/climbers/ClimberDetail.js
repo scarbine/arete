@@ -24,12 +24,26 @@ export const ClimberDetail = () => {
   return (
     <>
       <section className="climber">
+        <div>
         <h3 className="climber_name">
           {climber.firstName} {climber.lastName}
         </h3>
+        </div>
+        <div>
         <div className="climber_email">Email: {climber.email}</div>
+        <div className="climber_email">Username: {climber.userName}</div>
         <div className="climber_detail">
           Onsight Grade: {climber.onSightGradeSport}
+        </div>
+        <div className="climber_detail">
+          Top Grade: {climber.topGradeSport}
+        </div>
+        <div className="climber_detail">
+          Onsight Grade Boulder: {climber.onSightBoulder}
+        </div>
+        <div className="climber_detail">
+          Top Grade Boulder: {climber.topGradeBoulder}
+        </div>
         </div>
 	<div>
 		{/* {climberGear.map(gear=>{

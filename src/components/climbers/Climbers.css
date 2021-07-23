@@ -2,8 +2,16 @@
 	margin: 1rem;
 	padding: 1rem;
 	border: solid grey .05rem;
+	display: flex;
+	justify-content: space-evenly;
 }
 
 .climbers_header{
 	text-align: center;
+}
+
+.climber_name{
+	text-decoration: none;
+	display: flex;
+	justify-content: space-evenly;
 }

@@ -2,13 +2,21 @@
   display: flex;
   flex-wrap: nowrap;
   /* justify-content: left; */
+  background-color: rgb(59, 58, 58);
+  /* color: slategray; */
+  text-decoration: none;
+  box-shadow:.2rem .2rem .2rem .2rem rgba(37, 37, 37, 0.226);
+  margin: 0rem ;
 }
+  
 
 .navbar_item {
   flex-basis: 10%;
   list-style-type: none;
+  
 }
 
 .navbar_link {
-  text-decoration: none;
+	text-decoration: none;
+	list-style-type: none;
 }

@@ -1,4 +1,4 @@
-import React, {createContext, useState} from 'reacat'
+import React, {createContext, useState} from 'react'
 import {WeatherAPI} from "./WeatherAPI"
 
 export const WeatherContext = createContext()

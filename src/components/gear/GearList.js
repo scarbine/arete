@@ -13,12 +13,18 @@ export const GearList = () => {
 
   return (
     <>
-      <section className="gear">
-        {console.log("GearList: Render", gear)}
-        {gear.map((g) => {
-          return <GearCard key={g.id} gear={g} />;
-        })}
-      </section>
+      <div className="gear_list">
+        <div className="gear_list_header">
+          <h1 className="gear_list_title">Arete Gear Shop</h1>
+        </div>
+
+        <section className="gear">
+          {console.log("GearList: Render", gear)}
+          {gear.map((g) => {
+            return <GearCard key={g.id} gear={g} />;
+          })}
+        </section>
+      </div>
     </>
   );
 };

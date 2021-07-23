@@ -23,7 +23,7 @@ export const NavBar = (props) => {
 	  </li>
         <li className="navbar_item">
           <Link className="navbar_link" to="/gear">
-            Gear
+            Gear Shop
           </Link>
         </li>
         <li className="navbar_item">
