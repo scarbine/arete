@@ -18,6 +18,40 @@
 
 .climber_name{
 	text-decoration: none;
+	color: slategray;
 	display: flex;
-	justify-content: space-evenly;
+	flex-direction: column;
+	justify-content: center;
+}
+.climber_name:hover{
+	box-shadow: 0rem 0rem 3rem rgba(112, 128, 144, 0.24);
+}
+
+.climber_card{
+	margin: 2rem;
+	flex-basis: 20%;	
+}
+
+.climber_details{
+	margin: 2rem 1rem 1rem 1rem;
+}
+
+.climber_list{
+	display: flex;
+
+}
+
+.gear_detail_link{
+	display: flex;
+	flex-direction: column;
+}
+
+.climber_badge{
+	text-align: center;
+}
+
+.climber_card_info{
+	margin: 1rem;
+	
+	text-align: center;
 }

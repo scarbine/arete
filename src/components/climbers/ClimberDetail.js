@@ -29,8 +29,8 @@ export const ClimberDetail = () => {
         <h3 className="climber_name">
           {climber.userName}
         </h3>
-        </div>
-        <div>
+        </div >
+        <div className="climber_details">
         <div className="climber_email">Email: {climber.email}</div>
         <div className="climber_email">Name {climber.firstName} {climber.lastName}</div>
         <div className="climber_detail">

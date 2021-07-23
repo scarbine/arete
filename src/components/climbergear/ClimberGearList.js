@@ -38,9 +38,9 @@ export const ClimberGearList = () => {
    <button onClick={()=>history.push("/gear")}className="btn">Add New Gear</button> */}
     <section className=" gear">
       {console.log("ClimberGearList - Render: climberGear", climberGear)}
-      {foundGearList.map((climbGear) => {
+      {(foundGearList.length === 0) ? (<><div>This Climber does not currently have gear listed.</div></>):(foundGearList.map((climbGear) => {
         return <ClimberGearCard key={climbGear.id} climbGear={climbGear}/>
-      })}
+      }))}
       
       
     </section>
