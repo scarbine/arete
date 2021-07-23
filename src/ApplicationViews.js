@@ -15,6 +15,7 @@ import { RouteProvider } from "./components/routes/RouteProvider";
 import { WallList } from "./components/walls/WallList";
 import { WallProvider } from "./components/walls/WallProvider";
 import { Home } from "./Home";
+import "./ApplicationViews.css"
 
 export const ApplicationViews = () => {
   return (
@@ -55,7 +56,7 @@ export const ApplicationViews = () => {
         </CragProvider>
       </RouteProvider>
 
-      <GearProvider>
+      <GearProvider >
         <ClimberGearProvider>
         <Route exact path="/gear">
           <GearList />

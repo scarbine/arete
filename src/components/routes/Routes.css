@@ -35,6 +35,16 @@
 
 .form-header{
 	text-align: center;
+	
 }
 
+.route_list{
+	/* position: relative; */
+}
+
+
+.routes_title{
+	position: absolute; top: 10rem; left: 60rem;
+	color: whitesmoke;
+}
 

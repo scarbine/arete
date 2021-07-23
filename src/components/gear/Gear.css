@@ -2,6 +2,7 @@
 	display: flex;
 	flex-wrap: wrap;
 	text-align: center;
+	margin: 3rem;
 
 }
 
@@ -21,6 +22,26 @@
 
 .gear_list_header{
 	text-align: center;
-	margin: 2rem;
+	 position: relative; 
+	color: whitesmoke;
+	height: 800px;
+	/* width: auto; */
+	background-image: url("https://res.cloudinary.com/ddaeunjfu/image/upload/c_crop,h_957,w_1600,x_0,y_0/v1626996222/Arete/Backgrounds/backgrounds6_puxffu.jpg");
+	background-position: center center;
+	background-repeat: no-repeat;
+	box-shadow: .1rem .3rem rgba(0, 0, 0, 0.183);
+	
 }
+
+.gear_list_title{
+	
+	position: absolute; top: 10rem; left: 55rem;
+}
+
+
+.gear_card_image{
+	margin: 1rem
+	;
+}
+
 
