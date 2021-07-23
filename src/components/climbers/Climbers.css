@@ -19,7 +19,7 @@
 .climber_name{
 	text-decoration: none;
 	color: rgb(229, 229, 229);
-	background-color:rgba(36, 49, 166, 0.719);
+	background-color: slategray;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;

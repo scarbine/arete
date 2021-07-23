@@ -25,6 +25,8 @@ export const ClimberGearList = () => {
 
   const foundGearList = climberGear?.filter((cGear) => id === cGear.climberId)
 
+  const sortedFoundGear = foundGearList.sort((a,b) => b.id-a.id)
+
   console.log(foundGearList)
   
   return (
@@ -38,7 +40,7 @@ export const ClimberGearList = () => {
    <button onClick={()=>history.push("/gear")}className="btn">Add New Gear</button> */}
     <section className=" gear">
       {console.log("ClimberGearList - Render: climberGear", climberGear)}
-      {(foundGearList.length === 0) ? (<><div>This Climber does not currently have gear listed.</div></>):(foundGearList.map((climbGear) => {
+      {(sortedFoundGear.length === 0) ? (<><div>This Climber does not currently have gear listed.</div></>):(sortedFoundGear.map((climbGear) => {
         return <ClimberGearCard key={climbGear.id} climbGear={climbGear}/>
       }))}
       

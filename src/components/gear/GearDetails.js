@@ -40,14 +40,14 @@ export const GearDetails = () => {
 
   const handleAddGear = () => {
     addClimberGear(addClimberGearObj)
-      .then(window.alert("This gear has been added to your list!"))
-      .then(history.push("/gear"))
-      .then(window.scroll(0,600));
+//       .then(window.alert("This gear has been added to your list!"))
+//       .then(history.push("/gear"))
+//       .then(window.scroll(0,600));
   };
 
   const handleToGearShop = () =>{
 	history.push("/gear")
-	window.scroll(0,600)
+	window.scroll(0,400)
   }
 
   return (
