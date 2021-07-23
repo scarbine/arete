@@ -31,6 +31,11 @@ export const NavBar = (props) => {
             Walls
           </Link>
         </li>
+        <li className="navbar_item">
+          <Link className="navbar_link" to="/training">
+            Training 
+          </Link>
+        </li>
       </ul>
     </>
   );

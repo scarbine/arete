@@ -15,8 +15,10 @@ import { RouteProvider } from "./components/routes/RouteProvider";
 import { WallList } from "./components/walls/WallList";
 import { WallProvider } from "./components/walls/WallProvider";
 import { Home } from "./Home";
-import "./ApplicationViews.css"
+import "./ApplicationViews.css";
 import { GearShopBackground } from "./backgrounds/GearShopBackground";
+import { TrainingHeaderImage } from "./backgrounds/TrainingHeaderImage";
+import { GearDetails } from "./components/gear/GearDetails";
 
 export const ApplicationViews = () => {
   return (
@@ -34,35 +36,44 @@ export const ApplicationViews = () => {
         <ClimberGearProvider>
           <Route exact path="/climbers/detail/:climberId(\d+)">
             <ClimberDetail />
-	          <ClimberGearList />
+            <ClimberGearList />
           </Route>
         </ClimberGearProvider>
       </ClimberProvider>
 
       <RouteProvider>
         <GradesProvider>
-        <Route exact path="/routes">
-          <RouteList />
-        </Route>
+          <Route exact path="/routes">
+            <RouteList />
+          </Route>
         </GradesProvider>
       </RouteProvider>
 
       <RouteProvider>
         <CragProvider>
-        <GradesProvider>
-        <Route exact path="/routes/create">
-          <NewRouteForm />
-        </Route>
-        </GradesProvider>
+          <GradesProvider>
+            <Route exact path="/routes/create">
+              <NewRouteForm />
+            </Route>
+          </GradesProvider>
         </CragProvider>
       </RouteProvider>
 
-      <GearProvider >
+      <GearProvider>
         <ClimberGearProvider>
-        <Route exact path="/gear">
-          <GearShopBackground/>
-          <GearList />
-        </Route>
+          <Route exact path="/gear">
+            <GearShopBackground />
+            <GearList />
+          </Route>
+        </ClimberGearProvider>
+      </GearProvider>
+
+      <GearProvider>
+        <ClimberGearProvider>
+          <Route exact path="/gear/details/:gearId(\d+)">
+            <GearDetails />
+            <ClimberGearList />
+          </Route>
         </ClimberGearProvider>
       </GearProvider>
 
@@ -71,6 +82,10 @@ export const ApplicationViews = () => {
           <WallList />
         </Route>
       </WallProvider>
+
+      <Route exact path="/training">
+        <TrainingHeaderImage />
+      </Route>
     </>
   );
 };

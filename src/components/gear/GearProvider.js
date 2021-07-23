@@ -11,10 +11,17 @@ export const GearProvider = (props) => {
       .then(setGear);
   };
 
+  const getGearById = (id) => {
+    return fetch(`http://localhost:8088/gears/${id}`)
+    .then((res)=> res.json())
+    
+   
+  }
+
 
 
   return (
-    <GearContext.Provider value={{ gear, getGear }}>
+    <GearContext.Provider value={{ gear, getGear, getGearById }}>
       {props.children}
     </GearContext.Provider>
   );
