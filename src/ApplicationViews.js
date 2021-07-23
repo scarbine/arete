@@ -15,7 +15,6 @@ import { RouteProvider } from "./components/routes/RouteProvider";
 import { WallList } from "./components/walls/WallList";
 import { WallProvider } from "./components/walls/WallProvider";
 import { Home } from "./Home";
-import "./ApplicationViews.css";
 import { GearShopBackground } from "./backgrounds/GearShopBackground";
 import { TrainingHeaderImage } from "./backgrounds/TrainingHeaderImage";
 import { GearDetails } from "./components/gear/GearDetails";
@@ -23,7 +22,9 @@ import { ClimbersHeaderImage } from "./backgrounds/ClimbersHeader";
 import { RoutesHeaderImage } from "./backgrounds/RoutesHeader";
 import { TickListProvider } from "./components/ticklist/TickListProvider";
 import { TickForm } from "./components/ticklist/TickForm";
-import { ToDoListContext, ToDoListProvider } from "./components/todo/ToDoProvider";
+import {  ToDoListProvider } from "./components/todo/ToDoProvider";
+import { TickList } from "./components/ticklist/TickList";
+import { ToDoList } from "./components/todo/ToDoList";
 
 export const ApplicationViews = () => {
   return (
@@ -39,12 +40,18 @@ export const ApplicationViews = () => {
       </ClimberProvider>
 
       <ClimberProvider>
+        <ToDoListProvider>
+        <TickListProvider>
         <ClimberGearProvider>
           <Route exact path="/climbers/detail/:climberId(\d+)">
             <ClimberDetail />
             <ClimberGearList />
+            <TickList />
+            <ToDoList />
           </Route>
         </ClimberGearProvider>
+        </TickListProvider>
+        </ToDoListProvider>
       </ClimberProvider>
 
       <RouteProvider>

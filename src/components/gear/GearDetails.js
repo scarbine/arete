@@ -41,8 +41,14 @@ export const GearDetails = () => {
   const handleAddGear = () => {
     addClimberGear(addClimberGearObj)
       .then(window.alert("This gear has been added to your list!"))
-      .then(history.push("/gear"));
+      .then(history.push("/gear"))
+      .then(window.scroll(0,600));
   };
+
+  const handleToGearShop = () =>{
+	history.push("/gear")
+	window.scroll(0,600)
+  }
 
   return (
     <>
@@ -54,6 +60,7 @@ export const GearDetails = () => {
         <button className="add_gear_btn" onClick={handleAddGear} id={gear.id}>
           Add to Gear List
         </button>
+	<button onClick={handleToGearShop} className="add_gear_btn" id={parseInt(gear.id)+1}>To Gear Shop</button>
 	</div>
 	<div className="middle_container">
         <h1 className="gear_name">{gear.name}</h1>
