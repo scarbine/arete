@@ -24,14 +24,15 @@ export const ClimberDetail = () => {
   return (
     <>
       <section className="climber">
-        <div>
+        <div className="climber_badge">
+          <img alt="{climber.firstName} {climber.lastName}" src="https://res.cloudinary.com/ddaeunjfu/image/upload/w_150,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_white,b_white/v1627007000/Arete/climbers/avatar_osynpi.jpg"/>
         <h3 className="climber_name">
-          {climber.firstName} {climber.lastName}
+          {climber.userName}
         </h3>
         </div>
         <div>
         <div className="climber_email">Email: {climber.email}</div>
-        <div className="climber_email">Username: {climber.userName}</div>
+        <div className="climber_email">Name {climber.firstName} {climber.lastName}</div>
         <div className="climber_detail">
           Onsight Grade: {climber.onSightGradeSport}
         </div>

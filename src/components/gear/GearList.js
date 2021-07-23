@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { GearContext } from "./GearProvider";
 import { GearCard } from "./GearCard";
+import { GearShopBackground } from "../../backgrounds/GearShopBackground";
 import "./Gear.css";
 
 export const GearList = () => {
@@ -13,18 +14,13 @@ export const GearList = () => {
 
   return (
     <>
-      <div className="gear_list">
-        <div className="gear_list_header">
-          <h1 className="gear_list_title">Arete Gear Shop</h1>
-        </div>
-
         <section className="gear">
           {console.log("GearList: Render", gear)}
           {gear.map((g) => {
             return <GearCard key={g.id} gear={g} />;
           })}
         </section>
-      </div>
+      
     </>
   );
 };

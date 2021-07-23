@@ -16,6 +16,7 @@ import { WallList } from "./components/walls/WallList";
 import { WallProvider } from "./components/walls/WallProvider";
 import { Home } from "./Home";
 import "./ApplicationViews.css"
+import { GearShopBackground } from "./backgrounds/GearShopBackground";
 
 export const ApplicationViews = () => {
   return (
@@ -59,6 +60,7 @@ export const ApplicationViews = () => {
       <GearProvider >
         <ClimberGearProvider>
         <Route exact path="/gear">
+          <GearShopBackground/>
           <GearList />
         </Route>
         </ClimberGearProvider>

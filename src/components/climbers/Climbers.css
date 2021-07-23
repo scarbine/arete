@@ -3,11 +3,17 @@
 	padding: 1rem;
 	border: solid grey .05rem;
 	display: flex;
-	justify-content: space-evenly;
+	justify-content: space-between;
+	vertical-align: bottom;
 }
 
 .climbers_header{
-	text-align: center;
+	position: relative;
+}
+
+.climber_title{
+	position: absolute; top: 10rem; left: 55rem
+
 }
 
 .climber_name{

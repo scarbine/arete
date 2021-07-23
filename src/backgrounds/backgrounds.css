@@ -22,10 +22,16 @@
 
 
 
+.gear_list_title{
+	
+	position: absolute; top: 10rem; left: 60rem;
+	text-shadow: .2rem .2rem rgba(47, 47, 47, 0.493);
+}
+
 
 .gear_card_image{
-	margin: 1rem;
-	
+	margin: 1rem
+	;
 }
 
 
