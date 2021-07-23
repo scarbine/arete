@@ -34,4 +34,12 @@
 	;
 }
 
+.training_title{
+	position: absolute; top: 10rem; left: 10rem;
+	text-shadow: .2rem .2rem rgba(47, 47, 47, 0.493);
+	color:whitesmoke
+}
+
+
+
 
