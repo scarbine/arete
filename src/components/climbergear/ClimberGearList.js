@@ -15,21 +15,21 @@ export const ClimberGearList = () => {
 
   const history = useHistory()
   
-  console.log("Climber Gear List ",climberIdAsString ,climberId, currentUser, id)
 
 
   useEffect(() => {
-    console.log("useEffect: getClimberGear", "ClimberId:", climberId);
     getClimberGear();
   }, []);
 
   const foundGearList = climberGear?.filter((cGear) => id === cGear.climberId)
 
-  console.log(foundGearList)
+  const sortedFoundGear = foundGearList.sort((a,b) => b.id-a.id)
+
+
   
   return (
     <>
-    <h1 className="gear_list_header">{((currentUser === climberId) ? ("My Gear List"): ("Gear List"))}</h1>
+    <h1 className="gear_list_header">{((currentUser === climberId ) ? (" MyGear List"): (" Gear List"))}</h1>
 
   {((currentUser === climberId )? (<><button className="btn">Edit Gear List</button>
   <button onClick={()=>history.push("/gear")}className="btn">Add New Gear</button></>) : <></>)}
@@ -37,8 +37,7 @@ export const ClimberGearList = () => {
    {/* <button className="btn">Edit Gear List</button>
    <button onClick={()=>history.push("/gear")}className="btn">Add New Gear</button> */}
     <section className=" gear">
-      {console.log("ClimberGearList - Render: climberGear", climberGear)}
-      {(foundGearList.length === 0) ? (<><div>This Climber does not currently have gear listed.</div></>):(foundGearList.map((climbGear) => {
+      {(sortedFoundGear.length === 0) ? (<><div>This Climber does not currently have gear listed.</div></>):(sortedFoundGear.map((climbGear) => {
         return <ClimberGearCard key={climbGear.id} climbGear={climbGear}/>
       }))}
       

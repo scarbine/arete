@@ -18,17 +18,19 @@
 
 .climber_name{
 	text-decoration: none;
-	color: slategray;
+	color: rgb(229, 229, 229);
+	background-color: slategray;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 }
 .climber_name:hover{
-	box-shadow: 0rem 0rem 3rem rgba(112, 128, 144, 0.24);
+	box-shadow: 0rem 0rem 2rem rgba(193, 203, 212, 0.452);
 }
 
 .climber_card{
 	margin: 2rem;
+
 	flex-basis: 20%;	
 }
 
@@ -40,7 +42,8 @@
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-evenly;
-	margin: 1rem 3rem 0rem 3rem;
+	padding: 1rem 3rem 0rem 3rem;
+	background-color: rgba(0, 0, 0, 0.799);
 
 }
 

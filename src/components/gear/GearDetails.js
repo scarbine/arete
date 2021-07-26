@@ -13,62 +13,58 @@ export const GearDetails = () => {
   const [gear, setGear] = useState({});
 
   useEffect(() => {
-    console.log("useEffect - gearDetail", gearId);
     getGearById(gearId)
       .then((res) => {
         setGear(res);
-      }).then(window.scrollTo(0,0))
-      .then(
-        console.log(
-          "currentUser:",
-          climberId,
-          "gearObj:",
-          gear,
-          "gearId",
-          parseInt(gearId)
-        )
-      );
+      })
+      .then(window.scrollTo(0, 0));
   }, []);
 
   const climberId = parseInt(localStorage.getItem("arete_customer"));
-  // console.log("currentUser:",climberId, "gearObj:",gear, "gearId", parseInt(gearId));
+
   const addClimberGearObj = {
     climberId: climberId,
     gearId: parseInt(gearId),
-    dateAdded: Date.now()
+    dateAdded: Date.now(),
   };
 
   const handleAddGear = () => {
-    addClimberGear(addClimberGearObj)
-      .then(window.alert("This gear has been added to your list!"))
-      .then(history.push("/gear"))
-      .then(window.scroll(0,600));
+    addClimberGear(addClimberGearObj);
   };
 
-  const handleToGearShop = () =>{
-	history.push("/gear")
-	window.scroll(0,600)
-  }
+  const handleToGearShop = () => {
+    history.push("/gear");
+    window.scroll(0, 400);
+  };
 
   return (
     <>
-    <div className="gear_detail_background">
-      <section className=" gear_detail">
-	      <div className="left_container">
-        <img alt={gear.name} src={gear.image} className="gear_image" />
-	<h3>${gear.price}</h3>
-        <button className="add_gear_btn" onClick={handleAddGear} id={gear.id}>
-          Add to Gear List
-        </button>
-	<button onClick={handleToGearShop} className="add_gear_btn" id={parseInt(gear.id)+1}>To Gear Shop</button>
-	</div>
-	<div className="middle_container">
-        <h1 className="gear_name">{gear.name}</h1>
-	<div> {gear.description}</div>
-	</div>
-	<div className="right_container">
-	</div>
-      </section>
+      <div className="gear_detail_background">
+        <section className=" gear_detail">
+          <div className="left_container">
+            <img alt={gear.name} src={gear.image} className="gear_image" />
+            <h3>${gear.price}</h3>
+            <button
+              className="add_gear_btn"
+              onClick={handleAddGear}
+              id={gear.id}
+            >
+              Add to Gear List
+            </button>
+            <button
+              onClick={handleToGearShop}
+              className="add_gear_btn"
+              id={gear.id}
+            >
+              To Gear Shop
+            </button>
+          </div>
+          <div className="middle_container">
+            <h1 className="gear_name">{gear.name}</h1>
+            <div> {gear.description}</div>
+          </div>
+          <div className="right_container"></div>
+        </section>
       </div>
     </>
   );

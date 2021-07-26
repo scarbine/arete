@@ -10,8 +10,8 @@ export const TickListProvider = (props) => {
 	const getTicks = () => {
 		return fetch("http://localhost:8088/ticks?_expand=climber&_expand=route")
 		.then(res => res.json())
-		.then(setTicks)
-		.then(console.log(ticks))
+		.then(setTicks).then(console.log(ticks))
+		
 		
 	}
 
@@ -22,7 +22,7 @@ export const TickListProvider = (props) => {
 				"Content-Type": "application/json",
 			},
 			body: JSON.stringify(tickObj)
-		}).then(getTicks)
+		}).then(getTicks).then(console.log(ticks))
 		
 	}
 

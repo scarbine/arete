@@ -7,14 +7,12 @@ export const ClimberList = () => {
   const { climbers, getClimbers } = useContext(ClimberContext);
 
   useEffect(() => {
-    console.log("ClimbersList: useEffect - getClimbers");
     getClimbers();
   }, []);
 
   return (
     <> 
       <div className="climber_list">
-        {console.log("ClimbersList - Render", climbers)}
         {climbers.map((climber) => {
           return <ClimberCard key={climber.id} climber={climber} />;
         })}

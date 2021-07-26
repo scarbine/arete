@@ -1,5 +1,6 @@
 .route{
 	display: flex;
+	flex-direction: row;
 	justify-content: space-between;
 	margin: 1rem;
 	padding: 1rem;
@@ -40,7 +41,8 @@
 }
 
 .route_list{
-	/* position: relative; */
+	display: flex;
+	flex-direction: column;
 }
 
 

@@ -5,7 +5,7 @@ import "./ToDo.css"
 export const ToDoCard = ({todo}) => {
 
 
-	console.log(todo)
+	
 
 	return(
 		<>

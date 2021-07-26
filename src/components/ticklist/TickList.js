@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from "react"
+import React, {useContext, useEffect} from "react"
 import { TickListContext } from "./TickListProvider"
 import { TickListCard } from "./TickListCard"
 import { useParams } from "react-router"
@@ -12,12 +12,9 @@ export const TickList = () => {
 	const {climberId} = useParams()
 	
 	const filteredTicks = ticks.filter(tick => tick.climberId === parseInt(climberId))
-	
-	console.log(climberId, filteredTicks)
 
 	useEffect(() => {
-		getTicks()
-		.then(console.log("useEffect: ticks ->", ticks))
+		getTicks().then(console.log(ticks))
 	}, [])
 
 	return(

@@ -1,0 +1,20 @@
+.friends_list_header{
+	text-align: center;
+}
+
+
+.friends{
+	margin: 1rem 5rem 0rem 5rem;
+	padding: .5rem;
+	display: flex;
+	
+}
+
+.friend_img{
+	height: 150px;
+	width: 150px;
+}
+
+.friend_card{
+	margin: 1rem;
+}
