@@ -17,7 +17,7 @@ const routeId = parseInt(routeIdAsString.routeId)
 useEffect(() => {
   getRouteById(routeId)
   // DONT TAKE OUT THIS CONSOLE LOG - IT IS SLOWING DOWN THE RENDER SO NESTED OBJ IN ROUTE CAN POPULATE
-  console.log(route, "routeId", routeId)
+  .then(console.log(route, "routeId", routeId))
 }, [])
 
 
@@ -28,14 +28,12 @@ useEffect(() => {
         <h3 className="route_detail">
           {route.routeName} {route.routeGrade}
         </h3>
-        <div className="route_detail">{route.wall.name}</div>
-        <div className="route_detail"> {route.area.name}</div>
-        <div className="route_detail">{route.crag.name}</div>
         <div className="route_detail">{route.description}</div>
         <div className="route_detail">FA: {route.firstAscensionists}</div>
-        <div className="route_detail">
-          Latitude:{route.latitude} Longitude: {route.longitude}
-        </div>
+        <div className="route_detail">{route?.wall.name}</div>
+        <div className="route_detail"> {route?.area.name}</div>
+        <div className="route_detail">{route?.crag.name}</div>
+       
         <button>Tick</button>
         <button>To-Do</button>
       </section>

@@ -4,7 +4,11 @@ export const RoutesContext = createContext();
 
 export const RouteProvider = (props) => {
   const [routes, setRoutes] = useState([]);
-  const [route, setRoute] = useState({})
+  const [route, setRoute] = useState({
+    wall:{},
+    area:{},
+    crag:{}
+  })
 
   const getRoutes = () => {
     return fetch(

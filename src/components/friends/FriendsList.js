@@ -16,14 +16,14 @@ export const FriendsList = () => {
 
 	useEffect(() => {
 		getFriends()
-		.then(console.log("useEffect,getFriends", friends, foundFriends, climberIdAsString, climberId))
+		.then(console.log("useEffect,getFriends", friends, foundFriends, climberId))
 	}, [])
 
 	return(
 		<>
 			<h1 className="friends_list_header">Friends List</h1>
 			<div className="friends">
-			{foundFriends.map(friend => {
+			{foundFriends?.map(friend => {
 				return <FriendCard key={friend.id} friend={friend} />
 			})}
 			</div>
