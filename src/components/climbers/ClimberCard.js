@@ -12,6 +12,7 @@ export const ClimberCard = ({ climber }) => {
     window.scroll( 0,0)
 
   }
+  
 
   return (
     <>

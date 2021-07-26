@@ -25,6 +25,9 @@ import { TickForm } from "./components/ticklist/TickForm";
 import {  ToDoListProvider } from "./components/todo/ToDoProvider";
 import { TickList } from "./components/ticklist/TickList";
 import { ToDoList } from "./components/todo/ToDoList";
+import { FriendsList } from "./components/friends/FriendsList";
+import { FriendsProvider } from "./components/friends/FriendsProvider";
+import { RouteDetail} from './components/routes/RouteDetail'
 
 export const ApplicationViews = () => {
   return (
@@ -40,6 +43,7 @@ export const ApplicationViews = () => {
       </ClimberProvider>
 
       <ClimberProvider>
+        <FriendsProvider>
         <ToDoListProvider>
         <TickListProvider>
         <ClimberGearProvider>
@@ -48,10 +52,12 @@ export const ApplicationViews = () => {
             <ClimberGearList />
             <TickList />
             <ToDoList />
+            {/* <FriendsList /> */}
           </Route>
         </ClimberGearProvider>
         </TickListProvider>
         </ToDoListProvider>
+        </FriendsProvider>
       </ClimberProvider>
 
       <RouteProvider>
@@ -72,6 +78,15 @@ export const ApplicationViews = () => {
           <GradesProvider>
             <Route exact path="/routes/create">
               <NewRouteForm />
+            </Route>
+          </GradesProvider>
+        </CragProvider>
+      </RouteProvider>
+      <RouteProvider>
+        <CragProvider>
+          <GradesProvider>
+            <Route exact path="/routes/detail/:routeId(\d+)">
+              <RouteDetail />
             </Route>
           </GradesProvider>
         </CragProvider>

@@ -1,7 +1,27 @@
-import React from "react";
+import React, {useState, useContext, useEffect} from "react";
 import "./Routes.css";
+import { useParams } from "react-router";
+import { RoutesContext } from "./RouteProvider";
 
-export const RouteCard = ({ route }) => {
+export const RouteDetail= () => {
+
+const {route, getRouteById} = useContext(RoutesContext)
+
+// const [route, setRoute] = useState()
+
+const routeIdAsString = useParams()
+const routeId = parseInt(routeIdAsString.routeId)
+
+
+
+useEffect(() => {
+  getRouteById(routeId)
+  // DONT TAKE OUT THIS CONSOLE LOG - IT IS SLOWING DOWN THE RENDER SO NESTED OBJ IN ROUTE CAN POPULATE
+  console.log(route, "routeId", routeId)
+}, [])
+
+
+
   return (
     <>
       <section className="route">

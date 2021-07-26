@@ -9,7 +9,6 @@ export const RouteList = () => {
   const history = useHistory();
 
   useEffect(() => {
-    console.log("RoutesList: useEffect - getRoutes");
     getRoutes();
   }, []);
 
@@ -25,7 +24,6 @@ export const RouteList = () => {
         >
           Create New Route
         </button>
-        {console.log("RouteList - Render", routes)}
         {routes.map((route) => {
           return <RouteCard key={route.id} route={route} />;
         })}

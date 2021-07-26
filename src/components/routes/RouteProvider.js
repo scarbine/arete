@@ -4,6 +4,7 @@ export const RoutesContext = createContext();
 
 export const RouteProvider = (props) => {
   const [routes, setRoutes] = useState([]);
+  const [route, setRoute] = useState({})
 
   const getRoutes = () => {
     return fetch(
@@ -36,12 +37,13 @@ export const RouteProvider = (props) => {
   }
 
   const getRouteById = (id) => {
-    return fetch (`http://localhost:8088/routes/${id}`)
-    .then(res=>res.json())
+    return fetch (`http://localhost:8088/routes/${id}?_expand=crag&_expand=area&_expand=wall`)
+    .then((res)=>res.json())
+    .then(setRoute).then(console.log("RoutesProvider: route:", route))
   }
 
   return (
-    <RoutesContext.Provider value={{ routes, addRoute, getRoutes, updateRoute, getRouteById }}>
+    <RoutesContext.Provider value={{ route, routes, addRoute, getRoutes, updateRoute, getRouteById }}>
       {props.children}
     </RoutesContext.Provider>
   );
