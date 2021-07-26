@@ -49,9 +49,9 @@ export const ApplicationViews = () => {
         <ClimberGearProvider>
           <Route exact path="/climbers/detail/:climberId(\d+)">
             <ClimberDetail />
-            <ClimberGearList />
+            {/* <ClimberGearList />
             <TickList />
-            <ToDoList />
+            <ToDoList /> */}
             {/* <FriendsList /> */}
           </Route>
         </ClimberGearProvider>

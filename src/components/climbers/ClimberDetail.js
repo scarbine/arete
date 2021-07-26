@@ -2,6 +2,9 @@ import React, { useContext, useEffect, useState } from "react";
 import { ClimberContext } from "./ClimberProvider";
 import { useParams } from "react-router-dom";
 import { FriendsList } from "../friends/FriendsList";
+import { ClimberGearList } from "../climbergear/ClimberGearList";
+import { TickList } from "../ticklist/TickList";
+import { ToDoList } from "../todo/ToDoList";
 
 export const ClimberDetail = () => {
   const { climber, getClimberById } = useContext(ClimberContext);
@@ -21,9 +24,10 @@ export const ClimberDetail = () => {
 
   return (
     <>
+    <article className="climber_detail_page">
       <section className="climber">
         <div className="climber_badge">
-          <img alt={fullName} src={climber.profile_pic} />
+          <img className="climber_img" alt={fullName} src={climber.profile_pic} />
           <h3 className="climber_name">{climber.userName}</h3>
         </div>
         <div className="climber_details">
@@ -43,20 +47,19 @@ export const ClimberDetail = () => {
           <div className="climber_detail">
             Top Grade Boulder: {climber.topGradeBoulder}
           </div>
-          {/* {friends? (<button>Add friend</button>):(<></>)} */}
         </div>
         <div>
-          {/* {climberGear.map(gear=>{
-			return (
-			
-			<ClimberGearCard key={climberGear.id} gear={gear} />
-			
-		)})} */}
         </div>
       </section>
       <div>
         <FriendsList />
+        <ClimberGearList />
+        <div className="ticks_and_todos">
+        <TickList />
+        <ToDoList />
+        </div>
       </div>
+      </article>
     </>
   );
 };

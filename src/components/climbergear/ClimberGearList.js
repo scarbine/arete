@@ -29,7 +29,7 @@ export const ClimberGearList = () => {
   
   return (
     <>
-    <h1 className="gear_list_header">{((currentUser === climberId ) ? (" MyGear List"): (" Gear List"))}</h1>
+    <h1 className="gear_list_header">{((currentUser === climberId ) ? (" My Gear List"): (" Gear List"))}</h1>
 
   {((currentUser === climberId )? (<><button className="btn">Edit Gear List</button>
   <button onClick={()=>history.push("/gear")}className="btn">Add New Gear</button></>) : <></>)}

@@ -21,7 +21,7 @@ export const FriendsList = () => {
 
 	return(
 		<>
-			<h1 className="friends_list_header">Friends List</h1>
+			<h1 className="friends_list_header">Friends</h1>
 			<div className="friends">
 			{foundFriends?.map(friend => {
 				return <FriendCard key={friend.id} friend={friend} />
