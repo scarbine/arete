@@ -82,7 +82,10 @@ export const ApplicationViews = () => {
           </GradesProvider>
         </CragProvider>
       </RouteProvider>
+
       <RouteProvider>
+        <TickListProvider>
+          <ToDoListProvider>
         <CragProvider>
           <GradesProvider>
             <Route exact path="/routes/detail/:routeId(\d+)">
@@ -90,6 +93,8 @@ export const ApplicationViews = () => {
             </Route>
           </GradesProvider>
         </CragProvider>
+        </ToDoListProvider>
+        </TickListProvider>
       </RouteProvider>
 
       <GearProvider>
