@@ -100,8 +100,8 @@ export const ApplicationViews = () => {
       <GearProvider>
         <ClimberGearProvider>
           <Route exact path="/gear">
-            {/* <GearShopBackground /> */}
             <GearList />
+            {/* <GearShopBackground /> */}
           </Route>
         </ClimberGearProvider>
       </GearProvider>
