@@ -29,6 +29,7 @@ export const ClimberGearList = () => {
   
   return (
     <>
+    <article className="gear_list_wrapper">
     <h1 className="gear_list_header">{((currentUser === climberId ) ? (" My Gear List"): (" Gear List"))}</h1>
 
   {((currentUser === climberId )? (<><button className="btn">Edit Gear List</button>
@@ -36,13 +37,17 @@ export const ClimberGearList = () => {
 
    {/* <button className="btn">Edit Gear List</button>
    <button onClick={()=>history.push("/gear")}className="btn">Add New Gear</button> */}
-    <section className=" gear">
-      {(sortedFoundGear.length === 0) ? (<><div>This Climber does not currently have gear listed.</div></>):(sortedFoundGear.map((climbGear) => {
-        return <ClimberGearCard key={climbGear.id} climbGear={climbGear}/>
-      }))}
+   <section className="outer-wrapper">
+      <div className="wrapper" >
+      {(sortedFoundGear.length === 0) ? (<><div>Gear Bag Empty</div></>):(sortedFoundGear.map((climbGear) => {
+        return <ClimberGearCard key={climbGear.id} climbGear={climbGear}/>}
+      ))}
       
+      </div>
+      </section>
       
-    </section>
+      </article>
+ 
   
     </>
   );

@@ -9,7 +9,7 @@ export const ClimberGearProvider = (props) => {
 	const getClimberGear = ()=>{
 		return fetch("http://localhost:8088/climberGear?_expand=gear")
 		.then(res=>res.json())
-		.then(setClimberGear)
+		.then(setClimberGear).then(window.scroll(0,0))
 	}
 
 	const addClimberGear = (climberGearObj) => {

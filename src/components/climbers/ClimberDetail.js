@@ -51,7 +51,7 @@ export const ClimberDetail = () => {
         <div>
         </div>
       </section>
-      <div>
+      <div className="climber_lists">
         <FriendsList />
         <ClimberGearList />
         <div className="ticks_and_todos">

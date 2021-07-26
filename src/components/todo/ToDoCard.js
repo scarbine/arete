@@ -16,8 +16,9 @@ export const ToDoCard = ({todo}) => {
 		<>
 		<div className="todo_list_details">
 		<h4>{todo.route.routeName}</h4>
-		<h4>{todo.dateCompleted}</h4>
-		<button onClick={removeTodo}> Remove</button>
+		<div>
+		<button className="todo_remove_btn" onClick={removeTodo}> Remove</button>
+		</div>
 		</div>
 		</>
 	)
