@@ -37,7 +37,7 @@ export const ApplicationViews = () => {
       </Route>
       <ClimberProvider>
         <Route exact path="/climbers">
-          <ClimbersHeaderImage />
+          {/* <ClimbersHeaderImage /> */}
           <ClimberList />
         </Route>
       </ClimberProvider>
@@ -49,9 +49,9 @@ export const ApplicationViews = () => {
         <ClimberGearProvider>
           <Route exact path="/climbers/detail/:climberId(\d+)">
             <ClimberDetail />
-            <ClimberGearList />
+            {/* <ClimberGearList />
             <TickList />
-            <ToDoList />
+            <ToDoList /> */}
             {/* <FriendsList /> */}
           </Route>
         </ClimberGearProvider>
@@ -65,7 +65,7 @@ export const ApplicationViews = () => {
         <TickListProvider>
           <GradesProvider>
             <Route exact path="/routes">
-              <RoutesHeaderImage />
+              {/* <RoutesHeaderImage /> */}
               <RouteList />
             </Route>
           </GradesProvider>
@@ -82,7 +82,10 @@ export const ApplicationViews = () => {
           </GradesProvider>
         </CragProvider>
       </RouteProvider>
+
       <RouteProvider>
+        <TickListProvider>
+          <ToDoListProvider>
         <CragProvider>
           <GradesProvider>
             <Route exact path="/routes/detail/:routeId(\d+)">
@@ -90,12 +93,14 @@ export const ApplicationViews = () => {
             </Route>
           </GradesProvider>
         </CragProvider>
+        </ToDoListProvider>
+        </TickListProvider>
       </RouteProvider>
 
       <GearProvider>
         <ClimberGearProvider>
           <Route exact path="/gear">
-            <GearShopBackground />
+            {/* <GearShopBackground /> */}
             <GearList />
           </Route>
         </ClimberGearProvider>

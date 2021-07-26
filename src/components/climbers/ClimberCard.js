@@ -16,7 +16,7 @@ export const ClimberCard = ({ climber }) => {
 
   return (
     <>
-      <section className="card climber_card">
+      <section className="climber_card">
         <div onClick={handleOnClick}  className="climber_name">
           <img alt={fullName} src={climber.profile_pic}/>
           <div className="climber_card_info">{fullName}</div>

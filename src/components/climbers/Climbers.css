@@ -1,63 +1,100 @@
-.climber{
-	margin: 1rem;
-	padding: 1rem;
-	border: solid grey .05rem;
-	display: flex;
-	justify-content: space-between;
-	vertical-align: bottom;
+.climber {
+  margin: 2rem;
+  padding: 1rem;
+  border: solid grey 0.05rem;
+  display: flex;
+
+  vertical-align: bottom;
+  display: flex;
+  flex-direction: column;
 }
 
-.climbers_header{
-	position: relative;
+.climbers_header {
+  position: relative;
 }
 
-.climber_title{
-	position: absolute; top: 10rem; left: 55rem
-
+.climber_title {
+  position: absolute;
+  top: 10rem;
+  left: 55rem;
 }
 
-.climber_name{
-	text-decoration: none;
-	color: rgb(229, 229, 229);
-	background-color: slategray;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
+.climber_name {
+  text-decoration: none;
+  color: rgb(14, 65, 75);
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 1rem;
 }
-.climber_name:hover{
-	box-shadow: 0rem 0rem 2rem rgba(193, 203, 212, 0.452);
-}
-
-.climber_card{
-	margin: 2rem;
-
-	flex-basis: 20%;	
+.climber_name:hover {
+  box-shadow: 0rem 0rem 2rem rgba(181, 182, 184, 0.384);
 }
 
-.climber_details{
-	margin: 2rem 1rem 1rem 1rem;
+.climber_card {
+  margin: 2rem;
+  border: .1rem solid rgb(229, 229, 229);
+  flex-basis: 20%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  /* border: 1px solid rgba(18, 25, 93, 0.125); */
+  border-radius: 1rem;
 }
 
-.climber_list{
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-evenly;
-	padding: 1rem 3rem 0rem 3rem;
-	background-color: rgba(0, 0, 0, 0.799);
-
+.card {
+  border: 1px solid rgb(4 16 73 / 82%);
 }
 
-.gear_detail_link{
-	display: flex;
-	flex-direction: column;
+.climber_details {
+  margin: 2rem 1rem 1rem 1rem;
 }
 
-.climber_badge{
-	text-align: center;
+.climber_list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding: 1rem 3rem 0rem 3rem;
+  background-color: white;
+  /* background-image: url("https://res.cloudinary.com/ddaeunjfu/image/upload/v1627341375/Arete/Backgrounds/vsrdohkremfqe8g4kvem.jpg"); */
 }
 
-.climber_card_info{
-	margin: 1rem;
-	
-	text-align: center;
+.gear_detail_link {
+  display: flex;
+  flex-direction: column;
+}
+
+.climber_badge {
+  text-align: center;
+}
+
+.climber_card_info {
+  margin: 1rem;
+
+  text-align: center;
+}
+
+.ticks_and_todos {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 3rem;
+}
+
+.climber_img {
+  height: 150px;
+  width: 120px;
+}
+
+.climber_detail_page {
+  display: flex;
+}
+
+.climber_lists {
+  display: flex;
+  flex-direction: column;
 }

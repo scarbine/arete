@@ -21,8 +21,15 @@ export const ToDoListProvider = (props) => {
     }).then(getTodos).then(console.log(todos));
   };
 
+  const deleteToDo = (id) => {
+	  return fetch(`http://localhost:8088/toDoList/${id}`,{
+		  method:"DELETE"})
+		  .then(getTodos)
+	 
+  }
+
   return (
-    <ToDoListContext.Provider value={{ todos, getTodos, addTodo }}>
+    <ToDoListContext.Provider value={{ todos, getTodos, addTodo, deleteToDo }}>
       {props.children}
     </ToDoListContext.Provider>
   );
