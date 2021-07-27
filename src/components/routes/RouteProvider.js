@@ -11,6 +11,8 @@ export const RouteProvider = (props) => {
     wallGrade:{}
   })
 
+  const [ searchTerms, setSearchTerms] = useState("")
+
   const getRoutes = () => {
     return fetch(
       "http://localhost:8088/routes?_expand=crag&_expand=area&_expand=wall&_expand=wallGrade"
@@ -48,7 +50,7 @@ export const RouteProvider = (props) => {
   }
 
   return (
-    <RoutesContext.Provider value={{ route, routes, addRoute, getRoutes, updateRoute, getRouteById }}>
+    <RoutesContext.Provider value={{ route, routes, addRoute, getRoutes, updateRoute, getRouteById, searchTerms, setSearchTerms }}>
       {props.children}
     </RoutesContext.Provider>
   );

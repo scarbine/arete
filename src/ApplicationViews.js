@@ -32,6 +32,7 @@ import { AreaProvider } from "./components/areas/AreaProvider";
 import { WallsForm } from "./components/walls/WallsForm";
 import { AreaList } from "./components/areas/AreaList";
 import { NewAreaForm } from "./components/areas/NewAreaForm";
+import { RouteSearch } from "./components/routes/RouteSearch";
 
 export const ApplicationViews = () => {
   return (
@@ -66,6 +67,7 @@ export const ApplicationViews = () => {
           <GradesProvider>
             <Route exact path="/routes">
               {/* <RoutesHeaderImage /> */}
+              <RouteSearch />
               <RouteList />
             </Route>
           </GradesProvider>
