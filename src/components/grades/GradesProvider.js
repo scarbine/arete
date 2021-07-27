@@ -7,7 +7,7 @@ export const GradesProvider = (props) => {
   const [boulderGrades, setBoulderGrades] = useState([]);
 
   const getWallGrades = () => {
-    return fetch("http://localhost:8088/wallgrades")
+    return fetch("http://localhost:8088/wallGrades")
       .then((res) => res.json())
       .then(setWallGrades)
       .then(console.log(wallGrades));

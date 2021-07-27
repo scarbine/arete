@@ -67,7 +67,7 @@ export const WallsForm = () => {
           >
             <option value="0">Select a Crag</option>
             {crags.map((c) => (
-              <option key={c.id} value={parseInt(c.id)}>
+              <option key={parseInt(c.id)} value={parseInt(c.id)}>
                 {c.name}
               </option>
             ))}
@@ -80,7 +80,7 @@ export const WallsForm = () => {
           >
             <option value="0">Select an Area</option>
             {areas.map((a) => (
-              <option key={a.id} value={parseInt(a.id)}>
+              <option key={parseInt(a.id)} value={parseInt(a.id)}>
                 {a.name}
               </option>
             ))}

@@ -30,6 +30,8 @@ import { FriendsProvider } from "./components/friends/FriendsProvider";
 import { RouteDetail} from './components/routes/RouteDetail'
 import { AreaProvider } from "./components/areas/AreaProvider";
 import { WallsForm } from "./components/walls/WallsForm";
+import { AreaList } from "./components/areas/AreaList";
+import { NewAreaForm } from "./components/areas/NewAreaForm";
 
 export const ApplicationViews = () => {
   return (
@@ -51,10 +53,6 @@ export const ApplicationViews = () => {
         <ClimberGearProvider>
           <Route exact path="/climbers/detail/:climberId(\d+)">
             <ClimberDetail />
-            {/* <ClimberGearList />
-            <TickList />
-            <ToDoList /> */}
-            {/* <FriendsList /> */}
           </Route>
         </ClimberGearProvider>
         </TickListProvider>
@@ -103,7 +101,7 @@ export const ApplicationViews = () => {
         </TickListProvider>
       </RouteProvider>
 
-      <GearProvider>
+      <GearProvider> 
         <ClimberGearProvider>
           <Route exact path="/gear">
             <GearList />
@@ -120,7 +118,7 @@ export const ApplicationViews = () => {
           </Route>
         </ClimberGearProvider>
       </GearProvider>
-
+      
       <WallProvider>
         <Route exact path="/walls">
           <WallList />
@@ -148,6 +146,18 @@ export const ApplicationViews = () => {
           </AreaProvider>
         </CragProvider>
       </WallProvider>
+
+    <CragProvider>
+      <AreaProvider>
+      <Route exact path="/areas">
+        <AreaList />
+      </Route>
+
+      <Route exact path="/areas/create">
+        <NewAreaForm />
+      </Route>
+      </AreaProvider>
+      </CragProvider>
 
 
     </>

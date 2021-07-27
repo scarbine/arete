@@ -3,7 +3,9 @@ import React, { createContext, useState } from "react";
 export const AreaContext = createContext();
 
 export const AreaProvider = (props) => {
-  const [areas, setAreas] = useState([]);
+  const [areas, setAreas] = useState([
+	 
+  ]);
 
   const getAreas = () => {
     return fetch("http://localhost:8088/areas?_expand=crag")

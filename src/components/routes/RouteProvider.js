@@ -7,12 +7,13 @@ export const RouteProvider = (props) => {
   const [route, setRoute] = useState({
     wall:{},
     area:{},
-    crag:{}
+    crag:{},
+    wallGrade:{}
   })
 
   const getRoutes = () => {
     return fetch(
-      "http://localhost:8088/routes?_expand=crag&_expand=area&_expand=wall"
+      "http://localhost:8088/routes?_expand=crag&_expand=area&_expand=wall&_expand=wallGrade"
     )
       .then((res) => res.json())
       .then(setRoutes);
