@@ -67,7 +67,6 @@ export const ApplicationViews = () => {
           <GradesProvider>
             <Route exact path="/routes">
               {/* <RoutesHeaderImage /> */}
-              <RouteSearch />
               <RouteList />
             </Route>
           </GradesProvider>

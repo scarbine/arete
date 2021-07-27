@@ -6,6 +6,8 @@ export const ClimberProvider = (props) => {
   const [climbers, setClimbers] = useState([]);
   const [climber, setClimber] = useState({});
 
+  const [ searchTerms, setSearchTerms ] = useState("")
+
   const getClimbers = () => {
     return fetch("http://localhost:8088/climbers")
       .then((res) => res.json())
@@ -18,7 +20,7 @@ export const ClimberProvider = (props) => {
   }
 
   return (
-    <ClimberContext.Provider value={{ climber, climbers, getClimbers, getClimberById }}>
+    <ClimberContext.Provider value={{ climber, climbers, getClimbers, getClimberById, searchTerms, setSearchTerms }}>
       {props.children}
     </ClimberContext.Provider>
   );

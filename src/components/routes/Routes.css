@@ -56,3 +56,13 @@
 	display: flex;
 	flex-direction: column;
 }
+
+.route_search{
+	margin: 1rem 10rem 1rem 10rem;
+}
+
+.route_search_wrapper{
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+}
