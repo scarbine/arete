@@ -81,8 +81,8 @@
 
 .ticks_and_todos {
   display: flex;
-  justify-content: space-evenly;
-  margin-top: 3rem;
+  justify-content: space-between;
+  margin: 1rem 8rem 1rem 8rem;
 }
 
 .climber_img {

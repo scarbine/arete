@@ -5,13 +5,27 @@ import { CragContext } from "../crags/CragProvider";
 import { useParams } from "react-router";
 import { useHistory } from "react-router";
 import { addRoute } from "workbox-precaching";
+import { WallContext } from "../walls/WallProvider";
+import { AreaContext } from "../areas/AreaProvider";
 
 export const NewRouteForm = () => {
   const { getRouteById, updateRoute, addRoute } = useContext(RoutesContext);
   const { wallGrades, boulderGrades, getWallGrades, getBoulderGrades } =
     useContext(GradesContext);
   const { crags, getCrags } = useContext(CragContext);
-  const [route, setRoute] = useState([]);
+  const { walls, getWalls } = useContext(WallContext);
+  const { areas, getAreas } = useContext(AreaContext);
+  const [route, setRoute] = useState({
+    routeName: "",
+    firstAscensionists: "",
+    routeDescription: "",
+    length:0,
+    type:"",
+    routeGrade: 0,
+    cragId: 0,
+    areaId: 0,
+    wallId: 0,
+  });
 
   //   const [boulderGrades, setBoulderGrades] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -25,6 +39,8 @@ export const NewRouteForm = () => {
     getWallGrades()
       .then(getBoulderGrades)
       .then(getCrags)
+      .then(getAreas)
+      .then(getWalls)
       .then(console.log("useEffect - Wall Grades", wallGrades))
       .then(console.log("useEffect - Boulder Grades", boulderGrades))
       .then(console.log("useEffect - Crags", crags));
@@ -76,6 +92,19 @@ export const NewRouteForm = () => {
           </fieldset>
           <fieldset>
             <input
+              type="number"
+              id="length"
+              name="length"
+              required
+              autoFocus
+              className="form-control"
+              placeholder="Enter Route Length..."
+              value={route.length}
+              onChange={handleControlledInputChange}
+            />
+          </fieldset>
+          <fieldset>
+            <input
               type="text"
               id="routeDescription"
               name="routeDescription"
@@ -87,6 +116,18 @@ export const NewRouteForm = () => {
               onChange={handleControlledInputChange}
             />
           </fieldset>
+          <select
+            name="type"
+            id="type"
+            className="form-control"
+            onChange={handleControlledInputChange}
+          >
+            <option value="0">Select a Type</option>
+            <option key="1" value="sport">Sport</option>
+            <option key="2" value="trad">Trad</option>
+           
+            
+          </select>
           <select
             name="routeGrade"
             id="routeGradeId"
@@ -110,6 +151,32 @@ export const NewRouteForm = () => {
             {crags.map((c) => (
               <option key={c.id} value={c.id}>
                 {c.name}
+              </option>
+            ))}
+          </select>
+          <select
+            name="areaId"
+            id="areaId"
+            className="form-control"
+            onChange={handleControlledInputChange}
+          >
+            <option value="0">Select an Area</option>
+            {areas.map((a) => (
+              <option key={a.id} value={a.id}>
+                {a.name}
+              </option>
+            ))}
+          </select>
+          <select
+            name="wallId"
+            id="wallId"
+            className="form-control"
+            onChange={handleControlledInputChange}
+          >
+            <option value="0">Select a Wall</option>
+            {walls.map((w) => (
+              <option key={w.id} value={w.id}>
+                {w.name}
               </option>
             ))}
           </select>

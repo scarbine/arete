@@ -5,13 +5,12 @@
   justify-content: space-evenly;
 }
 
-.gear_card {
-  /* margin: 1rem;
-	padding: 1rem;
-	border: solid grey .05rem; */
-  /* flex-basis: 20%; */
-  /* width: 100vw;
-	height: 100vw; */
+.gear_card{
+	text-align: center;
+}
+
+/* .gear_card {
+ 
 
   scroll-snap-align: center;
   padding: calc(var(--gutter) / 2 * 1.5);
@@ -22,19 +21,29 @@
   align-items: center;
   background: #fff;
   border-radius: 8px;
-}
+} */
 
 .gear_list_header {
   text-align: center;
-  margin-top: 3rem;
+  margin-top: 1rem;
 }
 
 .btn {
   border: grey 0.15rem solid;
 }
-.wrapper {
-  /* display: flex;
-	 flex-wrap: wrap; */
+
+.wrapper{
+	display: flex;
+	flex-wrap: wrap;
+	height: 440px;
+        width: auto;
+        overflow: auto;
+        float: left;
+        position: relative;
+        margin-left: -5px;
+}
+/* .wrapper {
+  
 
   display: grid;
 
@@ -48,20 +57,13 @@
   margin-bottom: calc(-0.25 * var(--gutter));
   list-style: none;
   padding: 0;
-}
+} */
 
-.outer-wrapper {
-  /* width: 100vw;
-	 height: 100vw;
-	 transform: rotate(-90deg) translateX(-100vw);
-	 transform-origin: top left;
-	 overflow-y: scroll;
-	 overflow-x: hidden; */
+/* .outer-wrapper {
 
-  /* flex-basis: 50%; */
   
   height: 395px;
-  /* background: #dbd0bc; */
+  
   overflow-y: scroll;
  
 }
@@ -70,9 +72,9 @@
 html,
 body {
   height: 100%;
-}
+} */
 
-/* End  */
+
 
 :root {
   --gutter: 50px;
