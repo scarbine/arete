@@ -21,7 +21,9 @@ export const WallList = () => {
       const subset = walls.filter(wall => wall.name.toLowerCase().includes(searchTerms))
       setFilteredWalls(subset) 
     }else{
-      setFilteredWalls(walls)
+      const sortedWalls = walls.sort((a,b) => (a.name - b.name))
+      console.log("sorted Walls" ,sortedWalls)
+      setFilteredWalls(sortedWalls)
     }
 
   },[searchTerms, walls])
@@ -32,13 +34,18 @@ export const WallList = () => {
 
   return (
     <>
-      <button onClick={handleOnClick}>Add New Wall</button>
+    <article className="wall_list">
+      <div className="wall_button_search_wrapper">
       <WallSearch />
-      <section className="wall_list">
-        {filteredWalls.map((wall) => {
+      <button onClick={handleOnClick}>Add New Wall</button>
+      </div>
+      <section className="wall_wrapper">
+        {
+        filteredWalls.map((wall) => {
           return <WallCard key={wall.id} wall={wall} />;
         })}
       </section>
+      </article>
     </>
   );
 };
