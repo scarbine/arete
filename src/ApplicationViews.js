@@ -29,6 +29,7 @@ import { FriendsList } from "./components/friends/FriendsList";
 import { FriendsProvider } from "./components/friends/FriendsProvider";
 import { RouteDetail} from './components/routes/RouteDetail'
 import { AreaProvider } from "./components/areas/AreaProvider";
+import { WallsForm } from "./components/walls/WallsForm";
 
 export const ApplicationViews = () => {
   return (
@@ -137,6 +138,18 @@ export const ApplicationViews = () => {
           </Route>
         </RouteProvider>
       </TickListProvider>
+
+      <WallProvider>
+        <CragProvider>
+          <AreaProvider>
+          <Route exact path="/walls/create">
+            <WallsForm />
+          </Route>
+          </AreaProvider>
+        </CragProvider>
+      </WallProvider>
+
+
     </>
   );
 };
