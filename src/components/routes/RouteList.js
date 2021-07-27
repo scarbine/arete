@@ -1,21 +1,37 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { RoutesContext } from "./RouteProvider";
 import { RouteCard } from "./RouteCard";
 import { useHistory } from "react-router";
 import "./Routes.css";
+import { RouteSearch } from "./RouteSearch";
 
 export const RouteList = () => {
-  const { routes, getRoutes } = useContext(RoutesContext);
+  const { routes, getRoutes, searchTerms } = useContext(RoutesContext);
   const history = useHistory();
+
+  const [filteredRoutes, setFilteredRoutes] = useState([]);
 
   useEffect(() => {
     getRoutes();
   }, []);
 
+  useEffect(() => {
+    if (searchTerms !== "") {
+      const subset = routes.filter((route) =>
+        route.routeName.toLowerCase().includes(searchTerms)
+      );
+      setFilteredRoutes(subset);
+    } else {
+      setFilteredRoutes(routes);
+    }
+  }, [searchTerms, routes]);
+
   return (
     <>
-      
-        <section className="route_list">
+      <section className="route_list">
+        <div className="route_search">
+          <RouteSearch />
+        </div>
         <button
           className="btn"
           onClick={() => {
@@ -24,7 +40,7 @@ export const RouteList = () => {
         >
           Create New Route
         </button>
-        {routes.map((route) => {
+        {filteredRoutes.map((route) => {
           return <RouteCard key={route.id} route={route} />;
         })}
       </section>

@@ -98,3 +98,12 @@
   display: flex;
   flex-direction: column;
 }
+.climbers_search{
+	margin: 1rem;
+}
+
+.climber_list_wrapper{
+	display: flex;
+	/* flex-direction: column; */
+	
+}

@@ -40,12 +40,13 @@ const handleOnClick = () => {
           <div className="route">
         <button className="btn" onClick={handleOnClick}>
           <h2 className="route_detail">
-            {route.routeName} {route.routeGrade}
+            {route.routeName} {route.wallGrade.grade}
           </h2>
           <div className="route_detail"> {route.area.name}</div>
         </button>
         <div className="route_detail">{route.wall.name}</div>
         <div className="route_detail">{route.crag.name}</div>
+        <div className="route_detail">{route.length} ft</div>
         <div className="route_buttons">
           <button onClick={handleAddTick} className="button">
             Add Tick

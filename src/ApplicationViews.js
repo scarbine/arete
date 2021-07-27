@@ -29,6 +29,11 @@ import { FriendsList } from "./components/friends/FriendsList";
 import { FriendsProvider } from "./components/friends/FriendsProvider";
 import { RouteDetail} from './components/routes/RouteDetail'
 import { AreaProvider } from "./components/areas/AreaProvider";
+import { WallsForm } from "./components/walls/WallsForm";
+import { AreaList } from "./components/areas/AreaList";
+import { NewAreaForm } from "./components/areas/NewAreaForm";
+import { RouteSearch } from "./components/routes/RouteSearch";
+import { WallDetail } from "./components/walls/WallDetail";
 
 export const ApplicationViews = () => {
   return (
@@ -50,10 +55,6 @@ export const ApplicationViews = () => {
         <ClimberGearProvider>
           <Route exact path="/climbers/detail/:climberId(\d+)">
             <ClimberDetail />
-            {/* <ClimberGearList />
-            <TickList />
-            <ToDoList /> */}
-            {/* <FriendsList /> */}
           </Route>
         </ClimberGearProvider>
         </TickListProvider>
@@ -102,7 +103,7 @@ export const ApplicationViews = () => {
         </TickListProvider>
       </RouteProvider>
 
-      <GearProvider>
+      <GearProvider> 
         <ClimberGearProvider>
           <Route exact path="/gear">
             <GearList />
@@ -120,11 +121,28 @@ export const ApplicationViews = () => {
         </ClimberGearProvider>
       </GearProvider>
 
+      <RouteProvider>
       <WallProvider>
         <Route exact path="/walls">
           <WallList />
         </Route>
+        </WallProvider>
+      </RouteProvider>
+
+
+
+      <RouteProvider>
+      <WallProvider>
+        <TickListProvider>
+          <ToDoListProvider>
+        <Route exact path="/walls/details/:wallId(\d+)">
+          <WallDetail />
+        </Route>
+        </ToDoListProvider>
+        </TickListProvider>
       </WallProvider>
+      </RouteProvider>
+
 
       <Route exact path="/training">
         <TrainingHeaderImage />
@@ -137,6 +155,30 @@ export const ApplicationViews = () => {
           </Route>
         </RouteProvider>
       </TickListProvider>
+
+      <WallProvider>
+        <CragProvider>
+          <AreaProvider>
+          <Route exact path="/walls/create">
+            <WallsForm />
+          </Route>
+          </AreaProvider>
+        </CragProvider>
+      </WallProvider>
+
+    <CragProvider>
+      <AreaProvider>
+      <Route exact path="/areas">
+        <AreaList />
+      </Route>
+
+      <Route exact path="/areas/create">
+        <NewAreaForm />
+      </Route>
+      </AreaProvider>
+      </CragProvider>
+
+
     </>
   );
 };

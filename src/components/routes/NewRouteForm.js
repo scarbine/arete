@@ -21,7 +21,7 @@ export const NewRouteForm = () => {
     routeDescription: "",
     length:0,
     type:"",
-    routeGrade: 0,
+    wallGrade: 0,
     cragId: 0,
     areaId: 0,
     wallId: 0,
@@ -129,8 +129,8 @@ export const NewRouteForm = () => {
             
           </select>
           <select
-            name="routeGrade"
-            id="routeGradeId"
+            name="wallGradeId"
+            id="wallGradeId"
             className="form-control"
             onChange={handleControlledInputChange}
           >
