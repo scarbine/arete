@@ -25,7 +25,7 @@
 
 .gear_list_header {
   text-align: center;
-  margin-top: 3rem;
+  margin-top: 1rem;
 }
 
 .btn {
@@ -35,6 +35,12 @@
 .wrapper{
 	display: flex;
 	flex-wrap: wrap;
+	height: 440px;
+        width: auto;
+        overflow: auto;
+        float: left;
+        position: relative;
+        margin-left: -5px;
 }
 /* .wrapper {
   

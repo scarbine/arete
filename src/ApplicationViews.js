@@ -28,6 +28,7 @@ import { ToDoList } from "./components/todo/ToDoList";
 import { FriendsList } from "./components/friends/FriendsList";
 import { FriendsProvider } from "./components/friends/FriendsProvider";
 import { RouteDetail} from './components/routes/RouteDetail'
+import { AreaProvider } from "./components/areas/AreaProvider";
 
 export const ApplicationViews = () => {
   return (
@@ -74,6 +75,8 @@ export const ApplicationViews = () => {
       </RouteProvider>
 
       <RouteProvider>
+        <WallProvider>
+          <AreaProvider>
         <CragProvider>
           <GradesProvider>
             <Route exact path="/routes/create">
@@ -81,6 +84,8 @@ export const ApplicationViews = () => {
             </Route>
           </GradesProvider>
         </CragProvider>
+        </AreaProvider>
+        </WallProvider>
       </RouteProvider>
 
       <RouteProvider>
