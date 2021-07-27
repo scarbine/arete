@@ -9,6 +9,7 @@ export const WallsForm = () => {
 	const { crags, getCrags} = useContext(CragContext)
 	const { areas, getAreas} = useContext(AreaContext)
 	const {addWall} = useContext(WallContext)
+	
 
 	const [isLoading, setIsLoading] = useState(true)
 	const [wall, setWall] = useState({
@@ -28,6 +29,8 @@ export const WallsForm = () => {
 		.then(console.log("useEffect: areas, crags:",areas, crags, wall))
 		.then(setIsLoading(false))
 	},[])
+
+	
 
 	const handleControlledInputChange = (event) => {
 		event.preventDefault();

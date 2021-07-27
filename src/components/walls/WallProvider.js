@@ -9,6 +9,8 @@ export const WallProvider = (props) => {
     area:{}
   })
 
+  const [searchTerms, setSearchTerms] = useState("")
+
   const getWalls = () => {
     return fetch("http://localhost:8088/walls?_expand=area&_expand=crag")
       .then((res) => res.json())
@@ -32,7 +34,7 @@ export const WallProvider = (props) => {
   }
 
   return (
-    <WallContext.Provider value={{ wall, walls, getWalls, addWall, getWallById }}>
+    <WallContext.Provider value={{ wall, walls, getWalls, addWall, getWallById, searchTerms, setSearchTerms }}>
       {props.children}
     </WallContext.Provider>
   );

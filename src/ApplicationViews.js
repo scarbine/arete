@@ -33,6 +33,7 @@ import { WallsForm } from "./components/walls/WallsForm";
 import { AreaList } from "./components/areas/AreaList";
 import { NewAreaForm } from "./components/areas/NewAreaForm";
 import { RouteSearch } from "./components/routes/RouteSearch";
+import { WallDetail } from "./components/walls/WallDetail";
 
 export const ApplicationViews = () => {
   return (
@@ -119,12 +120,29 @@ export const ApplicationViews = () => {
           </Route>
         </ClimberGearProvider>
       </GearProvider>
-      
+
+      <RouteProvider>
       <WallProvider>
         <Route exact path="/walls">
           <WallList />
         </Route>
+        </WallProvider>
+      </RouteProvider>
+
+
+
+      <RouteProvider>
+      <WallProvider>
+        <TickListProvider>
+          <ToDoListProvider>
+        <Route exact path="/walls/details/:wallId(\d+)">
+          <WallDetail />
+        </Route>
+        </ToDoListProvider>
+        </TickListProvider>
       </WallProvider>
+      </RouteProvider>
+
 
       <Route exact path="/training">
         <TrainingHeaderImage />
