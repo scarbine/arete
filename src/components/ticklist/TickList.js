@@ -37,10 +37,12 @@ export const TickList = () => {
 		if (output){
 			const filteredByClimberIdTicks = ticks.filter(tick => tick.climberId === parseInt(climberId))
 			setTicks(filteredByClimberIdTicks)
-			console.log(foundTicks)
+			const sorted = filteredByClimberIdTicks.sort((a,b)=> b.id - a.id)
+			console.log(sorted)
 		}else{
 			const filteredByRouteTicks = ticks.filter(tick => tick.routeId === parseInt(routeId))
-			setTicks(filteredByRouteTicks)
+			const sorted = filteredByRouteTicks.sort((a,b)=> b.id - a.id)
+			setTicks(sorted)
 		}
 	},[output, ticks])
 	
