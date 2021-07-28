@@ -12,3 +12,9 @@
 .btn{
 	display: flex;
 }
+.tick{
+	display: flex;
+	justify-content: space-between;
+}
+
+

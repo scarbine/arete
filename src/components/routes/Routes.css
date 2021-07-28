@@ -31,6 +31,8 @@
 .routes-header{
 	text-align: center;
 	margin: 2rem;
+	display: flex;
+	flex-direction: column;
 }
 
 .form {
@@ -75,4 +77,8 @@
 	display: flex;
 	flex-direction: column;
 	text-align: center;
+}
+
+.route_details{
+	padding: 2rem;
 }

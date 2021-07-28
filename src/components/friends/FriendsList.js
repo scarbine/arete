@@ -12,12 +12,12 @@ export const FriendsList = () => {
 	const climberIdAsString = useParams()
 	const climberId = parseInt(climberIdAsString.climberId)
 	const foundFriends = friends.filter(friend => friend.userId === climberId)
-	const history = useHistory()
+	// const history = useHistory()
 
 
 	useEffect(() => {
 		getFriends()
-		.then(console.log("useEffect,getFriends", friends, foundFriends, climberId, history))
+		.then(console.log("useEffect,getFriends", friends, foundFriends, climberId))
 	}, [])
 
 	return(

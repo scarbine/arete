@@ -48,10 +48,10 @@ const handleOnClick = () => {
         <div className="route_detail">{route.crag.name}</div>
         <div className="route_detail">{route.length} ft</div>
         <div className="route_buttons">
-          <button onClick={handleAddTick} className="button">
+          <button onClick={handleAddTick} className=" btn button">
             Add Tick
           </button>
-          <button onClick={handleAddToDo} className="button">
+          <button onClick={handleAddToDo} className=" btn button">
             To-Do
           </button>
           </div>

@@ -23,12 +23,15 @@ export const GearList = () => {
 
   return (
     <>
+    <article className="gear_list_wrapper">
+      <h3>Gear Shop</h3>
     <GearSearch />
         <section className="gear">
           {filteredGear.map((g) => {
             return <GearCard key={g.id} gear={g} />;
           })}
         </section>
+        </article>
       
     </>
   );
