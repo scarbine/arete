@@ -2,11 +2,16 @@
 	/* margin: 1rem; */
 	padding: 1rem;
 	border: solid grey .05rem;
+	transition: all .2s ease-in-out;
 }
 
 .wall:hover{
 	box-shadow: 0rem 0rem 1rem rgba(181, 182, 184, 0.384);
+	/* transform: scale(1.01); */
 }
+
+/* .grow { transition: all .2s ease-in-out; }
+.grow:hover { transform: scale(1.1); } */
 
 .wall_detail_header{
 	text-align: center;
@@ -31,4 +36,9 @@
 
 .card{
 	margin: 1rem 7rem 1rem 7rem;
+	
+}
+
+.card:hover{
+	transform: scale(1.01);
 }

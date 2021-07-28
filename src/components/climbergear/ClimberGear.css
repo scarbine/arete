@@ -7,7 +7,14 @@
 
 .gear_card{
 	text-align: center;
+	transition: all .2s ease-in-out;
 }
+
+.gear_card:hover{
+	transform: scale(1.05);	
+}
+/* .grow { transition: all .2s ease-in-out; }
+.grow:hover { transform: scale(1.1); } */
 
 /* .gear_card {
  

@@ -61,6 +61,9 @@ const handleAddToDo = () => {
         <button onClick={handleAddTick}>Tick</button>
         <button onClick={handleAddToDo}>To-Do</button>
       </section>
+      <section>
+        {/* <TickList /> */}
+      </section>
 
       {/* <TickList />
       <ToDoList /> */}

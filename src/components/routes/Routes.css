@@ -2,10 +2,20 @@
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
-	margin: 1rem;
+	margin: 1rem 5rem 1rem 5rem;
 	padding: 1rem;
 	border: solid grey .05rem;
+	transition: all .2s ease-in-out;
+	border-radius: 2rem;
 }
+
+.route:hover{
+	box-shadow: 0rem 0rem 2rem rgba(112, 128, 144, 0.192);
+	transform: scale(1.05);
+	
+}
+/* .grow { transition: all .2s ease-in-out; }
+.grow:hover { transform: scale(1.1); } */
 
 .route_detail{
 	margin: .5rem;
@@ -43,7 +53,7 @@
 .route_list{
 	display: flex;
 	flex-direction: column;
-	margin: 5rem 1rem 1rem 2rem;
+	margin: 5rem 2rem 1rem 2rem;
 }
 
 

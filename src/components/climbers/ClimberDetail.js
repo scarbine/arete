@@ -20,6 +20,9 @@ export const ClimberDetail = () => {
     getClimberById(climberId)
     
   }, []);
+
+
+
   const fullName = `${climber.firstName} ${climber.lastName}`;
 
   return (
