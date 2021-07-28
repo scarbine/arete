@@ -56,7 +56,30 @@ export const NewRouteForm = () => {
   };
 
   const handleSaveRoute = () => {
-    addRoute(route);
+    addRoute({
+      routeName: route.routeName,
+      firstAscensionists: route.firstAscensionists,
+      routeDescription: route.routeDescription,
+      length: parseInt(route.length),
+      type:route.type,
+      wallGradeId: parseInt(route.wallGradeId),
+      cragId: parseInt(route.cragId),
+      areaId: parseInt(route.areaId),
+      wallId: parseInt(route.wallId),
+    })
+    .then(()=>setRoute(
+      {
+        routeName: "",
+        firstAscensionists: "",
+        routeDescription: "",
+        length:0,
+        type:0,
+        wallGrade: 0,
+        cragId: 0,
+        areaId: 0,
+        wallId: 0,
+      }
+    )).then(history.push("/routes"));
   };
 
   return (
@@ -73,7 +96,7 @@ export const NewRouteForm = () => {
               autoFocus
               className="form-control"
               placeholder="Enter Route Name..."
-              value={route.name}
+              value={route.routeName}
               onChange={handleControlledInputChange}
             />
           </fieldset>
@@ -112,7 +135,7 @@ export const NewRouteForm = () => {
               autoFocus
               className="form-control"
               placeholder="Enter Description..."
-              value={route.description}
+              value={route.routeDescription}
               onChange={handleControlledInputChange}
             />
           </fieldset>
@@ -122,7 +145,7 @@ export const NewRouteForm = () => {
             className="form-control"
             onChange={handleControlledInputChange}
           >
-            <option value="0">Select a Type</option>
+            <option value='0'>Select a Type</option>
             <option key="1" value="sport">Sport</option>
             <option key="2" value="trad">Trad</option>
            
@@ -134,7 +157,7 @@ export const NewRouteForm = () => {
             className="form-control"
             onChange={handleControlledInputChange}
           >
-            <option value="0">Select a Grade</option>
+            <option value='0'>Select a Grade</option>
             {wallGrades.map((grade) => (
               <option key={grade.id} value={grade.id}>
                 {grade.grade}
@@ -147,7 +170,7 @@ export const NewRouteForm = () => {
             className="form-control"
             onChange={handleControlledInputChange}
           >
-            <option value="0">Select a Crag</option>
+            <option value='0'>Select a Crag</option>
             {crags.map((c) => (
               <option key={c.id} value={c.id}>
                 {c.name}
@@ -160,7 +183,7 @@ export const NewRouteForm = () => {
             className="form-control"
             onChange={handleControlledInputChange}
           >
-            <option value="0">Select an Area</option>
+            <option value='0'>Select an Area</option>
             {areas.map((a) => (
               <option key={a.id} value={a.id}>
                 {a.name}
@@ -173,7 +196,7 @@ export const NewRouteForm = () => {
             className="form-control"
             onChange={handleControlledInputChange}
           >
-            <option value="0">Select a Wall</option>
+            <option value='0'>Select a Wall</option>
             {walls.map((w) => (
               <option key={w.id} value={w.id}>
                 {w.name}

@@ -2,10 +2,12 @@ import React, { useContext, useEffect, useState } from "react";
 import { CragContext } from "../crags/CragProvider";
 import { AreaList } from "./AreaList";
 import { AreaContext } from "./AreaProvider";
+import { useHistory } from "react-router";
 
 export const NewAreaForm = () => {
   const { addArea, getAreas } = useContext(AreaContext);
   const {crags , getCrags} =useContext(CragContext)
+  const history = useHistory()
 
   const [area, setArea] = useState({});
 
@@ -22,7 +24,10 @@ export const NewAreaForm = () => {
   };
 
   const handleSave = () => {
-	addArea(area)
+	addArea({
+		name:area.name,
+		cragId:parseInt(area.cragId)
+	}).then(()=> history.push("/areas"))
   };
 
   return (
@@ -52,9 +57,9 @@ export const NewAreaForm = () => {
             onChange={handleControlledInputChange}
           >
             <option value="0">Select a Crag</option>
-            {crags.map((c) => (
-              <option key={c.id} value={c.id}>
-                {c.name}
+            {crags.map((crag) => (
+              <option key={crag.id} value={crag.id}>
+                {crag.name}
               </option>
             ))}
           </select>

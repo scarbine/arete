@@ -4,9 +4,9 @@ import { TickListCard } from "./TickListCard";
 import { useParams, useLocation } from "react-router";
 import "./Ticks.css";
 
-export const TickList = () => {
-  const { ticks, getTicks } = useContext(TickListContext);
-  const [foundTicks, setTicks] = useState([]);
+export const TickList = ({climber}) => {
+  const { ticks, getTicks , setFoundTicks, foundTicks } = useContext(TickListContext);
+
 
   const { climberId } = useParams();
   const { routeId } = useParams();
@@ -15,28 +15,21 @@ export const TickList = () => {
 
   const location = useLocation();
 
-  const locationLogic = () => {
-    if (location.pathname.startsWith("/climber")) {
-      return true;
-    } else {
-      return false;
-    }
-  };
 
-  const locationBoolean = locationLogic();
 
   useEffect(() => {
-    getTicks().then(console.log("found Ticks", foundTicks, location, locationBoolean));
+    getTicks().then(console.log("found Ticks", foundTicks, location));
   }, []);
 
-  // const filteredTicks = ticks.filter(tick => tick.climberId === Id)
+ 
 
   useEffect(() => {
-    if (locationBoolean) {
+    if (climber) {
+	
       const filteredByClimberIdTicks = ticks.filter(
         (tick) => tick.climberId === parseInt(climberId)
       );
-      setTicks(filteredByClimberIdTicks);
+      setFoundTicks(filteredByClimberIdTicks);
       const sorted = filteredByClimberIdTicks.sort((a, b) => b.id - a.id);
       console.log(sorted);
     } else {
@@ -44,9 +37,11 @@ export const TickList = () => {
         (tick) => tick.routeId === parseInt(routeId)
       );
       const sorted = filteredByRouteTicks.sort((a, b) => b.id - a.id);
-      setTicks(sorted);
+      setFoundTicks(sorted);
     }
-  }, [locationBoolean, ticks]);
+    climber = false
+    return climber
+  }, [climberId, ticks]);
 
   return (
     <>

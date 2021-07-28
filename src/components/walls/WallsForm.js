@@ -2,13 +2,14 @@ import React, {useContext, useEffect, useState} from "react";
 import { AreaContext } from "../areas/AreaProvider";
 import { CragContext } from "../crags/CragProvider";
 import { WallContext } from "./WallProvider";
-import { useParams } from "react-router";
+import { useParams, useHistory } from "react-router";
 
 export const WallsForm = () => {
 
 	const { crags, getCrags} = useContext(CragContext)
 	const { areas, getAreas} = useContext(AreaContext)
 	const {addWall} = useContext(WallContext)
+	const history = useHistory()
 	
 
 	const [isLoading, setIsLoading] = useState(true)
@@ -41,7 +42,12 @@ export const WallsForm = () => {
 	      };
 
 	      const handleSaveWall = () => {
-		addWall(wall);
+		addWall({
+			name: wall.name,
+			cragId: parseInt(wall.cragId),
+			areaId: parseInt(wall.areaId)
+			
+		      }).then(()=> history.push("/walls"));
 	      };
 
 
