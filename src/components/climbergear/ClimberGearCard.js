@@ -1,15 +1,22 @@
 import React, {useContext} from "react";
 import { ClimberGearContext } from "./ClimberGearProvider";
 import "./ClimberGear.css";
+import { useHistory } from "react-router-dom";
+import { render } from "@testing-library/react";
 
 export const ClimberGearCard = ({ climbGear }) => {
   const currentUser = parseInt(localStorage.getItem("arete_customer"))
 	const {removeClimberGear} = useContext(ClimberGearContext)
-
+const history = useHistory()
 
   const handleDeleteGear = () =>{
         removeClimberGear(climbGear.id)
   }
+
+  // const handleClimberGearClick = () => {
+  //     history.push(`/gear/details/${climbGear.gear.id}`)
+     
+  // }
 
   return (
     <section className="gear_card">
