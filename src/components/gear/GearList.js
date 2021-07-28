@@ -23,8 +23,11 @@ export const GearList = () => {
 
   return (
     <>
-    <article className="gear_list_wrapper">
+    <div className="gear_shop_header">
       <h3>Gear Shop</h3>
+
+    </div>
+    <article className="gear_list_wrapper">
     <GearSearch />
         <section className="gear">
           {filteredGear.map((g) => {

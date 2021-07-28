@@ -122,3 +122,8 @@
   display: flex;
   justify-content: space-between;
 }
+
+.climber_list_header{
+	box-shadow: 0rem 0rem 1rem rgb(112 128 144 / 47%);
+	padding: 1rem;
+}

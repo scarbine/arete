@@ -24,6 +24,7 @@ export const ClimberList = () => {
 
   return (
     <> 
+    <h3 className="climber_list_header">Climbers</h3>
     <section className="climber_list_wrapper">
     <div className="climbers_search">
         <ClimberSearch />

@@ -1,75 +1,76 @@
-.route{
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	margin: 1rem 5rem 1rem 5rem;
-	padding: 1rem;
-	border: solid grey .05rem;
-	transition: all .2s ease-in-out;
-	border-radius: 2rem;
+.route {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 1rem 5rem 1rem 5rem;
+  padding: 1rem;
+  border: solid grey 0.05rem;
+  transition: all 0.2s ease-in-out;
+  border-radius: 2rem;
 }
 
-.route:hover{
-	box-shadow: 0rem 0rem 2rem rgba(112, 128, 144, 0.192);
-	transform: scale(1.05);
-	
+.route:hover {
+  box-shadow: 0rem 0rem 2rem rgba(112, 128, 144, 0.192);
+  transform: scale(1.05);
 }
 /* .grow { transition: all .2s ease-in-out; }
 .grow:hover { transform: scale(1.1); } */
 
-.route_detail{
-	margin: .5rem;
-	
+.route_detail {
+  margin: 0.5rem;
 }
 
-
-
-
-.routes-header{
-	text-align: center;
-	margin: 2rem;
-	display: flex;
-	flex-direction: column;
+.routes-header {
+  text-align: center;
+  margin: 2rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .form {
-	margin: 4rem 15rem 0rem 15rem;
-	border:.15rem grey solid;
-	border-radius: .5rem;
+  margin: 4rem 15rem 0rem 15rem;
+  border: 0.15rem grey solid;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+.form-control {
+  margin: 1rem 0rem 1rem 0rem;
+}
+
+.form-header {
+  text-align: center;
+}
+
+.route_list {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 1rem 1rem 1rem;
+  text-align: center;
+}
+
+.route_buttons {
+  display: flex;
+  flex-direction: column;
+  margin: 0rem 2rem 0rem 0rem;
+}
+
+.route_search_wrapper {
+  margin: 2rem 15rem 1rem 15rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.route_details {
+  padding: 2rem;
+}
+
+.route_list_header{
+	box-shadow: 0rem 0rem 1rem rgb(112 128 144 / 47%);
 	padding: 1rem;
-}
-
-.form-control{
-	margin: 1rem 0rem 1rem 0rem;
-	
-}
-
-.form-header{
-	text-align: center;
-	
-}
-
-.route_list{
 	display: flex;
-	flex-direction: column;
-	margin: 3rem 1rem 1rem 1rem;
-	text-align: center;
 }
 
-
-.route_buttons{
-	display: flex;
-	flex-direction: column;
-	margin:0rem 2rem 0rem 0rem;
-}
-
-
-.route_search_wrapper{
-	margin: 3rem 15rem 1rem 15rem;
-	display: flex;
-	flex-direction: column;
-}
-
-.route_details{
-	padding: 2rem;
+.to_route_list_form{
+	margin: 0rem 0rem 0rem 2rem;
 }
