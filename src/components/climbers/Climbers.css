@@ -68,7 +68,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  padding: 1rem 3rem 0rem 3rem;
+  padding: 1rem 1rem 0rem 1rem;
   background-color: white;
   /* background-image: url("https://res.cloudinary.com/ddaeunjfu/image/upload/v1627341375/Arete/Backgrounds/vsrdohkremfqe8g4kvem.jpg"); */
 }
@@ -108,7 +108,7 @@
   flex-direction: column;
 }
 .climbers_search {
-  margin: 1rem;
+  margin: 3rem 1rem 1rem 2rem;
 }
 
 .climber_list_wrapper {

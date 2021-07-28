@@ -29,6 +29,7 @@ export const RouteList = () => {
   return (
     <>
     <div className="route_list_header">
+      <div className="route_list_header_name">
         <h3>Routes</h3>
         <button
           className="btn to_route_list_form"
@@ -39,9 +40,10 @@ export const RouteList = () => {
           Create New Route
         </button>
         </div>
+          <RouteSearch />
+        </div>
       <section className="route_list">
         <div className="route_search">
-          <RouteSearch />
          
         </div>
         {filteredRoutes.map((route) => {

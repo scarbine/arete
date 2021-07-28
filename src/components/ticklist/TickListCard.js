@@ -27,16 +27,16 @@ export const TickListCard = ({ tick }) => {
       {climberId ? (
         <div className="tick_list_details">
           <button className=" btn tick" onClick={handleTickClick}>
-            <h4 className="tick_detail">{tick.route.routeName}</h4>
+            <h5 className="tick_detail">{tick.route.routeName}</h5>
           </button>
             <h5 className="tick_detail">{`${month}/${day}/${year}`}</h5>
         </div>
       ) : (
         <div className="tick_list_details">
           <div className="tick" onClick={handleOnClick}>
-            <h4 className="tick_detail">
+            <h5 className="tick_detail">
               {tick.climber.firstName} {tick.climber.lastName}
-            </h4>
+            </h5>
             <h5 className="tick_detail">{`${month}/${day}/${year}`}</h5>
           </div>
         </div>

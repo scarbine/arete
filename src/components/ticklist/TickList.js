@@ -46,7 +46,7 @@ export const TickList = ({climber}) => {
   return (
     <>
       <section className="tick_list">
-        <h1 className="tick_list_header">Tick List</h1>
+        <h3 className="tick_list_header">Tick List</h3>
         <div>
           {foundTicks.map((tick) => {
             return <TickListCard key={tick.id} tick={tick} />;

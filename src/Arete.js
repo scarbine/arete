@@ -15,6 +15,7 @@ export const Arete = () => {
 		<>
 		  <NavBar />
 		  <ApplicationViews />
+		  {/* Add Footer */}
 		</>
 	      );
 	    } else {

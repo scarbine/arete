@@ -42,7 +42,7 @@ const handleEditRoute = () => {
   return (
     <>
           <div className="route">
-        <button className="btn" onClick={handleOnClick}>
+        <button className="btn route_btn" onClick={handleOnClick}>
           <h2 className="route_detail">
             {route.routeName} {route.wallGrade.grade}
           </h2>
