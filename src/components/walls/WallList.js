@@ -35,10 +35,11 @@ export const WallList = () => {
   return (
     <>
     <article className="wall_list">
+      <h3>Walls</h3>
       <div className="wall_button_search_wrapper">
       <WallSearch />
-      <button onClick={handleOnClick}>Add New Wall</button>
       </div>
+      <button className="btn" onClick={handleOnClick}>Add New Wall</button>
       <section className="wall_wrapper">
         {
         filteredWalls.map((wall) => {

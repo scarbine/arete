@@ -96,7 +96,7 @@ export const ApplicationViews = () => {
           <GradesProvider>
             <Route exact path="/routes/detail/:routeId(\d+)">
               <RouteDetail />
-              <TickList />
+              
             </Route>
           </GradesProvider>
         </CragProvider>

@@ -12,3 +12,13 @@
 .btn{
 	display: flex;
 }
+.tick{
+	display: flex;
+	justify-content: space-between;
+}
+
+.tick_detail{
+	padding:.5rem;
+}
+
+

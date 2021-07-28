@@ -35,6 +35,10 @@ const handleOnClick = () => {
   .then(history.push(`/routes/detail/${route.id}`))
 }
 
+const handleEditRoute = () => {
+  history.push("/routes/create")
+}
+
   return (
     <>
           <div className="route">
@@ -48,11 +52,14 @@ const handleOnClick = () => {
         <div className="route_detail">{route.crag.name}</div>
         <div className="route_detail">{route.length} ft</div>
         <div className="route_buttons">
-          <button onClick={handleAddTick} className="button">
+          <button onClick={handleAddTick} className=" btn button">
             Add Tick
           </button>
-          <button onClick={handleAddToDo} className="button">
+          <button onClick={handleAddToDo} className=" btn button">
             To-Do
+          </button>
+          <button onClick={handleEditRoute} className=" btn button">
+            Edit
           </button>
           </div>
         </div>

@@ -9,7 +9,9 @@ export const GearSearch = () => {
 
 	return(
 		<>
-		<input placeholder="Search for Gear" type='text' className="input --wide" onKeyUp={(event) => setSearchTerms(event.target.value)} />
+		
+		<input placeholder="Search for Gear" type='text' className=" search_bar input--wide" onKeyUp={(event) => setSearchTerms(event.target.value)} />
+	
 		</>
 	)
 }
