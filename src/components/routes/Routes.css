@@ -57,20 +57,12 @@
 }
 
 
-/* .routes_title{
-	position: absolute; top: 10rem; left: 60rem;
-	color: whitesmoke;
-} */
-
 .route_buttons{
 	display: flex;
 	flex-direction: column;
 	margin:0rem 2rem 0rem 0rem;
 }
 
-/* .route_search{
-	margin: 1rem 10rem 1rem 10rem;
-} */
 
 .route_search_wrapper{
 	margin: 3rem 15rem 1rem 15rem;
