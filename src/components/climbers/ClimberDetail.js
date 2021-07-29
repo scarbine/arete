@@ -8,6 +8,7 @@ import { ToDoList } from "../todo/ToDoList";
 import { FriendsContext } from "../friends/FriendsProvider";
 
 
+
 export const ClimberDetail = () => {
   const { climber, getClimberById } = useContext(ClimberContext);
   const { friends, getFriends, addFriend, removeFriend } = useContext(FriendsContext);
@@ -56,8 +57,13 @@ export const ClimberDetail = () => {
 
   const handleRemoveFriend = () =>{
         removeFriend(found.id)
+       
+        
         
   }
+
+
+
 
   const friendButton = ()=> { if (found){
    return <button className="btn" onClick={handleRemoveFriend}>Remove Friend</button>
@@ -83,6 +89,7 @@ export const ClimberDetail = () => {
             <button className="btn" onClick={handleAddFriend}>Add Friend</button>
         )} */}
         {friendButton()}
+        
           </div>
           <div className="climber_details">
             <div className="climber_detail">Email: {climber.email}</div>
@@ -106,7 +113,7 @@ export const ClimberDetail = () => {
           <FriendsList  />
           <div className="ticks_and_todos">
             <TickList climber={true} />
-            <ToDoList />
+            <ToDoList climber={true}/>
           </div>
         </div>
       </article>

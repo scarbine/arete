@@ -30,14 +30,15 @@ export const RouteDetail = () => {
       routeId: route.id,
       dateCompleted: Date.now(),
     };
-    addTick(newTick).then(window.alert("Your Tick has been added"));
+    addTick(newTick);
   };
   const handleAddToDo = () => {
     const newToDo = {
       climberId: currentUser,
       routeId: route.id,
     };
-    addTodo(newToDo).then(window.alert("Your ToDo has been added"));
+    addTodo(newToDo)
+    // .then(window.alert("Your ToDo has been added"));
   };
 
   return (
@@ -59,8 +60,11 @@ export const RouteDetail = () => {
           <div className="route_detail"> {route?.area.name}</div>
           <div className="route_detail">{route?.crag.name}</div>
         </section>
-        <section className="routes">
+        <section className="routes routes_tick_list_container">
           <TickList />
+        </section>
+        <section className="routes routes_tick_list_container">
+          <ToDoList />
         </section>
       </section>
     </>

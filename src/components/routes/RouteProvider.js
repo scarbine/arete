@@ -47,7 +47,7 @@ export const RouteProvider = (props) => {
     return fetch (`http://localhost:8088/routes/${id}?_expand=crag&_expand=area&_expand=wall`)
     .then((res)=>res.json())
     .then(setRoute)
-    .then(console.log("RoutesProvider: route:", route))
+    // .then(console.log("RoutesProvider: route:", route))
   }
 
   return (

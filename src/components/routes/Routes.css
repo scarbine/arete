@@ -100,3 +100,8 @@
 	/* color: whitesmoke; */
 	
 }
+
+.routes_tick_list_container{
+  display: flex;
+  margin: 2rem;
+}

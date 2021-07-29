@@ -22,7 +22,7 @@ export const WallList = () => {
       setFilteredWalls(subset) 
     }else{
       const sortedWalls = walls.sort((a,b) => (a.name - b.name))
-      console.log("sorted Walls" ,sortedWalls)
+      // console.log("sorted Walls" ,sortedWalls)
       setFilteredWalls(sortedWalls)
     }
 
