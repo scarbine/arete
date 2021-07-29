@@ -8,9 +8,10 @@ import { ToDoList } from "../todo/ToDoList";
 import { FriendsContext } from "../friends/FriendsProvider";
 
 
+
 export const ClimberDetail = () => {
   const { climber, getClimberById } = useContext(ClimberContext);
-  const { friends, getFriends, addFriend } = useContext(FriendsContext);
+  const { friends, getFriends, addFriend, removeFriend } = useContext(FriendsContext);
 
 
   const [filteredFriends, setFilteredFriends] = useState([]);
@@ -21,39 +22,56 @@ export const ClimberDetail = () => {
 
   const currentUser = parseInt(localStorage.getItem("arete_customer"));
 
+  
   useEffect(() => {
     getClimberById(climberId)
-      // .then(getFriends)
-      .then(console.log("useEffect", friends, climber));
   }, []);
-
-  useEffect(() => {
-    getFriends();
-    const filtered = friends.filter((friend) => friend.climberId === climberId);
-    setFilteredFriends(filtered);
-    const found = filteredFriends.find(
-      (friend) => friend.userId === currentUser
-    );
-    setFound(found);
-    console.log(
-      "filteredFriends",
-      filteredFriends,
-      currentUser,
-      climberId,
-      friends,
-      found
-    );
-  }, []);
+  
+  useEffect(()=>{
+    getFriends()
+    .then(()=>{
+      const filtered = friends.filter(friend => friend.userId === currentUser)
+      setFilteredFriends(filtered)})
+    
+ 
+    
+  },[climber])
+  
+  useEffect(()=>{
+    
+    const foundFriend = filteredFriends.find(friend => friend.climberId === climberId)
+    setFound(foundFriend)
+    // console.log(found)
+   
+    
+ },[climber])
 
   const fullName = `${climber.firstName} ${climber.lastName}`;
 
-  const handleAddFriend = () => {
-    const newFriend = {
-      userId: currentUser,
-      climberId: climberId,
-    };
-    addFriend(newFriend).then(window.alert("Your Friend has been added"));
-  };
+  const handleAddFriend = () =>{
+          addFriend({
+            climberId:climberId,
+            userId:currentUser
+          })
+  }
+
+  const handleRemoveFriend = () =>{
+        removeFriend(found.id)
+       
+        
+        
+  }
+
+
+
+
+  const friendButton = ()=> { if (found){
+   return <button className="btn" onClick={handleRemoveFriend}>Remove Friend</button>
+   } else if(climber.id === currentUser) {
+     return(<></>)}
+     else if (!found){
+      return (<button className="btn" onClick={handleAddFriend}>Add Friend</button>)
+   }}
 
   return (
     <>
@@ -65,11 +83,13 @@ export const ClimberDetail = () => {
           <div className="climber_badge">
             {/* <img className="climber_img" alt={fullName} src={climber.profile_pic} /> */}
             <h3 className="climber_name">{climber.userName}</h3>
-        {currentUser === climberId || found ? (
-          <button className="btn">Remove Friend</button>
-        ) : (
-          <button className="btn" onClick={handleAddFriend}>Add Friend</button>
-        )}
+        {/* { found ? (
+          <button className="btn" onClick={handleRemoveFriend}>Remove Friend</button>
+          ) : (
+            <button className="btn" onClick={handleAddFriend}>Add Friend</button>
+        )} */}
+        {friendButton()}
+        
           </div>
           <div className="climber_details">
             <div className="climber_detail">Email: {climber.email}</div>
@@ -93,7 +113,7 @@ export const ClimberDetail = () => {
           <FriendsList  />
           <div className="ticks_and_todos">
             <TickList climber={true} />
-            <ToDoList />
+            <ToDoList climber={true}/>
           </div>
         </div>
       </article>

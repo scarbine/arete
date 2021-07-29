@@ -19,12 +19,13 @@ export const NewRouteForm = () => {
     routeName: "",
     firstAscensionists: "",
     routeDescription: "",
-    length:0,
+    length:"",
     type:"",
     wallGrade: 0,
     cragId: 0,
     areaId: 0,
     wallId: 0,
+    drawsNeeded:""
   });
 
   //   const [boulderGrades, setBoulderGrades] = useState([]);
@@ -61,6 +62,7 @@ export const NewRouteForm = () => {
       firstAscensionists: route.firstAscensionists,
       routeDescription: route.routeDescription,
       length: parseInt(route.length),
+      drawsNeeded:route.drawsNeeded,
       type:route.type,
       wallGradeId: parseInt(route.wallGradeId),
       cragId: parseInt(route.cragId),
@@ -72,7 +74,8 @@ export const NewRouteForm = () => {
         routeName: "",
         firstAscensionists: "",
         routeDescription: "",
-        length:0,
+        length:"",
+        drawsNeeded:"",
         type:0,
         wallGrade: 0,
         cragId: 0,
@@ -123,6 +126,19 @@ export const NewRouteForm = () => {
               className="form-control"
               placeholder="Enter Route Length..."
               value={route.length}
+              onChange={handleControlledInputChange}
+            />
+          </fieldset>
+          <fieldset>
+            <input
+              type="number"
+              id="drawsNeeded"
+              name="drawsNeeded"
+              required
+              autoFocus
+              className="form-control"
+              placeholder="Enter the number of Bolts..."
+              value={route.drawsNeeded}
               onChange={handleControlledInputChange}
             />
           </fieldset>

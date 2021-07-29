@@ -11,14 +11,15 @@ export const TickList = ({climber}) => {
   const { climberId } = useParams();
   const { routeId } = useParams();
   // const Id = parseInt(id.climberId)
-  console.log("id", climberId, routeId);
+  // console.log("id", climberId, routeId);
 
-  const location = useLocation();
+  // const location = useLocation();
 
 
 
   useEffect(() => {
-    getTicks().then(console.log("found Ticks", foundTicks, location));
+    getTicks()
+    // .then(console.log("found Ticks", foundTicks, location));
   }, []);
 
  
@@ -29,9 +30,9 @@ export const TickList = ({climber}) => {
       const filteredByClimberIdTicks = ticks.filter(
         (tick) => tick.climberId === parseInt(climberId)
       );
-      setFoundTicks(filteredByClimberIdTicks);
       const sorted = filteredByClimberIdTicks.sort((a, b) => b.id - a.id);
-      console.log(sorted);
+      setFoundTicks(sorted);
+      // console.log(sorted);
     } else {
       const filteredByRouteTicks = ticks.filter(
         (tick) => tick.routeId === parseInt(routeId)
@@ -46,7 +47,7 @@ export const TickList = ({climber}) => {
   return (
     <>
       <section className="tick_list">
-        <h1 className="tick_list_header">Tick List</h1>
+        <h3 className="tick_list_header">Tick List</h3>
         <div>
           {foundTicks.map((tick) => {
             return <TickListCard key={tick.id} tick={tick} />;

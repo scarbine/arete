@@ -20,7 +20,7 @@ export const Login = (props) => {
     existingUserCheck().then((exists) => {
       if (exists) {
         localStorage.setItem("arete_customer", exists.id);
-        history.push("/");
+        history.push(`/climbers/detail/${exists.id}`);
       } else {
         existDialog.current.showModal();
       }

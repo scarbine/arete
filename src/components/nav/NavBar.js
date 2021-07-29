@@ -20,11 +20,6 @@ export const NavBar = (props) => {
           <Link className="navbar_link" to="/routes">
             Routes
           </Link>
-	  </li>
-        <li className="navbar_item">
-          <Link className="navbar_link" to="/gear">
-            Gear Shop
-          </Link>
         </li>
         <li className="navbar_item">
           <Link className="navbar_link" to="/walls">
@@ -33,7 +28,12 @@ export const NavBar = (props) => {
         </li>
         <li className="navbar_item">
           <Link className="navbar_link" to="/areas">
-            Areas 
+            Areas
+          </Link>
+        </li>
+        <li className="navbar_item">
+          <Link className="navbar_link" to="/gear">
+            Gear Shop
           </Link>
         </li>
       </ul>

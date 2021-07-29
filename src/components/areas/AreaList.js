@@ -29,10 +29,12 @@ export const AreaList = () => {
 
   return (
     <>
-      <section className="area_list">
+    <div className="area_list_header">
         <h3>Areas</h3>
+        <button className="btn to_area_form" onClick={handleOnClick}>Add New Area</button>
+	</div>
+      <section className="area_list">
 	<AreaSearch />
-        <button className="btn" onClick={handleOnClick}>Add New Area</button>
         {filteredAreas.map((area) => {
           return (
             <AreaCard key={area.id} area={area}>

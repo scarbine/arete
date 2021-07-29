@@ -27,8 +27,16 @@ export const TickListProvider = (props) => {
 		
 	}
 
+	const deleteTick =(id) =>{
+		return fetch(`http://localhost:8088/ticks/${id}`,{
+			method:"DELETE"
+		})
+		.then(getTicks)
+
+	}
+
 	return(
-		<TickListContext.Provider value={{ ticks, getTicks, addTick,foundTicks,setFoundTicks}}>
+		<TickListContext.Provider value={{ ticks, getTicks, addTick,foundTicks,setFoundTicks,deleteTick}}>
 			{props.children}
 		</TickListContext.Provider>
 	)

@@ -28,20 +28,24 @@ export const RouteList = () => {
 
   return (
     <>
-      <section className="route_list">
+    <div className="route_list_header">
+      <div className="route_list_header_name">
         <h3>Routes</h3>
-        <div className="route_search">
-          <RouteSearch />
-         
-        </div>
         <button
-          className="btn"
+          className="btn to_route_list_form"
           onClick={() => {
             history.push(`routes/create`);
           }}
         >
           Create New Route
         </button>
+        </div>
+          <RouteSearch />
+        </div>
+      <section className="route_list">
+        <div className="route_search">
+         
+        </div>
         {filteredRoutes.map((route) => {
           return <RouteCard key={route.id} route={route} />;
         })}

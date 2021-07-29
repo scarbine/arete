@@ -76,12 +76,18 @@
 .gear_list_wrapper{
 	display: flex;
 	flex-direction: column;
-	margin: 3rem 1rem 1rem 1rem;
+	margin: 1rem 1rem 1rem 1rem;
 	text-align: center;
 }
 
 .search_bar{
 	margin: 3rem 15rem 1rem 15rem;
+}
+
+.gear_shop_header{
+	box-shadow: 0rem 0rem 1rem rgb(112 128 144 / 47%);
+	padding: 1rem;
+	display: flex;
 }
 
 

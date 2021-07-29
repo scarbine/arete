@@ -27,13 +27,14 @@
 	flex-direction: column;
 	margin: 1rem 2rem 1rem 0rem;
 	text-align: center;
-	margin: 3rem 1rem 1rem 1rem;
+	margin: 1rem 1rem 1rem 1rem;
 }
 
 .wall_button_search_wrapper{
-	margin: 3rem 15rem 1rem 15rem;
-	display: flex;
-	flex-direction: column;
+	margin: 0rem 1rem 0rem 1rem;
+	/* display: flex;
+	flex-direction: column; */
+	float: right;
 }
 
 .card{
@@ -43,4 +44,18 @@
 
 .card:hover{
 	transform: scale(1.01);
+}
+
+.wall_list_header{
+	box-shadow: 0rem 0rem 1rem rgb(112 128 144 / 47%);
+	padding: 1rem;
+	display: flex;
+}
+
+.to_wall_form{
+	margin: 0rem 0rem 0rem 2rem;
+}
+
+.wall_list_header_name{
+	display: flex;
 }
