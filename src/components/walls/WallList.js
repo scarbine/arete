@@ -35,13 +35,15 @@ export const WallList = () => {
   return (
     <>
     <div className="wall_list_header">
+      <div className="wall_list_header_name">
       <h3>Walls</h3>
       <button className="btn to_wall_form" onClick={handleOnClick}>Add New Wall</button>
       </div>
-    <article className="wall_list">
       <div className="wall_button_search_wrapper">
       <WallSearch />
       </div>
+      </div>
+    <article className="wall_list">
       <section className="wall_wrapper">
         {
         filteredWalls.map((wall) => {

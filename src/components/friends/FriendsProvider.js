@@ -22,7 +22,7 @@ export const FriendsProvider = (props) => {
   };
 
   const removeFriend = (id) => {
-    return fetch(`http:/localhost:8088/friends/${id}`, {
+    return fetch(`http://localhost:8088/friends/${id}`, {
       method: "DELETE",
     }).then(getFriends);
   };

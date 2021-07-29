@@ -21,8 +21,7 @@ export const RouteDetail = () => {
 
   useEffect(() => {
     getRouteById(routeId)
-      // DONT TAKE OUT THIS CONSOLE LOG - IT IS SLOWING DOWN THE RENDER SO NESTED OBJ IN ROUTE CAN POPULATE
-      .then(console.log(route, "routeId", routeId));
+  
   }, []);
 
   const handleAddTick = () => {

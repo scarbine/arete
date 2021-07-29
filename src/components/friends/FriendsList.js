@@ -17,7 +17,7 @@ export const FriendsList = () => {
 
 	useEffect(() => {
 		getFriends()
-		.then(console.log("useEffect,getFriends", friends, foundFriends, climberId))
+		// .then(console.log("useEffect,getFriends", friends, foundFriends, climberId))
 	}, [])
 
 	return(

@@ -2,7 +2,7 @@ import React from "react"
 
 
 export const AreaCard = ({area}) => {
-	console.log(area)
+	// console.log(area)
 	return(
 		<>
 		<section className="card area">

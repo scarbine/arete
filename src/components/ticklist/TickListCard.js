@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useParams, useHistory, Link } from "react-router-dom";
+import { TickListContext } from "./TickListProvider";
 import "./Ticks.css";
 
 export const TickListCard = ({ tick }) => {
   const { climberId } = useParams();
   const history = useHistory();
 
-  console.log();
+  const {deleteTick} = useContext(TickListContext)
+
+ 
 
   const handleOnClick = () => {
     history.push(`/climbers/detail/${tick.climber.id}`);
@@ -20,7 +23,12 @@ export const TickListCard = ({ tick }) => {
   const year = date.getFullYear();
   const month = date.getMonth() + 1;
   const day = date.getDate();
-  console.log(year, month, day);
+  // console.log(year, month, day);
+
+  const handleDeleteTick = () =>{
+	deleteTick(tick.id)
+  }
+  
 
   return (
     <>
@@ -30,6 +38,7 @@ export const TickListCard = ({ tick }) => {
             <h5 className="tick_detail">{tick.route.routeName}</h5>
           </button>
             <h5 className="tick_detail">{`${month}/${day}/${year}`}</h5>
+	    <button className="remove_tick_btn btn" onClick={handleDeleteTick}>Remove</button>
         </div>
       ) : (
         <div className="tick_list_details">
@@ -38,6 +47,7 @@ export const TickListCard = ({ tick }) => {
               {tick.climber.firstName} {tick.climber.lastName}
             </h5>
             <h5 className="tick_detail">{`${month}/${day}/${year}`}</h5>
+	    <button className="remove_tick_btn btn" onClick={handleDeleteTick}>Remove</button>
           </div>
         </div>
       )}

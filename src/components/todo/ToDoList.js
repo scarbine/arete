@@ -16,13 +16,14 @@ export const ToDoList = () => {
   const sortedToDos = filteredTodos.sort((a,b)=> b.id - a.id)
 
   useEffect(() => {
-    getTodos().then(console.log(todos));
+    getTodos()
+    // .then(console.log(todos));
   }, []);
 
   return (
     <>
       <section className="todo_list">
-        <h1 className="todo_list_header">Todo List</h1>
+        <h3 className="todo_list_header">Todo List</h3>
         <div>
           {sortedToDos.map((todo) => {
             return <ToDoCard key={todo.id} todo={todo} />;

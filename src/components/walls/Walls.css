@@ -31,9 +31,10 @@
 }
 
 .wall_button_search_wrapper{
-	margin: 3rem 15rem 1rem 15rem;
-	display: flex;
-	flex-direction: column;
+	margin: 0rem 1rem 0rem 1rem;
+	/* display: flex;
+	flex-direction: column; */
+	float: right;
 }
 
 .card{
@@ -53,4 +54,8 @@
 
 .to_wall_form{
 	margin: 0rem 0rem 0rem 2rem;
+}
+
+.wall_list_header_name{
+	display: flex;
 }

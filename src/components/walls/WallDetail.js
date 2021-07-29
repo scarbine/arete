@@ -9,19 +9,21 @@ import "./Walls.css"
 export const WallDetail =() => {
 	
 	const {wallId} = useParams()
-	console.log(wallId)
+	// console.log(wallId)
 	const {routes , getRoutes} = useContext(RoutesContext)
 	const {wall, getWallById , setWall} = useContext(WallContext)
 	const history = useHistory()
 	
 	useEffect(() => {
-		getWallById(wallId).then(getRoutes).then(console.log(wall,routes))
+		getWallById(wallId)
+		.then(getRoutes)
+		// .then(console.log(wall,routes))
 	}, [])
 	
 	
 	
 	const filteredRoutes = routes.filter(route=> route.wallId === wall.id)
-	console.log("filteredRoutes",filteredRoutes , wall)
+	// console.log("filteredRoutes",filteredRoutes , wall)
 
 	const handleOnClick = () => {
 		history.push("/routes/create")
