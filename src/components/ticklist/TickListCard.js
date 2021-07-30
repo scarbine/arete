@@ -53,10 +53,10 @@ export const TickListCard = ({ tick }) => {
         </div>
       ) : (
         <div className="tick_list_details">
-          <div className="tick" onClick={handleOnClick}>
-            <h5 className="tick_detail">
+          <div className="tick btn" onClick={handleOnClick}>
+            <div className="tick_detail">
               {tick.climber.firstName} {tick.climber.lastName}
-            </h5>
+            </div>
             {/* <div className="tick_detail">{`${month}/${day}/${year}`}</div> */}
           </div>
           {/* <svg

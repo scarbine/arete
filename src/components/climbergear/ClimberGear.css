@@ -40,14 +40,10 @@
 }
 
 .wrapper{
-	display: flex;
-	flex-wrap: wrap;
-	height: 440px;
-        width: auto;
-        overflow: auto;
-        float: left;
-        position: relative;
-        margin-left: -5px;
+  display: flex;
+  flex-wrap: wrap;
+  width: auto;
+
 }
 /* .wrapper {
   

@@ -60,7 +60,7 @@ export const NewRouteForm = () => {
     addRoute({
       routeName: route.routeName,
       firstAscensionists: route.firstAscensionists,
-      routeDescription: route.routeDescription,
+      description: route.routeDescription,
       length: parseInt(route.length),
       drawsNeeded:route.drawsNeeded,
       type:route.type,
@@ -73,7 +73,7 @@ export const NewRouteForm = () => {
       {
         routeName: "",
         firstAscensionists: "",
-        routeDescription: "",
+        description: "",
         length:"",
         drawsNeeded:"",
         type:0,
@@ -145,13 +145,13 @@ export const NewRouteForm = () => {
           <fieldset>
             <input
               type="text"
-              id="routeDescription"
-              name="routeDescription"
+              id="description"
+              name="description"
               required
               autoFocus
               className="form-control"
               placeholder="Enter Description..."
-              value={route.routeDescription}
+              value={route.description}
               onChange={handleControlledInputChange}
             />
           </fieldset>

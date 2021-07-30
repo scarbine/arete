@@ -39,8 +39,8 @@ export const RouteList = () => {
         >
           Create New Route
         </button>
-        </div>
           <RouteSearch />
+        </div>
         </div>
       <section className="route_list">
         <div className="route_search">
