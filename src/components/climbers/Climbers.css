@@ -1,12 +1,13 @@
 .climber {
-  margin: 2rem;
+  margin: 7rem 2rem 2rem 2rem ;
   padding: 1rem;
   border: solid grey 0.05rem;
   display: flex;
-
+  flex-basis: 50%;
   vertical-align: bottom;
   display: flex;
   flex-direction: column;
+  border-radius: .5rem;
 }
 
 .climbers_header {
@@ -92,6 +93,7 @@
 
 .ticks_and_todos {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   margin: 1rem 8rem 1rem 8rem;
 }

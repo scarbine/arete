@@ -6,12 +6,16 @@ import { ClimberGearList } from "../climbergear/ClimberGearList";
 import { TickList } from "../ticklist/TickList";
 import { ToDoList } from "../todo/ToDoList";
 import { FriendsContext } from "../friends/FriendsProvider";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content"
 
 
 
 export const ClimberDetail = () => {
   const { climber, getClimberById } = useContext(ClimberContext);
   const { friends, getFriends, addFriend, removeFriend } = useContext(FriendsContext);
+  const MySwal = withReactContent(Swal)
+  
 
 
   const [filteredFriends, setFilteredFriends] = useState([]);
@@ -52,11 +56,38 @@ export const ClimberDetail = () => {
           addFriend({
             climberId:climberId,
             userId:currentUser
-          })
+          }).then(MySwal.fire({
+            title: 'Are you sure?',
+            text: `You want to add ${fullName} as a freind.`,
+           
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, Add them!'
+            
+          }).then(() => {
+            return MySwal.fire({
+              icon: 'success',
+              text: `You are now friends with ${fullName}`
+            })
+          }))
   }
 
   const handleRemoveFriend = () =>{
-        removeFriend(found.id)
+        removeFriend(found.id).then(
+        MySwal.fire({
+          
+            title: 'Are you sure?',
+            text: `You will no longer be friends with ${fullName}!`,
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+     
+        }).then(() => {
+          return MySwal.fire(<p>You are no longer friends with {fullName}</p>)
+        }))
        
         
         
@@ -88,7 +119,7 @@ export const ClimberDetail = () => {
           ) : (
             <button className="btn" onClick={handleAddFriend}>Add Friend</button>
         )} */}
-        {friendButton()}
+        {/* {friendButton()} */}
         
           </div>
           <div className="climber_details">
@@ -105,16 +136,16 @@ export const ClimberDetail = () => {
             <div className="climber_detail">
               Top Grade Boulder: {climber.topGradeBoulder}
             </div>
+          {/* <div className="ticks_and_todos"> */}
+            <TickList climber={true} />
+            <ToDoList climber={true}/>
+          {/* </div> */}
           </div>
           <div></div>
         </section>
         <div className="climber_lists">
           <ClimberGearList />
           <FriendsList  />
-          <div className="ticks_and_todos">
-            <TickList climber={true} />
-            <ToDoList climber={true}/>
-          </div>
         </div>
       </article>
     </>
