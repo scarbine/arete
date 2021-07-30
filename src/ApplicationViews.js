@@ -34,6 +34,8 @@ import { AreaList } from "./components/areas/AreaList";
 import { NewAreaForm } from "./components/areas/NewAreaForm";
 import { RouteSearch } from "./components/routes/RouteSearch";
 import { WallDetail } from "./components/walls/WallDetail";
+import { RouteRatingsProvider } from "./components/routeratings/RouteRatingsProvider";
+import { AreaDetails } from "./components/areas/AreaDetails";
 
 export const ApplicationViews = () => {
   return (
@@ -90,6 +92,7 @@ export const ApplicationViews = () => {
       </RouteProvider>
 
       <RouteProvider>
+        <RouteRatingsProvider>
         <TickListProvider>
           <ToDoListProvider>
         <CragProvider>
@@ -102,6 +105,7 @@ export const ApplicationViews = () => {
         </CragProvider>
         </ToDoListProvider>
         </TickListProvider>
+        </RouteRatingsProvider>
       </RouteProvider>
 
       <GearProvider> 
@@ -162,6 +166,10 @@ export const ApplicationViews = () => {
           <AreaProvider>
           <Route exact path="/walls/create">
             <WallsForm />
+          </Route>
+
+          <Route exact path="/areas/detail/:areaId(\d+)">
+            <AreaDetails />
           </Route>
           </AreaProvider>
         </CragProvider>

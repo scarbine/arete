@@ -25,9 +25,13 @@ export const ToDoCard = ({ todo }) => {
 
   const fullName = `${todo.climber.firstName} ${todo.climber.lastName}`
 
+//   const handleTodoClick = () => {
+//     history.push(`/routes/detail/${todo.route.id}`);
+//   };
+
   const handleTodoClick = () => {
-    history.push(`/routes/detail/${todo.route.id}`);
-  };
+	history.push(`/climbers/detail/${todo.climber.id}`);
+      };
   return (
     <>{(climberId ? (
       <div className="todo_list_details">

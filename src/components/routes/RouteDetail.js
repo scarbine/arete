@@ -6,6 +6,7 @@ import { TickListContext } from "../ticklist/TickListProvider";
 import { ToDoListContext, ToDoListProvider } from "../todo/ToDoProvider";
 import { TickList } from "../ticklist/TickList";
 import { ToDoList } from "../todo/ToDoList";
+import { RouteRatingList } from "../routeratings/RouteRatingList";
 
 export const RouteDetail = () => {
   const { route, getRouteById } = useContext(RoutesContext);
@@ -59,6 +60,7 @@ export const RouteDetail = () => {
           <div className="route_detail">{route?.wall.name}</div>
           <div className="route_detail"> {route?.area.name}</div>
           <div className="route_detail">{route?.crag.name}</div>
+          <RouteRatingList />
         </section>
         <section className="routes routes_tick_list_container">
           <TickList />
