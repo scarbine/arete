@@ -3,6 +3,7 @@ import { RoutesContext } from "./RouteProvider";
 import { TickListContext } from "../ticklist/TickListProvider";
 import { ToDoListContext } from "../todo/ToDoProvider";
 import { useHistory } from "react-router";
+import Swal from "sweetalert2";
 import "./Routes.css";
 
 export const RouteCard = ({ route }) => {
@@ -13,20 +14,70 @@ export const RouteCard = ({ route }) => {
   const currentUser = parseInt(localStorage.getItem("arete_customer"));
 
   const handleAddTick = () => {
+
+
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You want to tick this route!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, Tick it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const newTick = {
+          climberId: currentUser,
+          routeId: route.id,
+          dateCompleted: Date.now(),
+        };
+        addTick(newTick).then(
+        Swal.fire(
+          'Ticked!',
+          'Your Tick has been Added.',
+          'success'
+        ))
+      }
+    })
    
-    const newTick = {
-      climberId: currentUser,
-      routeId: route.id,
-      dateCompleted: Date.now(),
-    };
-    addTick(newTick).then(window.alert("Your Tick has been added"));
+    // const newTick = {
+    //   climberId: currentUser,
+    //   routeId: route.id,
+    //   dateCompleted: Date.now(),
+    // };
+    // addTick(newTick).then(window.alert("Your Tick has been added"));
   };
   const handleAddToDo = () => {
-    const newToDo = {
-      climberId: currentUser,
-      routeId: route.id,
-    };
-    addTodo(newToDo).then(window.alert("Your ToDo has been added"));
+
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You want to add this route!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, Add Todo!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const newToDo = {
+          climberId: currentUser,
+          routeId: route.id,
+        };
+        addTodo(newToDo)
+      .then(
+        Swal.fire(
+          'Ticked!',
+          'Your Todo has been Added.',
+          'success'
+        ))
+      }
+    })
+
+    // const newToDo = {
+    //   climberId: currentUser,
+    //   routeId: route.id,
+    // };
+    // addTodo(newToDo).then(window.alert("Your ToDo has been added"));
   };
 
 const handleOnClick = () => {

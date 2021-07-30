@@ -31,11 +31,11 @@ const {areaId} =useParams()
 	return (
 		<> 
 		<div>
-			{/* {area.id} */}
+			
 		</div>
 		<div> {(filteredWalls !== undefined ? (
 			filteredWalls.map((wall)=>{
-				return <WallCard key={walls.id} wall={wall} />
+				return <WallCard key={wall.id} wall={wall} />
 			})) : (
 				<>
 				<div>There are no Walls yet in this area.</div>

@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { useParams, useHistory, Link } from "react-router-dom";
 import { TickListContext } from "./TickListProvider";
+import Swal from "sweetalert2";
 import "./Ticks.css";
 
 export const TickListCard = ({ tick }) => {
@@ -21,24 +22,47 @@ export const TickListCard = ({ tick }) => {
   const year = date.getFullYear();
   const month = date.getMonth() + 1;
   const day = date.getDate();
-  // console.log(year, month, day);
+ 
+
+  const currentUser = localStorage.getItem("arete_customer")
 
   const handleDeleteTick = () => {
-    deleteTick(tick.id);
+
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You want to delete this tick!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, Delete Tick!'
+          }).then((result) => {
+      if (result.isConfirmed) {
+       
+  
+        deleteTick(tick.id)
+        .then(Swal.fire(
+          'Added!',
+          'Your Tick has been deleted.',
+          'success'
+        ))
+      }
+          })
+
+
   };
 
   return (
     <>
       {climberId ? (
-        <div className="tick_list_details">
+        <>
+      <div className="tick_list_details">
           <button className=" btn tick" onClick={handleTickClick}>
             <div className="tick_detail">{tick.route.routeName}</div>
           </button>
-          {/* <div className="tick_detail">{`${month}/${day}/${year}`}</div> */}
-          {/* <button className="remove_tick_btn btn" onClick={handleDeleteTick}>
-            Remove
-          </button> */}
-          {/* <svg
+        
+          {/* {tick.climberId === parseInt(currentUser) ? (
+          <svg
             xmlns="http://www.w3.org/2000/svg"
             
             width="16"
@@ -49,17 +73,19 @@ export const TickListCard = ({ tick }) => {
             onClick={handleDeleteTick}
           >
             <path d="M1.293 1.293a1 1 0 0 1 1.414 0L8 6.586l5.293-5.293a1 1 0 1 1 1.414 1.414L9.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414L8 9.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L6.586 8 1.293 2.707a1 1 0 0 1 0-1.414z" />
-          </svg> */}
+          </svg>) : ( <></> )} */}
         </div>
+        </>
       ) : (
+        <>
         <div className="tick_list_details">
           <div className="tick btn" onClick={handleOnClick}>
-            <div className="tick_detail">
-              {tick.climber.firstName} {tick.climber.lastName}
-            </div>
-            {/* <div className="tick_detail">{`${month}/${day}/${year}`}</div> */}
+            <div className="tick_detail">{tick.climber.firstName} {tick.climber.lastName}</div>
           </div>
-          {/* <svg
+          </div>
+          </>
+          /* {  tick.climberId === parseInt(currentUser) ? ( 
+          <svg
             xmlns="http://www.w3.org/2000/svg"
             
             width="16"
@@ -70,11 +96,11 @@ export const TickListCard = ({ tick }) => {
             onClick={handleDeleteTick}
           >
             <path d="M1.293 1.293a1 1 0 0 1 1.414 0L8 6.586l5.293-5.293a1 1 0 1 1 1.414 1.414L9.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414L8 9.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L6.586 8 1.293 2.707a1 1 0 0 1 0-1.414z" />
-          </svg> */}
-     
+          </svg>
+         
+       ) : <></> }  */
 
-        </div>
-      )}
-    </>
-  );
-};
+     )}
+
+  </>
+  )}

@@ -109,3 +109,11 @@
   display: flex;
   margin: 2rem;
 }
+
+.route_detail_body{
+  display: flex;
+}
+
+.ticks_todos_container{
+  flex-basis: 25%;
+}

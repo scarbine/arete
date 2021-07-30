@@ -15,8 +15,20 @@
 
 .add_remove_btn{
 	display: flex;
+	flex-wrap: nowrap;
+	padding-top: .75rem;
 }
 
 .todo_list{
 	margin:3rem 0rem 0rem 0rem;
+	
+}
+
+.todo_add_tick_btn{
+	cursor: pointer;
+}
+
+.todo_item_wrapper{
+	display: flex;
+	justify-content: space-between;
 }

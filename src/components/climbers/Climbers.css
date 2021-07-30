@@ -3,7 +3,7 @@
   padding: 1rem;
   border: solid grey 0.05rem;
   display: flex;
-  flex-basis: 50%;
+  flex-basis: auto;
   vertical-align: bottom;
   display: flex;
   flex-direction: column;

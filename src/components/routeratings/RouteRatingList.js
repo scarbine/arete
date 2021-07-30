@@ -27,7 +27,7 @@ export const RouteRatingList = () => {
 		<>
 		{routeRatings.map(rating => {
 			return (
-				<RouteRatingCard key={rating.i} rating={rating} />
+				<RouteRatingCard key={rating.id} rating={rating} />
 			)
 		})}
 		</>
