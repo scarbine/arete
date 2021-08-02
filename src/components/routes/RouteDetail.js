@@ -8,6 +8,8 @@ import { TickList } from "../ticklist/TickList";
 import { ToDoList } from "../todo/ToDoList";
 import { RouteRatingList } from "../routeratings/RouteRatingList";
 import Swal from "sweetalert2/dist/sweetalert2.all";
+import { RouteCommentsList } from "../routecoments/RouteCommentsList";
+
 
 export const RouteDetail = () => {
   const { route, getRouteById } = useContext(RoutesContext);
@@ -113,6 +115,7 @@ export const RouteDetail = () => {
               <ToDoList />
             </section>
           </div>
+          <article>
           <section className="route_details">
             <div className="route_detail">{route.description}</div>
             <div className="route_detail">FA: {route.firstAscensionists}</div>
@@ -121,6 +124,10 @@ export const RouteDetail = () => {
             <div className="route_detail">{route?.crag.name}</div>
             <RouteRatingList />
           </section>
+          <section className="route_comments">
+          <RouteCommentsList />
+          </section>
+          </article>
         </div>
       </section>
     </>

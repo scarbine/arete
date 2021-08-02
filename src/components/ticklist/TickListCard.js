@@ -61,7 +61,7 @@ export const TickListCard = ({ tick }) => {
             <div className="tick_detail">{tick.route.routeName}</div>
           </button>
         
-          {/* {tick.climberId === parseInt(currentUser) ? (
+          {tick.climberId === parseInt(currentUser) ? (
           <svg
             xmlns="http://www.w3.org/2000/svg"
             
@@ -73,7 +73,7 @@ export const TickListCard = ({ tick }) => {
             onClick={handleDeleteTick}
           >
             <path d="M1.293 1.293a1 1 0 0 1 1.414 0L8 6.586l5.293-5.293a1 1 0 1 1 1.414 1.414L9.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414L8 9.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L6.586 8 1.293 2.707a1 1 0 0 1 0-1.414z" />
-          </svg>) : ( <></> )} */}
+          </svg>) : ( <></> )}
         </div>
         </>
       ) : (
@@ -83,8 +83,8 @@ export const TickListCard = ({ tick }) => {
             <div className="tick_detail">{tick.climber.firstName} {tick.climber.lastName}</div>
           </div>
           </div>
-          </>
-          /* {  tick.climberId === parseInt(currentUser) ? ( 
+          
+           {  tick.climberId === parseInt(currentUser) ? ( 
           <svg
             xmlns="http://www.w3.org/2000/svg"
             
@@ -98,7 +98,7 @@ export const TickListCard = ({ tick }) => {
             <path d="M1.293 1.293a1 1 0 0 1 1.414 0L8 6.586l5.293-5.293a1 1 0 1 1 1.414 1.414L9.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414L8 9.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L6.586 8 1.293 2.707a1 1 0 0 1 0-1.414z" />
           </svg>
          
-       ) : <></> }  */
+           ) : <></> }  </>
 
      )}
 

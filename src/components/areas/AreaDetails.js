@@ -11,7 +11,7 @@ export const AreaDetails = () => {
 const {area, getAreaById} = useContext(AreaContext)
 const {walls , getWalls} = useContext(WallContext)
 
-const [filteredWalls, setFilteredWalls] = useState()
+const [filteredWalls, setFilteredWalls] = useState([])
 
 
 const {areaId} =useParams()

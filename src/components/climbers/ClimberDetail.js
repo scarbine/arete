@@ -92,7 +92,7 @@ export const ClimberDetail = () => {
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
-      confirmButtonText: "Yes,remove them!",
+      confirmButtonText: "Yes, remove them!",
     }).then((result) => {
       if (result.isConfirmed) {
         setIsFriend(false)

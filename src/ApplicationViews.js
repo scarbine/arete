@@ -36,6 +36,7 @@ import { RouteSearch } from "./components/routes/RouteSearch";
 import { WallDetail } from "./components/walls/WallDetail";
 import { RouteRatingsProvider } from "./components/routeratings/RouteRatingsProvider";
 import { AreaDetails } from "./components/areas/AreaDetails";
+import { RouteCommentProvider } from "./components/routecoments/RouteCommentsProvider";
 
 export const ApplicationViews = () => {
   return (
@@ -93,6 +94,7 @@ export const ApplicationViews = () => {
 
       <RouteProvider>
         <RouteRatingsProvider>
+          <RouteCommentProvider>
         <TickListProvider>
           <ToDoListProvider>
         <CragProvider>
@@ -105,6 +107,7 @@ export const ApplicationViews = () => {
         </CragProvider>
         </ToDoListProvider>
         </TickListProvider>
+       </RouteCommentProvider>
         </RouteRatingsProvider>
       </RouteProvider>
 
