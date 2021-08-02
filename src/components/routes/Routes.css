@@ -117,3 +117,8 @@
 .ticks_todos_container{
   flex-basis: 25%;
 }
+
+.route_image{
+  height:200px;
+  width:auto;
+}

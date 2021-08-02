@@ -10,6 +10,7 @@ import { RouteRatingList } from "../routeratings/RouteRatingList";
 import Swal from "sweetalert2/dist/sweetalert2.all";
 import { RouteCommentsList } from "../routecoments/RouteCommentsList";
 import { useHistory } from "react-router-dom";
+import { RoutePicsList } from "./RoutesPicsList";
 
 
 export const RouteDetail = () => {
@@ -119,6 +120,7 @@ export const RouteDetail = () => {
           </div>
           <article>
           <section className="route_details">
+            <RoutePicsList />
             <button className="add_route_pics btn" onClick={handleAddRoutePics}>Add Pics</button>
             <div className="route_detail">{route.description}</div>
             <div className="route_detail">FA: {route.firstAscensionists}</div>

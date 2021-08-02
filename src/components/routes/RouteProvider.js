@@ -55,7 +55,7 @@ export const RouteProvider = (props) => {
   }
 
   const getRoutePics = () => {
-    return fetch ('http://localhost:8088/routePics')
+    return fetch ('http://localhost:8088/routePics?_expand=climber')
     .then(res=> res.json())
     .then(setRoutePics)
   }
