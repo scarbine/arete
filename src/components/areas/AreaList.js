@@ -27,6 +27,8 @@ export const AreaList = () => {
     history.push("areas/create");
   };
 
+
+
   return (
     <>
     <div className="area_list_header">
@@ -37,9 +39,11 @@ export const AreaList = () => {
 	<AreaSearch />
         {filteredAreas.map((area) => {
           return (
+           
             <AreaCard key={area.id} area={area}>
               {area.name}
             </AreaCard>
+           
           );
         })}
       </section>

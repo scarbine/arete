@@ -6,7 +6,7 @@
 	border: .3rem rgba(112, 128, 144, 0.575);
 }
 .tick_list_header{
-	text-align: center;
+	/* text-align: center; */
 }
 
 .btn{
@@ -17,6 +17,8 @@
 	justify-content: space-between;
 }
 
-
+.tick_list{
+	margin: 0rem 0rem 0rem 0rem;
+}
 
 

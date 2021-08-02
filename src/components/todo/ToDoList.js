@@ -46,7 +46,7 @@ export const ToDoList = ({climber}) => {
   return (
     <>
       <section className="todo_list">
-        <h3 className="todo_list_header">Todo List</h3>
+        <h4 className="todo_list_header">Todo List</h4>
         <div>
           {foundToDos?.map((todo) => {
             return <ToDoCard key={todo.id} todo={todo} />;

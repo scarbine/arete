@@ -18,7 +18,10 @@ export const FriendsProvider = (props) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(friendObj),
-    }).then(getFriends);
+    }).then((res)=>res.json())
+    .then((newFriend)=>{
+    return newFriend
+  })
   };
 
   const removeFriend = (id) => {

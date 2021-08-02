@@ -17,13 +17,13 @@ export const WallDetail =() => {
 	useEffect(() => {
 		getWallById(wallId)
 		.then(getRoutes)
-		// .then(console.log(wall,routes))
+	
 	}, [])
 	
 	
 	
 	const filteredRoutes = routes.filter(route=> route.wallId === wall.id)
-	// console.log("filteredRoutes",filteredRoutes , wall)
+	
 
 	const handleOnClick = () => {
 		history.push("/routes/create")

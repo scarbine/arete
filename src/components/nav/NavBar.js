@@ -1,8 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./NavBar.css";
+import { useHistory } from "react-router";
 
 export const NavBar = (props) => {
+
+  const history = useHistory()
+
+  const handleLogOut = ()=>{
+    localStorage.setItem("arete_customer", '')
+    history.push("/")
+  }
+
   return (
     <>
       <ul className="navbar">
@@ -35,6 +44,12 @@ export const NavBar = (props) => {
           <Link className="navbar_link" to="/gear">
             Gear Shop
           </Link>
+        </li>
+        <li className="navbar_item">
+          <div className="log_out" onClick={handleLogOut}>
+            Log Out
+            </div>
+          
         </li>
       </ul>
     </>

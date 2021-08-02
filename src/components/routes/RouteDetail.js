@@ -6,9 +6,15 @@ import { TickListContext } from "../ticklist/TickListProvider";
 import { ToDoListContext, ToDoListProvider } from "../todo/ToDoProvider";
 import { TickList } from "../ticklist/TickList";
 import { ToDoList } from "../todo/ToDoList";
+import { RouteRatingList } from "../routeratings/RouteRatingList";
+import Swal from "sweetalert2/dist/sweetalert2.all";
+import { RouteCommentsList } from "../routecoments/RouteCommentsList";
+import { useHistory } from "react-router-dom";
+import { RoutePicsList } from "./RoutesPicsList";
+
 
 export const RouteDetail = () => {
-  const { route, getRouteById } = useContext(RoutesContext);
+  const { route, getRouteById, setRouteId } = useContext(RoutesContext);
   const { addTick } = useContext(TickListContext);
   const { addTodo } = useContext(ToDoListContext);
 
@@ -19,27 +25,77 @@ export const RouteDetail = () => {
   const routeIdAsString = useParams();
   const routeId = parseInt(routeIdAsString.routeId);
 
+  const history = useHistory()
+
   useEffect(() => {
-    getRouteById(routeId)
-  
+    getRouteById(routeId);
   }, []);
 
   const handleAddTick = () => {
-    const newTick = {
-      climberId: currentUser,
-      routeId: route.id,
-      dateCompleted: Date.now(),
-    };
-    addTick(newTick);
+
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You want to tick this route!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, Tick it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const newTick = {
+          climberId: currentUser,
+          routeId: route.id,
+          dateCompleted: Date.now(),
+        };
+        addTick(newTick).then(
+        Swal.fire(
+          'Ticked!',
+          'Your Tick has been Added.',
+          'success'
+        ))
+      }
+    })
+
+    // const newTick = {
+    //   climberId: currentUser,
+    //   routeId: route.id,
+    //   dateCompleted: Date.now(),
+    // };
+    // addTick(newTick);
   };
   const handleAddToDo = () => {
-    const newToDo = {
-      climberId: currentUser,
-      routeId: route.id,
-    };
-    addTodo(newToDo)
-    // .then(window.alert("Your ToDo has been added"));
+
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You want to add this route!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, Add Todo!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const newToDo = {
+          climberId: currentUser,
+          routeId: route.id,
+        };
+        addTodo(newToDo)
+      .then(
+        Swal.fire(
+          'Ticked!',
+          'Your Todo has been Added.',
+          'success'
+        ))
+      }
+    }) 
   };
+
+  const handleAddRoutePics = () =>{
+
+   history.push("/routes/pics/upload")
+    setRouteId(routeId)
+  }
 
   return (
     <>
@@ -53,19 +109,31 @@ export const RouteDetail = () => {
             To-Do
           </button>
         </h3>
-        <section className="route_details">
-          <div className="route_detail">{route.description}</div>
-          <div className="route_detail">FA: {route.firstAscensionists}</div>
-          <div className="route_detail">{route?.wall.name}</div>
-          <div className="route_detail"> {route?.area.name}</div>
-          <div className="route_detail">{route?.crag.name}</div>
-        </section>
-        <section className="routes routes_tick_list_container">
-          <TickList />
-        </section>
-        <section className="routes routes_tick_list_container">
-          <ToDoList />
-        </section>
+        <div className="route_detail_body">
+          <div className="ticks_todos_container">
+            <section className="routes routes_tick_list_container">
+              <TickList />
+            </section>
+            <section className="routes routes_tick_list_container">
+              <ToDoList />
+            </section>
+          </div>
+          <article>
+          <section className="route_details">
+            <RoutePicsList />
+            <button className="add_route_pics btn" onClick={handleAddRoutePics}>Add Pics</button>
+            <div className="route_detail">{route.description}</div>
+            <div className="route_detail">FA: {route.firstAscensionists}</div>
+            <div className="route_detail">{route?.wall.name}</div>
+            <div className="route_detail"> {route?.area.name}</div>
+            <div className="route_detail">{route?.crag.name}</div>
+            <RouteRatingList />
+          </section>
+          <section className="route_comments">
+          <RouteCommentsList />
+          </section>
+          </article>
+        </div>
       </section>
     </>
   );

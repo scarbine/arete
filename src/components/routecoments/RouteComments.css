@@ -1,0 +1,12 @@
+.comment_card{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	/* flex-wrap: nowrap;  */
+	margin: 1rem 5rem 0rem 0rem;
+	
+}
+
+.comment_badge{
+	margin: 0rem 5rem 0rem 2rem
+}

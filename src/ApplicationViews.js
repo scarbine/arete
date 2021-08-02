@@ -34,6 +34,10 @@ import { AreaList } from "./components/areas/AreaList";
 import { NewAreaForm } from "./components/areas/NewAreaForm";
 import { RouteSearch } from "./components/routes/RouteSearch";
 import { WallDetail } from "./components/walls/WallDetail";
+import { RouteRatingsProvider } from "./components/routeratings/RouteRatingsProvider";
+import { AreaDetails } from "./components/areas/AreaDetails";
+import { RouteCommentProvider } from "./components/routecoments/RouteCommentsProvider";
+import { UploadRoutePics } from "./components/routes/UploadRoutePics";
 
 export const ApplicationViews = () => {
   return (
@@ -90,18 +94,24 @@ export const ApplicationViews = () => {
       </RouteProvider>
 
       <RouteProvider>
+        <RouteRatingsProvider>
+          <RouteCommentProvider>
         <TickListProvider>
           <ToDoListProvider>
         <CragProvider>
           <GradesProvider>
             <Route exact path="/routes/detail/:routeId(\d+)">
               <RouteDetail />
-              
+            </Route>
+            <Route exact path="/routes/pics/upload">
+              <UploadRoutePics />
             </Route>
           </GradesProvider>
         </CragProvider>
         </ToDoListProvider>
         </TickListProvider>
+       </RouteCommentProvider>
+        </RouteRatingsProvider>
       </RouteProvider>
 
       <GearProvider> 
@@ -162,6 +172,10 @@ export const ApplicationViews = () => {
           <AreaProvider>
           <Route exact path="/walls/create">
             <WallsForm />
+          </Route>
+
+          <Route exact path="/areas/detail/:areaId(\d+)">
+            <AreaDetails />
           </Route>
           </AreaProvider>
         </CragProvider>

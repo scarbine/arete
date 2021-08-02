@@ -20,3 +20,12 @@
 	text-decoration: none;
 	list-style-type: none;
 }
+
+.log_out{
+  cursor: pointer;
+  color: #0d6efd
+}
+
+.log_out:hover{
+  opacity: 70%;
+}
