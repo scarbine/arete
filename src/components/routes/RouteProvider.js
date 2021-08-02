@@ -1,4 +1,5 @@
 import React, { useState, createContext } from "react";
+// import { RoutePicsContext } from "../routepics/RoutePicsProvider";
 
 export const RoutesContext = createContext();
 
@@ -10,6 +11,9 @@ export const RouteProvider = (props) => {
     crag:{},
     wallGrade:{}
   })
+
+  const [routeId, setRouteId] = useState(0)
+  const [routePics, setRoutePics] = useState([])
 
   const [ searchTerms, setSearchTerms] = useState("")
 
@@ -50,8 +54,24 @@ export const RouteProvider = (props) => {
     // .then(console.log("RoutesProvider: route:", route))
   }
 
+  const getRoutePics = () => {
+    return fetch ('http://localhost:8088/routePics')
+    .then(res=> res.json())
+    .then(setRoutePics)
+  }
+
+  const addRoutePic = (routePicObj) => {
+    return fetch ('http://localhost:8088/routePics',{
+      method:"POST",
+      headers:{
+        "Content-Type" :"application/json"
+      },
+      body:JSON.stringify(routePicObj)
+    }).then(getRoutePics)
+  }
+
   return (
-    <RoutesContext.Provider value={{ route, routes, addRoute, getRoutes, updateRoute, getRouteById, searchTerms, setSearchTerms }}>
+    <RoutesContext.Provider value={{ route, routes, routeId, setRouteId,routePics, addRoutePic, getRoutePics, addRoute, getRoutes, updateRoute, getRouteById, searchTerms, setSearchTerms }}>
       {props.children}
     </RoutesContext.Provider>
   );

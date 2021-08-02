@@ -9,10 +9,11 @@ import { ToDoList } from "../todo/ToDoList";
 import { RouteRatingList } from "../routeratings/RouteRatingList";
 import Swal from "sweetalert2/dist/sweetalert2.all";
 import { RouteCommentsList } from "../routecoments/RouteCommentsList";
+import { useHistory } from "react-router-dom";
 
 
 export const RouteDetail = () => {
-  const { route, getRouteById } = useContext(RoutesContext);
+  const { route, getRouteById, setRouteId } = useContext(RoutesContext);
   const { addTick } = useContext(TickListContext);
   const { addTodo } = useContext(ToDoListContext);
 
@@ -22,6 +23,8 @@ export const RouteDetail = () => {
 
   const routeIdAsString = useParams();
   const routeId = parseInt(routeIdAsString.routeId);
+
+  const history = useHistory()
 
   useEffect(() => {
     getRouteById(routeId);
@@ -85,14 +88,13 @@ export const RouteDetail = () => {
         ))
       }
     }) 
-
-    // const newToDo = {
-    //   climberId: currentUser,
-    //   routeId: route.id,
-    // };
-    // addTodo(newToDo);
-    // .then(window.alert("Your ToDo has been added"));
   };
+
+  const handleAddRoutePics = () =>{
+
+   history.push("/routes/pics/upload")
+    setRouteId(routeId)
+  }
 
   return (
     <>
@@ -117,6 +119,7 @@ export const RouteDetail = () => {
           </div>
           <article>
           <section className="route_details">
+            <button className="add_route_pics btn" onClick={handleAddRoutePics}>Add Pics</button>
             <div className="route_detail">{route.description}</div>
             <div className="route_detail">FA: {route.firstAscensionists}</div>
             <div className="route_detail">{route?.wall.name}</div>

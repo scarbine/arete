@@ -37,6 +37,7 @@ import { WallDetail } from "./components/walls/WallDetail";
 import { RouteRatingsProvider } from "./components/routeratings/RouteRatingsProvider";
 import { AreaDetails } from "./components/areas/AreaDetails";
 import { RouteCommentProvider } from "./components/routecoments/RouteCommentsProvider";
+import { UploadRoutePics } from "./components/routes/UploadRoutePics";
 
 export const ApplicationViews = () => {
   return (
@@ -101,7 +102,9 @@ export const ApplicationViews = () => {
           <GradesProvider>
             <Route exact path="/routes/detail/:routeId(\d+)">
               <RouteDetail />
-              
+            </Route>
+            <Route exact path="/routes/pics/upload">
+              <UploadRoutePics />
             </Route>
           </GradesProvider>
         </CragProvider>
