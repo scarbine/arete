@@ -13,10 +13,21 @@ export const RouteCommentProvider = (props) => {
 		.then(setRouteComments)
 	}
 
+	const addRouteComment = (RouteCommentObj) => {
+		return fetch('http://localhost:8088/routeComments',{
+			method:"POST",
+			headers: {
+				"Content-Type" : "application/json"
+			},
+			body: JSON.stringify(RouteCommentObj),
+		
+		}).then(getRouteComments)
+	}
+
 
 	return(
 		<>
-		<RouteCommentsContext.Provider value={{routeComments, getRouteComments}}>
+		<RouteCommentsContext.Provider value={{routeComments, getRouteComments, addRouteComment}}>
 			{props.children}
 		</RouteCommentsContext.Provider>
 		</>
