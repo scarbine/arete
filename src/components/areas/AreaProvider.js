@@ -7,7 +7,9 @@ export const AreaProvider = (props) => {
 	 
   ]);
 
-  const [area, setArea] = useState([])
+  const [area, setArea] = useState({
+    crag:{}
+  })
 
   const [searchTerms, setSearchTerms] = useState("")
 
@@ -28,7 +30,7 @@ export const AreaProvider = (props) => {
   }
 
   const getAreaById = (id) =>{
-    return fetch(`http://localhost:8088/areas/${id}`)
+    return fetch(`http://localhost:8088/areas/${id}?_expand=crag`)
     .then(res => res.json())
     .then(setArea)
   }

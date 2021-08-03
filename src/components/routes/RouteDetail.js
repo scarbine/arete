@@ -13,6 +13,9 @@ import { useHistory } from "react-router-dom";
 import { RoutePicsList } from "./RoutesPicsList";
 import ImageGallery from 'react-image-gallery'
 import { RouteCommentsContext } from "../routecoments/RouteCommentsProvider";
+import ReactStars from "react-rating-stars-component"
+import { RouteRatingsContext } from "../routeratings/RouteRatingsProvider";
+import { RouteRatingAverage } from "../routeratings/RouteRatingAverage";
 
 
 
@@ -22,6 +25,7 @@ export const RouteDetail = () => {
   const { addTick } = useContext(TickListContext);
   const { addTodo } = useContext(ToDoListContext);
   const {addRouteComment} = useContext(RouteCommentsContext)
+  const {addRouteRating} = useContext(RouteRatingsContext)
 
   const currentUser = parseInt(localStorage.getItem("arete_customer"));
 
@@ -29,11 +33,14 @@ export const RouteDetail = () => {
   const routeId = parseInt(routeIdAsString.routeId);
   const thumbWidth ="250"
 	// const thumbHeight = "150"
+  const fullWidth = "750"
 
-	const fullWidth = "1000"
+const [galleryImages, setGalleryImages]= useState([])
+const [routeRating, setRouteRating] = useState(0)
   
 
   const history = useHistory()
+ 
 
   useEffect(() => {
     getRouteById(routeId);
@@ -51,9 +58,9 @@ export const RouteDetail = () => {
 		
 	},[routePics, routeId])
 
-  const images =[]
-
+  
 	useEffect(()=>{
+    const images =[]
 		filteredPics.map(routePic => {
 			const [frontURL, endURL] =routePic.picURL.split('upload/')
 			const picObj = {
@@ -62,6 +69,7 @@ export const RouteDetail = () => {
 			}
 			images.push(picObj)
 			console.log(frontURL, endURL, picObj)
+      setGalleryImages(images)
 			return images
 		})
 		console.log("images", images)
@@ -128,6 +136,7 @@ export const RouteDetail = () => {
 
    history.push("/routes/pics/upload")
     setRouteId(routeId)
+    
   }
 
 
@@ -155,6 +164,18 @@ export const RouteDetail = () => {
     })
 
   };
+
+  const ratingChanged = (newRating) =>{
+    setRouteRating(newRating)
+    const routeRatingObj = {
+      climberId: currentUser,
+      routeId: route.id,
+      rating: newRating,
+      ratingDate: Date.now()
+    }
+    addRouteRating(routeRatingObj)
+    
+  }
 
   return (
     <>
@@ -191,10 +212,12 @@ export const RouteDetail = () => {
            
           <div className="route_pics">
          
-            <ImageGallery items={images} />
+            <ImageGallery items={galleryImages} />
       </div>
             <div className="route_detail">{route.description}</div>
             {/* <RouteRatingList /> */}
+            <RouteRatingAverage routeId={routeId} />
+            <ReactStars count={5} onChange={ratingChanged} size={24} activeColor="#ffd700" value={routeRating} isHalf={true}/>
           </section>
           <section className="route_comments">
           <RouteCommentsList />

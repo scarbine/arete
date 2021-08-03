@@ -19,10 +19,18 @@ export const RouteRatingsProvider = (props) => {
 			method:"DELETE"
 		}).then(getRouteRatings)
 	}
-
+	const addRouteRating = (ratingObj) => {
+		return fetch("http://localhost:8088/routeRating",{
+		method:"POST",
+		headers:{
+			"Content-Type": "application/json",
+		},
+		body: JSON.stringify(ratingObj)})
+		.then(getRouteRatings)
+	}
 	return(
 		<>
-		<RouteRatingsContext.Provider value={{routeRatings, getRouteRatings, deleteRouteRating}}>
+		<RouteRatingsContext.Provider value={{routeRatings, getRouteRatings, deleteRouteRating, addRouteRating}}>
 			{props.children}
 		</RouteRatingsContext.Provider>
 

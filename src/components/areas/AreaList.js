@@ -4,10 +4,12 @@ import { AreaCard } from "./AreaCard";
 import { useHistory } from "react-router-dom";
 import "./Area.css";
 import { AreaSearch } from "./AreaSearch";
+import { WeatherContext } from "../weather/WeatherProvider";
 
 export const AreaList = () => {
   const { areas, getAreas, searchTerms } = useContext(AreaContext);
   const [filteredAreas, setFilteredAreas] = useState([])
+
   const history = useHistory();
 
   useEffect(() => {
@@ -27,7 +29,7 @@ export const AreaList = () => {
     history.push("areas/create");
   };
 
-
+ 
 
   return (
     <>

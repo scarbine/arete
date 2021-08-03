@@ -34,7 +34,7 @@ export const UploadRoutePics = () => {
 		
 	}).then(history.push(`/routes/detail/${routeId}`))
 }
-
+	// const reader = new FileReader()
 
 	return(
 		<>
@@ -43,6 +43,8 @@ export const UploadRoutePics = () => {
 			<input type="file" onChange={(event) => {
 				setImageSelected(event.target.files[0])	
 			}}></input>
+			{/* <img src={reader.readAsDataURL(imageSelected)} alt="preview" /> */}
+			
 			<div className="btn"onClick={handleAddFile}>Upload Image</div>
 		</form>
 		</>
