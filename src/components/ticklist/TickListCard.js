@@ -42,7 +42,7 @@ export const TickListCard = ({ tick }) => {
   
         deleteTick(tick.id)
         .then(Swal.fire(
-          'Added!',
+          'Deleted!',
           'Your Tick has been deleted.',
           'success'
         ))

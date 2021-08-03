@@ -53,9 +53,9 @@ export const ToDoCard = ({ todo }) => {
 
   const fullName = `${todo.climber.firstName} ${todo.climber.lastName}`
 
-//   const handleTodoClick = () => {
-//     history.push(`/routes/detail/${todo.route.id}`);
-//   };
+  const handleTodoClickOnClimber = () => {
+    history.push(`/routes/detail/${todo.route.id}`);
+  };
 
   const handleTodoClick = () => {
 	history.push(`/climbers/detail/${todo.climber.id}`);
@@ -63,7 +63,7 @@ export const ToDoCard = ({ todo }) => {
   return (
     <><div className="todo_item_wrapper">{(climberId ? (
       <div className="todo_list_details">
-        <button className="btn" onClick={handleTodoClick}>
+        <button className="btn" onClick={handleTodoClickOnClimber}>
           <div>{todo.route.routeName}</div>
         </button>
 	</div>):(<div className="todo_list_details">
@@ -72,17 +72,6 @@ export const ToDoCard = ({ todo }) => {
         </button>
 	</div>))}
         <div className="add_remove_btn">
-          {/* <svg
-            xmlns="http://www.w3.org/2000/svg"
-            onClick={removeTodo}
-            width="16"
-            height="16"
-            fill="currentColor"
-            className="bi bi-x-lg todo_remove_btn"
-            viewBox="0 0 16 16"
-          >
-            <path d="M1.293 1.293a1 1 0 0 1 1.414 0L8 6.586l5.293-5.293a1 1 0 1 1 1.414 1.414L9.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414L8 9.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L6.586 8 1.293 2.707a1 1 0 0 1 0-1.414z" />
-          </svg> */}
 	{(todo.climberId === parseInt(currentUser) ? (
           <svg
             xmlns="http://www.w3.org/2000/svg"

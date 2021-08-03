@@ -42,8 +42,8 @@ export const ClimberGearList = () => {
 
         {/* <button className="btn">Edit Gear List</button>
    <button onClick={()=>history.push("/gear")}className="btn">Add New Gear</button> */}
-        <section className="outer-wrapper">
-          <div className="wrapper">
+        <section className="outer-wrapper horizontal-slider-container">
+          <div className="wrapper horizonal-slider">
             {sortedFoundGear.length === 0 ? (
               <>
                 <div>Gear Bag Empty</div>
