@@ -11,12 +11,17 @@ import Swal from "sweetalert2/dist/sweetalert2.all";
 import { RouteCommentsList } from "../routecoments/RouteCommentsList";
 import { useHistory } from "react-router-dom";
 import { RoutePicsList } from "./RoutesPicsList";
+import ImageGallery from 'react-image-gallery'
+import { RouteCommentsContext } from "../routecoments/RouteCommentsProvider";
+
+
 
 
 export const RouteDetail = () => {
   const { route, getRouteById, setRouteId } = useContext(RoutesContext);
   const { addTick } = useContext(TickListContext);
   const { addTodo } = useContext(ToDoListContext);
+  const {addRouteComment} = useContext(RouteCommentsContext)
 
   const currentUser = parseInt(localStorage.getItem("arete_customer"));
 
@@ -97,6 +102,45 @@ export const RouteDetail = () => {
     setRouteId(routeId)
   }
 
+  // const images = [ {
+  //   original: 'https://picsum.photos/id/1018/1000/600/',
+  //   thumbnail: 'https://picsum.photos/id/1018/250/150/',
+  // },
+  // {
+  //   original: 'https://picsum.photos/id/1015/1000/600/',
+  //   thumbnail: 'https://picsum.photos/id/1015/250/150/',
+  // },
+  // {
+  //   original: 'https://picsum.photos/id/1019/1000/600/',
+  //   thumbnail: 'https://picsum.photos/id/1019/250/150/',
+  // }
+  // ]
+
+  const handleAddComment = () => {
+    Swal.fire({
+      title: "Submit your Comment",
+      input: "textarea",
+      inputAttributes: {
+        autocapitalize: "off",
+      },
+      showCancelButton: true,
+      confirmButtonText: "Submit",
+      showLoaderOnConfirm: true,
+      preConfirm: (text) => {
+        const comment = {
+          comment: text,
+          dateAdded: Date.now(),
+          climberId: parseInt(currentUser),
+          routeId: parseInt(routeId),
+        };
+        addRouteComment(comment);
+        console.log(comment);
+      },
+      allowOutsideClick: () => !Swal.isLoading(),
+    })
+
+  };
+
   return (
     <>
       <section className="route_info">
@@ -108,6 +152,8 @@ export const RouteDetail = () => {
           <button className="btn" onClick={handleAddToDo}>
             To-Do
           </button>
+            <button className="add_route_pics btn" onClick={handleAddRoutePics}>Add Pics</button>
+            <button className="btn" onClick={handleAddComment}>Comment</button>
         </h3>
         <div className="route_detail_body">
           <div className="ticks_todos_container">
@@ -120,8 +166,10 @@ export const RouteDetail = () => {
           </div>
           <article>
           <section className="route_details">
+           
+            {/* <ImageGallery items={images} /> */}
             <RoutePicsList />
-            <button className="add_route_pics btn" onClick={handleAddRoutePics}>Add Pics</button>
+      
             <div className="route_detail">{route.description}</div>
             <div className="route_detail">FA: {route.firstAscensionists}</div>
             <div className="route_detail">{route?.wall.name}</div>
