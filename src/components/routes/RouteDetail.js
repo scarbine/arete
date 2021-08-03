@@ -31,6 +31,8 @@ export const RouteDetail = () => {
 	// const thumbHeight = "150"
 
 	const fullWidth = "1000"
+
+const [galleryImages, setGalleryImages]= useState([])
   
 
   const history = useHistory()
@@ -51,9 +53,9 @@ export const RouteDetail = () => {
 		
 	},[routePics, routeId])
 
-  const images =[]
-
+  
 	useEffect(()=>{
+    const images =[]
 		filteredPics.map(routePic => {
 			const [frontURL, endURL] =routePic.picURL.split('upload/')
 			const picObj = {
@@ -62,6 +64,7 @@ export const RouteDetail = () => {
 			}
 			images.push(picObj)
 			console.log(frontURL, endURL, picObj)
+      setGalleryImages(images)
 			return images
 		})
 		console.log("images", images)
@@ -191,7 +194,7 @@ export const RouteDetail = () => {
            
           <div className="route_pics">
          
-            <ImageGallery items={images} />
+            <ImageGallery items={galleryImages} />
       </div>
             <div className="route_detail">{route.description}</div>
             {/* <RouteRatingList /> */}
