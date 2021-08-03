@@ -109,9 +109,9 @@ const handleEditRoute = () => {
           <button onClick={handleAddToDo} className=" btn button">
             To-Do
           </button>
-          <button onClick={handleEditRoute} className=" btn button">
+          {/* <button onClick={handleEditRoute} className=" btn button">
             Edit
-          </button>
+          </button> */}
           </div>
         </div>
     </>

@@ -38,11 +38,12 @@ export const UploadRoutePics = () => {
 
 	return(
 		<>
-		<form>
+		<form className="form submit_pic">
+			<h5>Choose Your Image to Upload</h5>
 			<input type="file" onChange={(event) => {
 				setImageSelected(event.target.files[0])	
 			}}></input>
-			<div onClick={handleAddFile}>Upload Image</div>
+			<div className="btn"onClick={handleAddFile}>Upload Image</div>
 		</form>
 		</>
 	)

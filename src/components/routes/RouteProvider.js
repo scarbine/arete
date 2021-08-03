@@ -14,6 +14,7 @@ export const RouteProvider = (props) => {
 
   const [routeId, setRouteId] = useState(0)
   const [routePics, setRoutePics] = useState([])
+  const [filteredPics, setFilteredPics] =useState([])
 
 
 
@@ -73,7 +74,7 @@ export const RouteProvider = (props) => {
   }
 
   return (
-    <RoutesContext.Provider value={{ route, routes, routeId, setRouteId,routePics, addRoutePic, getRoutePics, addRoute, getRoutes, updateRoute, getRouteById, searchTerms, setSearchTerms }}>
+    <RoutesContext.Provider value={{ filteredPics, setFilteredPics,route, routes, routeId, setRouteId,routePics, addRoutePic, getRoutePics, addRoute, getRoutes, updateRoute, getRouteById, searchTerms, setSearchTerms }}>
       {props.children}
     </RoutesContext.Provider>
   );

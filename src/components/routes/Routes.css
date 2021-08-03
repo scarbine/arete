@@ -128,7 +128,26 @@
   width:auto;
 }
 
-/* .image_gallery{
+.image_gallery{
   width: 450px;
   height: auto;
-} */
+}
+
+.submit_pic{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.route_pics{
+  display: flex;
+  flex-wrap: wrap;
+  overflow-x: scroll;
+  /* width:600px; */
+
+}
+
+.route_about{
+  margin:2rem;
+}

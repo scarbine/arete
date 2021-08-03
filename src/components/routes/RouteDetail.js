@@ -18,23 +18,58 @@ import { RouteCommentsContext } from "../routecoments/RouteCommentsProvider";
 
 
 export const RouteDetail = () => {
-  const { route, getRouteById, setRouteId } = useContext(RoutesContext);
+  const { route, getRouteById, setRouteId, filteredPics,getRoutePics, routePics, setFilteredPics } = useContext(RoutesContext);
   const { addTick } = useContext(TickListContext);
   const { addTodo } = useContext(ToDoListContext);
   const {addRouteComment} = useContext(RouteCommentsContext)
 
   const currentUser = parseInt(localStorage.getItem("arete_customer"));
 
-  // const [route, setRoute] = useState()
-
   const routeIdAsString = useParams();
   const routeId = parseInt(routeIdAsString.routeId);
+  const thumbWidth ="250"
+	// const thumbHeight = "150"
+
+	const fullWidth = "1000"
+  
 
   const history = useHistory()
 
   useEffect(() => {
     getRouteById(routeId);
   }, []);
+
+  useEffect(()=>{
+		getRoutePics()
+	},[])
+	
+	useEffect(()=>{
+		const filtered = routePics.filter(rp => rp.routeId === parseInt(routeId))
+		console.log(filtered)
+		setFilteredPics(filtered)
+		
+		
+	},[routePics, routeId])
+
+  const images =[]
+
+	useEffect(()=>{
+		filteredPics.map(routePic => {
+			const [frontURL, endURL] =routePic.picURL.split('upload/')
+			const picObj = {
+				original:`${frontURL}upload/c_scale,w_${fullWidth}/${endURL}`,
+				thumbnail:`${frontURL}upload/c_scale,w_${thumbWidth}/${endURL}`
+			}
+			images.push(picObj)
+			console.log(frontURL, endURL, picObj)
+			return images
+		})
+		console.log("images", images)
+	},[filteredPics])
+
+
+  
+
 
   const handleAddTick = () => {
 
@@ -61,13 +96,6 @@ export const RouteDetail = () => {
         ))
       }
     })
-
-    // const newTick = {
-    //   climberId: currentUser,
-    //   routeId: route.id,
-    //   dateCompleted: Date.now(),
-    // };
-    // addTick(newTick);
   };
   const handleAddToDo = () => {
 
@@ -102,19 +130,6 @@ export const RouteDetail = () => {
     setRouteId(routeId)
   }
 
-  // const images = [ {
-  //   original: 'https://picsum.photos/id/1018/1000/600/',
-  //   thumbnail: 'https://picsum.photos/id/1018/250/150/',
-  // },
-  // {
-  //   original: 'https://picsum.photos/id/1015/1000/600/',
-  //   thumbnail: 'https://picsum.photos/id/1015/250/150/',
-  // },
-  // {
-  //   original: 'https://picsum.photos/id/1019/1000/600/',
-  //   thumbnail: 'https://picsum.photos/id/1019/250/150/',
-  // }
-  // ]
 
   const handleAddComment = () => {
     Swal.fire({
@@ -157,6 +172,13 @@ export const RouteDetail = () => {
         </h3>
         <div className="route_detail_body">
           <div className="ticks_todos_container">
+            <div className="route_about">
+            <h4>About</h4>
+            <div className="route_detail">FA: {route.firstAscensionists}</div>
+            <div className="route_detail">{route?.wall.name}</div>
+            <div className="route_detail"> {route?.area.name}</div>
+            <div className="route_detail">{route?.crag.name}</div>
+            </div>
             <section className="routes routes_tick_list_container">
               <TickList />
             </section>
@@ -167,15 +189,12 @@ export const RouteDetail = () => {
           <article>
           <section className="route_details">
            
-            {/* <ImageGallery items={images} /> */}
-            <RoutePicsList />
-      
+          <div className="route_pics">
+         
+            <ImageGallery items={images} />
+      </div>
             <div className="route_detail">{route.description}</div>
-            <div className="route_detail">FA: {route.firstAscensionists}</div>
-            <div className="route_detail">{route?.wall.name}</div>
-            <div className="route_detail"> {route?.area.name}</div>
-            <div className="route_detail">{route?.crag.name}</div>
-            <RouteRatingList />
+            {/* <RouteRatingList /> */}
           </section>
           <section className="route_comments">
           <RouteCommentsList />
