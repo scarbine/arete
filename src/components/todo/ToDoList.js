@@ -2,46 +2,37 @@ import React, { useContext, useEffect, useState } from "react";
 import { ToDoListContext } from "./ToDoProvider";
 import { ToDoCard } from "./ToDoCard";
 import { useParams } from "react-router";
-// import "./ToDo.css"
 
-export const ToDoList = ({climber}) => {
+
+export const ToDoList = ({ climber }) => {
   const { todos, getTodos } = useContext(ToDoListContext);
-  const [foundToDos, setFoundToDos] =useState()
+  const [foundToDos, setFoundToDos] = useState();
   const { climberId } = useParams();
-  const { routeId } = useParams()
-  // const filteredTodos = todos.filter(
-  //   (todo) => todo.climberId === parseInt(climberId)
-  // );
+  const { routeId } = useParams();
 
-  // const sortedToDos = filteredTodos.sort((a,b)=> b.id - a.id)
 
   useEffect(() => {
-    getTodos()
-   
+    getTodos();
   }, []);
 
   useEffect(() => {
     if (climber) {
-	
       const filteredByClimberIdToDos = todos.filter(
         (todo) => todo.climberId === parseInt(climberId)
       );
       const sorted = filteredByClimberIdToDos.sort((a, b) => b.id - a.id);
       setFoundToDos(sorted);
-      console.log("climber:todo", sorted);
     } else {
       const filteredByRouteToDos = todos.filter(
         (todo) => todo.routeId === parseInt(routeId)
       );
       const sorted = filteredByRouteToDos.sort((a, b) => b.id - a.id);
       setFoundToDos(sorted);
-      console.log("route:todo",sorted)
+      console.log("route:todo", sorted);
     }
-    climber = false
-    return climber
+    climber = false;
+    return climber;
   }, [climberId, todos]);
-
-  
 
   return (
     <>

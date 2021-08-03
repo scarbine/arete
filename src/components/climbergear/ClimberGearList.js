@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { ClimberGearContext } from "./ClimberGearProvider";
 import { ClimberGearCard } from "./ClimberGearCard";
 import { useParams, useHistory } from "react-router";
@@ -15,6 +15,7 @@ export const ClimberGearList = () => {
 
   const history = useHistory();
 
+
   useEffect(() => {
     getClimberGear();
   }, []);
@@ -22,6 +23,22 @@ export const ClimberGearList = () => {
   const foundGearList = climberGear?.filter((cGear) => id === cGear.climberId);
 
   const sortedFoundGear = foundGearList.sort((a, b) => b.id - a.id);
+
+  const [listStyleOuter, setListStyleOuter] = useState('')
+  const [listStyleInner, setListStyleInner] = useState('')
+
+  useEffect(()=>{
+
+    if (history.location.pathname.startsWith("/gear")){
+      setListStyleOuter("outer-wrapper")
+      setListStyleInner("wrapper")
+    }else{
+      setListStyleOuter("horizontal-slider-container")
+      setListStyleInner('horizonal-slider')
+    }
+    
+    
+  },[])
 
   return (
     <>
@@ -42,8 +59,8 @@ export const ClimberGearList = () => {
 
         {/* <button className="btn">Edit Gear List</button>
    <button onClick={()=>history.push("/gear")}className="btn">Add New Gear</button> */}
-        <section className="outer-wrapper horizontal-slider-container">
-          <div className="wrapper horizonal-slider">
+        <section className={listStyleOuter}>
+          <div className={listStyleInner}>
             {sortedFoundGear.length === 0 ? (
               <>
                 <div>Gear Bag Empty</div>

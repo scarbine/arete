@@ -44,11 +44,11 @@ export const ClimberDetail = () => {
     );
     setFound(foundFriend);
     
-    console.log("toggle",isFriend)
+  
   }, [filteredFriends]);
 
   useEffect(()=>{
-    console.log("newFriend?",found)
+
     if(found){
       setIsFriend(true)
     }

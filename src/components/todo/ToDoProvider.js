@@ -9,7 +9,6 @@ export const ToDoListProvider = (props) => {
     return fetch("http://localhost:8088/toDoList?_expand=climber&_expand=route")
       .then((res) => res.json())
       .then(setTodo)
-      // .then(console.log(todos));
   };
 
   const addTodo = (todoObj) => {
