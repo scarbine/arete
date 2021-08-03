@@ -1,3 +1,8 @@
+
+@import "~react-image-gallery/styles/css/image-gallery.css";
+
+
+
 .route {
   display: flex;
   flex-direction: row;
@@ -122,3 +127,8 @@
   height:200px;
   width:auto;
 }
+
+/* .image_gallery{
+  width: 450px;
+  height: auto;
+} */

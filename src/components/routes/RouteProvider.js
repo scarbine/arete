@@ -15,6 +15,8 @@ export const RouteProvider = (props) => {
   const [routeId, setRouteId] = useState(0)
   const [routePics, setRoutePics] = useState([])
 
+
+
   const [ searchTerms, setSearchTerms] = useState("")
 
   const getRoutes = () => {

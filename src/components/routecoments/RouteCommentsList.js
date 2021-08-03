@@ -25,36 +25,36 @@ export const RouteCommentsList = () => {
     console.log(routeComments, parseInt(routeId));
   }, [routeId, routeComments]);
 
-  const handleAddComment = () => {
-    Swal.fire({
-      title: "Submit your Comment",
-      input: "textarea",
-      inputAttributes: {
-        autocapitalize: "off",
-      },
-      showCancelButton: true,
-      confirmButtonText: "Submit",
-      showLoaderOnConfirm: true,
-      preConfirm: (text) => {
-        const comment = {
-          comment: text,
-          dateAdded: Date.now(),
-          climberId: parseInt(currentUser),
-          routeId: parseInt(routeId),
-        };
-        addRouteComment(comment);
-        console.log(comment);
-      },
-      allowOutsideClick: () => !Swal.isLoading(),
-    })
+//   const handleAddComment = () => {
+//     Swal.fire({
+//       title: "Submit your Comment",
+//       input: "textarea",
+//       inputAttributes: {
+//         autocapitalize: "off",
+//       },
+//       showCancelButton: true,
+//       confirmButtonText: "Submit",
+//       showLoaderOnConfirm: true,
+//       preConfirm: (text) => {
+//         const comment = {
+//           comment: text,
+//           dateAdded: Date.now(),
+//           climberId: parseInt(currentUser),
+//           routeId: parseInt(routeId),
+//         };
+//         addRouteComment(comment);
+//         console.log(comment);
+//       },
+//       allowOutsideClick: () => !Swal.isLoading(),
+//     })
 
-  };
+//   };
 
   return (
     <>
-      <button className="btn" onClick={handleAddComment}>
+      {/* <button className="btn" onClick={handleAddComment}>
         Add Comment
-      </button>
+      </button> */}
       {filteredRouteComments.map((routeComment) => {
         return (
           <RouteCommentsCard
