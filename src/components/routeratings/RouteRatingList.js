@@ -30,6 +30,7 @@ export const RouteRatingList = () => {
 				<RouteRatingCard key={rating.id} rating={rating} />
 			)
 		})}
+		<div>{routeRatings.length} { routeRatings.length === 1 ? <>climber</> : <>climbers</>} have rated this route.</div>
 		</>
 	)
 }

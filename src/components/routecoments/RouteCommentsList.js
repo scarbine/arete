@@ -55,7 +55,7 @@ export const RouteCommentsList = () => {
     <>
       {/* <button className="btn" onClick={handleAddComment}>
         Add Comment
-      </button> */}
+      </button> */}<h5>{filteredRouteComments.length} {filteredRouteComments.length === 1 || 0 ? <> Comment </> : <> Comments </> }</h5>
       {filteredRouteComments.map((routeComment) => {
         return (
           <RouteCommentsCard

@@ -153,3 +153,7 @@
 .route_about{
   margin:2rem;
 }
+
+.route_main_body{
+  width: 1250px;
+}
