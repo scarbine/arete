@@ -17,6 +17,7 @@ export const ClimberDetail = () => {
  
 
   const [filteredFriends, setFilteredFriends] = useState([]);
+  const [viewToggle, setViewToggle] = useState(1)
   const [found, setFound] = useState(null);
 
   const climberIdAsString = useParams();
@@ -54,6 +55,10 @@ export const ClimberDetail = () => {
       setIsFriend(true)
     }
   },[found])
+
+  useEffect(()=>{
+    console.log("useEffect", viewToggle)
+  },[viewToggle])
 
   const fullName = `${climber.firstName} ${climber.lastName}`;
 
@@ -127,15 +132,51 @@ export const ClimberDetail = () => {
     }
   };
 
+  const handleGearButtonClick = () => {
+    setViewToggle(1)
+    console.log(viewToggle)
+  }
+
+  const handlePicsButtonClick = () => {
+    setViewToggle(2)
+    console.log(viewToggle)
+  }
+
+  const handleFriendsButtonClick = () => {
+    setViewToggle(3)
+    console.log(viewToggle)
+  }
+
+
+  const climberView = () => {
+    
+    if(viewToggle === 1){
+      return <><ClimberGearList /></>
+    } else if(viewToggle === 2){
+      return <><div className="climber_pics"><ClimberPics /></div></>
+    } else{
+      return <FriendsList />
+    }
+    
+
+    
+  }
+
+
+
   return (
     <>
       <div className="climber_header">
         <h3>{fullName}</h3>
+        <div className="btn" onClick={handleGearButtonClick}>Gear</div>
+        <div className="btn" onClick={handlePicsButtonClick}>Pics</div>
+        <div className="btn" onClick={handleFriendsButtonClick}>Friends</div>
       </div>
       <article className="climber_detail_page">
+          <div className="left_bar">
+            <img className="climber_img" alt={fullName} src={climber.profile_pic} />
         <section className="climber">
           <div className="climber_badge">
-            {/* <img className="climber_img" alt={fullName} src={climber.profile_pic} /> */}
             <h3 className="climber_name">{climber.userName}</h3>
        
             {friendButton()}
@@ -161,11 +202,12 @@ export const ClimberDetail = () => {
           </div>
           <div></div>
         </section>
+        </div>
         <div className="climber_lists">
-          <ClimberPics />
-          <ClimberGearList />
-          <FriendsList />
-
+          {climberView()}
+         
+          
+      
         </div>
       </article>
     </>

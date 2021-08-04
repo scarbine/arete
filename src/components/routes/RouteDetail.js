@@ -33,7 +33,7 @@ export const RouteDetail = () => {
   const routeId = parseInt(routeIdAsString.routeId);
   const thumbWidth ="250"
 	// const thumbHeight = "150"
-  const fullWidth = "650"
+  const fullWidth = "1250"
 
 const [galleryImages, setGalleryImages]= useState([])
 const [routeRating, setRouteRating] = useState(0)
@@ -61,18 +61,17 @@ const [routeRating, setRouteRating] = useState(0)
 
   
 	useEffect(()=>{
-    const images =[]
-		filteredPics.map(routePic => {
+    const images = filteredPics.map(routePic => {
 			const [frontURL, endURL] =routePic.picURL.split('upload/')
 			const picObj = {
 				original:`${frontURL}upload/c_scale,w_${fullWidth}/${endURL}`,
 				thumbnail:`${frontURL}upload/c_scale,w_${thumbWidth}/${endURL}`
 			}
-			images.push(picObj)
-			console.log(frontURL, endURL, picObj)
-      setGalleryImages(images)
-			return images
+			// images.push(picObj)
+			// console.log(frontURL, endURL, picObj)
+			return picObj
 		})
+    setGalleryImages(images)
 		console.log("images", images)
 	},[filteredPics])
 

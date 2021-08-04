@@ -11,7 +11,7 @@ export const WallCard = ({ wall }) => {
    
   }
   return (
-    <section className="card">
+    <section className="card wall_card">
       <button className="btn wall" onClick={handleOnClick}>
       <h3 className="wall_name">{wall.name}</h3>
       <div className="wall_crag">{wall.crag.name}</div>

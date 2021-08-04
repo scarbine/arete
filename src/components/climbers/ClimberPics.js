@@ -9,7 +9,7 @@ export const ClimberPics = () => {
   const {climberId} = useParams();
   const thumbWidth = "250";
   // const thumbHeight = "150"
-  const fullWidth = "650";
+  const fullWidth = "1250";
 
   const [galleryImages, setGalleryImages] = useState([]);
   const [filteredPics, setFilteredPics] = useState([]);

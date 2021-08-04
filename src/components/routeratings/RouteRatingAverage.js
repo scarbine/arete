@@ -43,9 +43,12 @@ export const RouteRatingAverage = ({routeId}) => {
 
 	return(
 		<>
+		
+		{ ratingAvg === "NaN" ? <><div>This rout has not been rated.</div></> : <>
 		<div className="route_detail">
 			Climber Rating: {ratingAvg} of 5
 			</div>
+			</>}
 		</>
 	)
 }

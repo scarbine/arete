@@ -13,10 +13,11 @@
 }
 
 .friend_img{
-	height: 150px;
-	width: 150px;
+	height: 350px;
+	/* width: 150px; */
 }
 
 .friend_card{
 	margin: 1rem;
+	text-align: center;
 }
