@@ -36,7 +36,7 @@ const {areaId} =useParams()
 		const zip = area.crag.zipCode
 		console.log(zip)
 		getWeather(zip)
-		.then(console.log(weather))
+		.then(console.log("weather",weather))
 	},[areaId])
 
 	return (

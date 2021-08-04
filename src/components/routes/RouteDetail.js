@@ -33,7 +33,7 @@ export const RouteDetail = () => {
   const routeId = parseInt(routeIdAsString.routeId);
   const thumbWidth ="250"
 	// const thumbHeight = "150"
-  const fullWidth = "750"
+  const fullWidth = "1250"
 
 const [galleryImages, setGalleryImages]= useState([])
 const [routeRating, setRouteRating] = useState(0)
@@ -52,7 +52,8 @@ const [routeRating, setRouteRating] = useState(0)
 	
 	useEffect(()=>{
 		const filtered = routePics.filter(rp => rp.routeId === parseInt(routeId))
-		console.log(filtered)
+    const sorted = filtered.sort((a,b)=> b.id - a.id)
+		console.log(sorted)
 		setFilteredPics(filtered)
 		
 		
@@ -60,18 +61,17 @@ const [routeRating, setRouteRating] = useState(0)
 
   
 	useEffect(()=>{
-    const images =[]
-		filteredPics.map(routePic => {
+    const images = filteredPics.map(routePic => {
 			const [frontURL, endURL] =routePic.picURL.split('upload/')
 			const picObj = {
 				original:`${frontURL}upload/c_scale,w_${fullWidth}/${endURL}`,
 				thumbnail:`${frontURL}upload/c_scale,w_${thumbWidth}/${endURL}`
 			}
-			images.push(picObj)
-			console.log(frontURL, endURL, picObj)
-      setGalleryImages(images)
-			return images
+			// images.push(picObj)
+			// console.log(frontURL, endURL, picObj)
+			return picObj
 		})
+    setGalleryImages(images)
 		console.log("images", images)
 	},[filteredPics])
 
@@ -199,6 +199,7 @@ const [routeRating, setRouteRating] = useState(0)
             <div className="route_detail">{route?.wall.name}</div>
             <div className="route_detail"> {route?.area.name}</div>
             <div className="route_detail">{route?.crag.name}</div>
+            <RouteRatingAverage className="route_detail" routeId={routeId} />
             </div>
             <section className="routes routes_tick_list_container">
               <TickList />
@@ -216,7 +217,6 @@ const [routeRating, setRouteRating] = useState(0)
       </div>
             <div className="route_detail">{route.description}</div>
             {/* <RouteRatingList /> */}
-            <RouteRatingAverage routeId={routeId} />
             <ReactStars count={5} onChange={ratingChanged} size={24} activeColor="#ffd700" value={routeRating} isHalf={true}/>
           </section>
           <section className="route_comments">

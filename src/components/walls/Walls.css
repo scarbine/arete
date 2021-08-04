@@ -44,10 +44,10 @@
 	float: right;
 }
 
-.card{
+/* .card{
 	margin: 1rem 7rem 1rem 7rem;
 	
-}
+} */
 
 .card:hover{
 	transform: scale(1.01);
@@ -65,4 +65,7 @@
 
 .wall_list_header_name{
 	display: flex;
+}
+.wall_card{
+	margin: 1rem 7rem 1rem 7rem;	
 }

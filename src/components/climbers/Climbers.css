@@ -1,5 +1,5 @@
 .climber {
-  margin: 7rem 2rem 2rem 2rem ;
+  margin: 1rem 2rem 2rem 2rem ;
   padding: 1rem;
   border: solid grey 0.05rem;
   display: flex;
@@ -74,6 +74,7 @@
   margin: 1rem;
   padding: 1rem 1rem 0rem 1rem;
   background-color: white;
+ 
   /* border-radius: 2rem; */
   /* transition: opacity 1s ease-in-out; */
   /* background-image: url("https://res.cloudinary.com/ddaeunjfu/image/upload/v1627341375/Arete/Backgrounds/vsrdohkremfqe8g4kvem.jpg"); */
@@ -102,8 +103,9 @@
 }
 
 .climber_img {
-  height: 150px;
-  width: 120px;
+  height: 250px;
+  width:auto;
+  margin: 3rem 2rem 1rem 3.5rem;
 }
 
 .climber_detail_page {
@@ -113,6 +115,10 @@
 .climber_lists {
   display: flex;
   flex-direction: column;
+  width: auto;
+  /* padding: 4rem; */
+  /* justify-content: center; */
+  text-align: center;
 }
 .climbers_search {
   margin: 3rem 1rem 1rem 2rem;
@@ -127,7 +133,7 @@
   box-shadow: 0rem 0rem 1rem rgb(112 128 144 / 47%);
   padding: 1rem 3rem 1rem 3rem;
   display: flex;
-  justify-content: space-between;
+
 }
 
 .climber_list_header{
@@ -141,4 +147,8 @@
 	display: flex;
 	flex-direction: column;
 
+}
+
+.climber_pics{
+  padding:6rem;
 }

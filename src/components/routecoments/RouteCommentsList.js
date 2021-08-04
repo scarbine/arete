@@ -21,7 +21,8 @@ export const RouteCommentsList = () => {
     const filtered = routeComments.filter(
       (rc) => rc.routeId === parseInt(routeId)
     );
-    setFilteredRouteComments(filtered);
+    const sorted = filtered.sort((a,b)=> b.id - a.id)
+    setFilteredRouteComments(sorted);
     console.log(routeComments, parseInt(routeId));
   }, [routeId, routeComments]);
 
