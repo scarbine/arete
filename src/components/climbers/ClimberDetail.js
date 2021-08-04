@@ -6,6 +6,7 @@ import { ClimberGearList } from "../climbergear/ClimberGearList";
 import { TickList } from "../ticklist/TickList";
 import { ToDoList } from "../todo/ToDoList";
 import { FriendsContext } from "../friends/FriendsProvider";
+import { ClimberPics } from "./ClimberPics";
 import Swal from "sweetalert2";
 
 
@@ -161,8 +162,10 @@ export const ClimberDetail = () => {
           <div></div>
         </section>
         <div className="climber_lists">
+          <ClimberPics />
           <ClimberGearList />
           <FriendsList />
+
         </div>
       </article>
     </>

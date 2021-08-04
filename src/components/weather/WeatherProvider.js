@@ -6,13 +6,13 @@ export const WeatherContext = createContext()
 export const WeatherProvider = (props) =>{
 
 	const [weather, setWeather] = useState({
-		list:[]
+		weather:[]
 	})
 
 	const getWeather = (Zip) =>{
-		return fetch(`https://api.openweathermap.org/data/2.5/forecast?zip=${Zip}&units=imperial&appid=${WeatherAPI}`)
+		return fetch(`https://api.openweathermap.org/data/2.5/weather?zip=${Zip}&units=imperial&appid=${WeatherAPI}`)
 		.then(res => res.json())
-		.then(setWeather).then(console.log("getWeather:" ,weather))
+		.then(setWeather)
 
 	}
 

@@ -54,6 +54,7 @@ export const ApplicationViews = () => {
       </ClimberProvider>
 
       <ClimberProvider>
+        <RouteProvider>
         <FriendsProvider>
         <ToDoListProvider>
         <TickListProvider>
@@ -65,6 +66,7 @@ export const ApplicationViews = () => {
         </TickListProvider>
         </ToDoListProvider>
         </FriendsProvider>
+        </RouteProvider>
       </ClimberProvider>
 
       <RouteProvider>

@@ -74,6 +74,7 @@
   margin: 1rem;
   padding: 1rem 1rem 0rem 1rem;
   background-color: white;
+ 
   /* border-radius: 2rem; */
   /* transition: opacity 1s ease-in-out; */
   /* background-image: url("https://res.cloudinary.com/ddaeunjfu/image/upload/v1627341375/Arete/Backgrounds/vsrdohkremfqe8g4kvem.jpg"); */
@@ -113,6 +114,10 @@
 .climber_lists {
   display: flex;
   flex-direction: column;
+  width: 650px;
+  padding-top: 2rem;
+  /* justify-content: center; */
+  text-align: center;
 }
 .climbers_search {
   margin: 3rem 1rem 1rem 2rem;
