@@ -115,7 +115,7 @@
 .climber_lists {
   display: flex;
   flex-direction: column;
-  width: auto;
+  width: 1250px;
   /* padding: 4rem; */
   /* justify-content: center; */
   text-align: center;

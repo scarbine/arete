@@ -208,7 +208,7 @@ const [routeRating, setRouteRating] = useState(0)
               <ToDoList />
             </section>
           </div>
-          <article>
+          <article className="route_main_body">
           <section className="route_details">
            
           <div className="route_pics">

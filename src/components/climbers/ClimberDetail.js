@@ -57,8 +57,9 @@ export const ClimberDetail = () => {
   },[found])
 
   useEffect(()=>{
+    setViewToggle(1)
     console.log("useEffect", viewToggle)
-  },[viewToggle])
+  },[ climberId])
 
   const fullName = `${climber.firstName} ${climber.lastName}`;
 
