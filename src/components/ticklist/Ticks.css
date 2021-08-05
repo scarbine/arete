@@ -15,6 +15,7 @@
 .tick{
 	display: flex;
 	justify-content: space-between;
+	padding: .375rem 0rem;
 }
 
 .tick_list{

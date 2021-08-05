@@ -6,19 +6,20 @@ import "./Routes.css";
 import { RouteSearch } from "./RouteSearch";
 
 export const RouteList = () => {
-  const { routes, getRoutes, searchTerms } = useContext(RoutesContext);
+  const { routes, getRoutes, searchTerms,setSearchTerms } = useContext(RoutesContext);
   const history = useHistory();
 
   const [filteredRoutes, setFilteredRoutes] = useState([]);
 
   useEffect(() => {
+    setSearchTerms('')
     getRoutes();
   }, []);
 
   useEffect(() => {
     if (searchTerms !== "") {
       const subset = routes.filter((route) =>
-        route.routeName.toLowerCase().includes(searchTerms)
+        route.routeName.toLowerCase().includes(searchTerms) 
       );
       setFilteredRoutes(subset);
     } else {

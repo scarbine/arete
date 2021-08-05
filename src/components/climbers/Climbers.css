@@ -103,9 +103,8 @@
 }
 
 .climber_img {
-  height: 250px;
-  width:auto;
-  margin: 3rem 2rem 1rem 3.5rem;
+  width: 250px;
+  margin: 3rem 2rem 1rem 2rem;
 }
 
 .climber_detail_page {
@@ -151,4 +150,9 @@
 
 .climber_pics{
   padding:6rem;
+}
+
+.left_bar{
+  display: flex;
+  flex-direction: column;
 }

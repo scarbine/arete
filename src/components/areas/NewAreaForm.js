@@ -32,7 +32,7 @@ export const NewAreaForm = () => {
 
   return (
     <>
-      <form>
+      <form className="new_area_form">
         <h2 className="area-form">Add New Area</h2>
         <fieldset>
           <div className="form-group">
@@ -64,10 +64,10 @@ export const NewAreaForm = () => {
             ))}
           </select>
 
-        <button onClick={handleSave}>Add New Area</button>
+        <button className="btn" onClick={handleSave}>Add New Area</button>
       </form>
 
-      <AreaList />
+      {/* <AreaList /> */}
     </>
   );
 };

@@ -5,14 +5,16 @@ import { WallSearch } from "./WallSearch";
 import "./Walls.css";
 import { useHistory } from "react-router";
 
+
 export const WallList = () => {
-  const { walls, getWalls, searchTerms } = useContext(WallContext);
+  const { walls, getWalls, searchTerms,setSearchTerms } = useContext(WallContext);
 
   const [filteredWalls, setFilteredWalls] = useState([])
 
   const history = useHistory();
 
   useEffect(() => {
+    setSearchTerms("")
     getWalls();
   }, []);
 
@@ -21,8 +23,8 @@ export const WallList = () => {
       const subset = walls.filter(wall => wall.name.toLowerCase().includes(searchTerms))
       setFilteredWalls(subset) 
     }else{
-      const sortedWalls = walls.sort((a,b) => (a.name - b.name))
-      // console.log("sorted Walls" ,sortedWalls)
+      const sortedWalls = walls.sort((a,b) => (b.areaId - a.areaId))
+      console.log("sorted Walls" ,sortedWalls)
       setFilteredWalls(sortedWalls)
     }
 
@@ -40,16 +42,18 @@ export const WallList = () => {
       <button className="btn to_wall_form" onClick={handleOnClick}>Add New Wall</button>
       </div>
       <div className="wall_button_search_wrapper">
-      <WallSearch />
       </div>
       </div>
     <article className="wall_list">
-      <section className="wall_wrapper">
+     
+      <WallSearch />
+      
+      <ul className="wall_wrapper list-group">
         {
         filteredWalls.map((wall) => {
           return <WallCard key={wall.id} wall={wall} />;
         })}
-      </section>
+      </ul>
       </article>
     </>
   );
