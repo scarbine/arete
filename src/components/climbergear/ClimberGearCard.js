@@ -24,7 +24,8 @@ const history = useHistory()
       title: `<strong> <u>${climbGear?.gear.name}</u></strong>`,
       html:
        `<img src="${climbGear?.gear.image}" alt="${climbGear?.gear.name}" </div>
-       <div> ${climbGear?.gear.description} </div>`,
+       <div> ${climbGear?.gear.description} </div>
+       `,
       // showCloseButton: true,
       // showCancelButton: true,
       focusConfirm: false,

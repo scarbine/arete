@@ -28,6 +28,8 @@ export const NewRouteForm = () => {
     drawsNeeded:""
   });
 
+  const [filteredWalls, setFilteredWalls] = useState([])
+
   //   const [boulderGrades, setBoulderGrades] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -47,6 +49,11 @@ export const NewRouteForm = () => {
       .then(console.log("useEffect - Crags", crags));
     setIsLoading(false);
   }, []);
+
+  useEffect(()=>{
+    const filtered = walls.filter( wall => wall.areaId === parseInt(route.areaId))
+    setFilteredWalls(filtered)
+  },[route.areaId])
 
   const handleControlledInputChange = (event) => {
     event.preventDefault();
@@ -213,7 +220,7 @@ export const NewRouteForm = () => {
             onChange={handleControlledInputChange}
           >
             <option value='0'>Select a Wall</option>
-            {walls.map((w) => (
+            {filteredWalls?.map((w) => (
               <option key={w.id} value={w.id}>
                 {w.name}
               </option>
