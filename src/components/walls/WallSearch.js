@@ -10,7 +10,9 @@ export const WallSearch = () => {
 
 	return(
 		<>
-		<input onKeyUp={(event) => setSearchTerms(event.target.value) } placeholder="Search for Walls..." className="input--wide"/>
+		
+		<input onKeyUp={(event) => setSearchTerms(event.target.value) } placeholder="Search for Walls..." className="input--wide search_bar_wall"/>
+		
 		</>
 	)
 }

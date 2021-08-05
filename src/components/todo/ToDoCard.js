@@ -63,13 +63,13 @@ export const ToDoCard = ({ todo }) => {
   return (
     <><div className="todo_item_wrapper">{(climberId ? (
       <div className="todo_list_details">
-        <button className="btn" onClick={handleTodoClickOnClimber}>
+        <div className="todo" onClick={handleTodoClickOnClimber}>
           <div>{todo.route.routeName}</div>
-        </button>
+        </div>
 	</div>):(<div className="todo_list_details">
-        <button className="btn" onClick={handleTodoClick}>
+        <div className="todo" onClick={handleTodoClick}>
           <div>{fullName}</div>
-        </button>
+        </div>
 	</div>))}
         <div className="add_remove_btn">
 	{(todo.climberId === parseInt(currentUser) ? (

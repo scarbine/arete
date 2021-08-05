@@ -32,3 +32,7 @@
 	display: flex;
 	justify-content: space-between;
 }
+
+.todo{
+	padding: .375rem 0rem;
+}

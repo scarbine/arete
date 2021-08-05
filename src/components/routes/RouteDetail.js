@@ -67,8 +67,7 @@ const [routeRating, setRouteRating] = useState(0)
 				original:`${frontURL}upload/c_scale,w_${fullWidth}/${endURL}`,
 				thumbnail:`${frontURL}upload/c_scale,w_${thumbWidth}/${endURL}`
 			}
-			// images.push(picObj)
-			// console.log(frontURL, endURL, picObj)
+		
 			return picObj
 		})
     setGalleryImages(images)

@@ -3,21 +3,21 @@ import { useHistory } from "react-router-dom";
 import "./Walls.css";
 
 export const WallCard = ({ wall }) => {
-
-  const history = useHistory()
+  const history = useHistory();
 
   const handleOnClick = () => {
-    history.push(`/walls/details/${wall.id}`)
-   
-  }
+    history.push(`/walls/details/${wall.id}`);
+  };
+
+  const pillColor = `badge badge-primary badge-pill area_pill_${wall.areaId}`
+  
   return (
-    <section className="card wall_card">
-      <button className="btn wall" onClick={handleOnClick}>
-      <h3 className="wall_name">{wall.name}</h3>
-      <div className="wall_crag">{wall.crag.name}</div>
-      <div className="wall_area">{wall.area.name}</div>
-      <div className="wall_description">{wall.description}</div>
-      </button>
-    </section>
+    <li
+      onClick={handleOnClick}
+      className="list-group-item d-flex justify-content-between align-items-center"
+    >
+      {wall.name}
+      <span className={pillColor}>{wall.area.name}</span>
+    </li>
   );
 };

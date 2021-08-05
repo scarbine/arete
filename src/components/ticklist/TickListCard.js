@@ -79,7 +79,7 @@ export const TickListCard = ({ tick }) => {
       ) : (
         <>
         <div className="tick_list_details">
-          <div className="tick btn" onClick={handleOnClick}>
+          <div className="tick" onClick={handleOnClick}>
             <div className="tick_detail">{tick.climber.firstName} {tick.climber.lastName}</div>
           </div>
           </div>

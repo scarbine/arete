@@ -1,17 +1,24 @@
-.wall{
+
+
+/* .wall{ */
 	/* margin: 1rem; */
-	padding: 1rem;
+	/* padding: 1rem;
 	border: solid grey .05rem;
-	transition: all .2s ease-in-out;
-}
+	transition: all .2s ease-in-out; */
+	/* display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	margin: 1rem 5rem 1rem 5rem;
+	padding: 1rem;
+	border: solid grey 0.05rem;
+	border:solid rgba(245, 245, 245, 0.685) .1rem;
+	transition: all 0.2s ease-in-out;
+	border-radius: 2rem;
+	background-color: rgba(212, 214, 216, 0.466); */
+/* } */
 
-.wall:hover{
-	box-shadow: 0rem 0rem 1rem rgba(181, 182, 184, 0.384);
-	/* transform: scale(1.01); */
-}
 
-/* .grow { transition: all .2s ease-in-out; }
-.grow:hover { transform: scale(1.1); } */
+
 
 .wall_detail_header{
 	text-align: center;
@@ -29,7 +36,7 @@
 	text-align: center;
 	
 	/* background-image: url("https://res.cloudinary.com/ddaeunjfu/image/upload/a_90/v1627341375/Arete/Backgrounds/vsrdohkremfqe8g4kvem.jpg") ; */
-	background-image: url("https://res.cloudinary.com/ddaeunjfu/image/upload/a_090/v1627511208/Arete/Backgrounds/ra3wdohcuy6crvdcptun.jpg") ;
+	/* background-image: url("https://res.cloudinary.com/ddaeunjfu/image/upload/a_090/v1627511208/Arete/Backgrounds/ra3wdohcuy6crvdcptun.jpg") ; */
 	background-size: 100%;
 	background-image: no-repeat;
        
@@ -66,6 +73,70 @@
 .wall_list_header_name{
 	display: flex;
 }
-.wall_card{
-	margin: 1rem 7rem 1rem 7rem;	
+
+.search_bar_wall{
+margin: 2rem 18rem 2rem 18rem;
 }
+/* .wall_card{
+	
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	margin: 1rem 15rem 1rem 15rem;
+	padding: 1rem 3rem;
+	border: solid grey 0.05rem;
+	
+	transition: all 0.2s ease-in-out;
+	border-radius: 2rem;
+	background-color: rgba(212, 214, 216, 0.466);
+}
+
+.wall_card:hover{
+	box-shadow: 0rem 0rem 2rem rgba(112, 128, 144, 0.192);
+	transform: scale(1.05);
+	border:solid rgba(245, 245, 245, 0.685) .1rem;
+	border: solid grey 0.05rem
+} */
+
+.wall_form{
+	padding: 4rem 15rem 0rem 15rem;
+	text-align: center;
+}
+
+
+.wall_wrapper{
+	list-style-type: none;
+	margin: 0rem 15rem ;
+	padding: 0;
+	cursor: pointer;
+	overflow-y: scroll;
+	height: 750px;
+}
+
+.area_pill_2{
+	background-color: rgba(0, 8, 255, 0.556);
+}
+.area_pill_3{
+	background-color: rgba(200, 0, 255, 0.556);
+}
+.area_pill_4{
+	background-color: rgba(255, 102, 0, 0.83);
+}
+.area_pill_5{
+	background-color: rgba(255, 0, 212, 0.556);
+}
+.area_pill_6{
+	background-color: rgba(0, 255, 51, 0.721);
+}
+.area_pill_7{
+	background-color: rgba(0, 0, 0, 0.872);
+}
+.area_pill_8{
+	background-color: rgba(0, 229, 255, 0.796);
+}
+
+/* .wall_card{
+
+} */
+
+      

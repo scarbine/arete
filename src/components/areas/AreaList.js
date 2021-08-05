@@ -7,12 +7,13 @@ import { AreaSearch } from "./AreaSearch";
 import { WeatherContext } from "../weather/WeatherProvider";
 
 export const AreaList = () => {
-  const { areas, getAreas, searchTerms } = useContext(AreaContext);
+  const { areas, getAreas, searchTerms , setSearchTerms} = useContext(AreaContext);
   const [filteredAreas, setFilteredAreas] = useState([])
 
   const history = useHistory();
 
   useEffect(() => {
+    setSearchTerms('')
     getAreas().then(console.log(areas));
   }, []);
 

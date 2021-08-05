@@ -53,7 +53,7 @@ export const WallsForm = () => {
 
   return (
     <>
-      <form>
+      <form className="wall_form">
         <h2>Add New Wall</h2>
         <fieldset>
           <input

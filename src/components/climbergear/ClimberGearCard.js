@@ -19,11 +19,17 @@ const history = useHistory()
      
   // }
 
+  const date = new Date(climbGear.dateAdded);
+  const year = date.getFullYear();
+  const month = date.getMonth() + 1;
+  const day = date.getDate();
+
   const handleGearOnClick = () => {
     Swal.fire({
       title: `<strong> <u>${climbGear?.gear.name}</u></strong>`,
       html:
-       `<img src="${climbGear?.gear.image}" alt="${climbGear?.gear.name}" </div>
+      `<div> Acquired: ${month}/${day}/${year} </div>
+      <img src="${climbGear?.gear.image}" alt="${climbGear?.gear.name}" </div>
        <div> ${climbGear?.gear.description} </div>
        `,
       // showCloseButton: true,

@@ -13,7 +13,7 @@ export const RouteSearch = () => {
           type="text"
           className="input--wide"
           onKeyUp={(event) => setSearchTerms(event.target.value)}
-          placeholder="Search for Route..."
+          placeholder="Search for Routes..."
         />
       </section>
     </>

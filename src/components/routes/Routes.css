@@ -20,12 +20,13 @@
   box-shadow: 0rem 0rem 2rem rgba(112, 128, 144, 0.192);
   transform: scale(1.05);
   border:solid rgba(245, 245, 245, 0.685) .1rem;
+  border: solid grey 0.05rem;
 }
 /* .grow { transition: all .2s ease-in-out; }
 .grow:hover { transform: scale(1.1); } */
 
 .route_detail {
-  margin: 0.5rem;
+  padding: .375rem 0rem;
 }
 
 .routes-header {
@@ -57,7 +58,7 @@
   text-align: center;
   
   /* background-image: url("https://res.cloudinary.com/ddaeunjfu/image/upload/a_90/v1627341375/Arete/Backgrounds/vsrdohkremfqe8g4kvem.jpg") ; */
-  background-image: url("https://res.cloudinary.com/ddaeunjfu/image/upload/a_090/v1627511208/Arete/Backgrounds/ra3wdohcuy6crvdcptun.jpg") ;
+  /* background-image: url("https://res.cloudinary.com/ddaeunjfu/image/upload/a_090/v1627511208/Arete/Backgrounds/ra3wdohcuy6crvdcptun.jpg") ; */
   background-size: 100%;
   background-image: no-repeat;
  
@@ -74,7 +75,7 @@
 }
 
 .route_search_wrapper {
-  margin: 0rem 7rem 1rem 0rem;
+  margin: 0rem 1rem 1rem 0rem;
  
   /* align-self: flex-end; */
   float: right;

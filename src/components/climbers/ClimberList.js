@@ -5,10 +5,11 @@ import "./Climbers.css";
 import { ClimberSearch } from "./ClimberSearch";
 
 export const ClimberList = () => {
-  const { climbers, getClimbers, searchTerms } = useContext(ClimberContext);
+  const { climbers, getClimbers, searchTerms, setSearchTerms } = useContext(ClimberContext);
   const [filteredClimbers, setFilteredClimbers] = useState([]);
 
   useEffect(() => {
+    setSearchTerms('')
     getClimbers();
   }, []);
 
