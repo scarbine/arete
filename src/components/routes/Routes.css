@@ -124,6 +124,7 @@
 
 .ticks_todos_container{
   flex-basis: 25%;
+  min-width: 237px;
 }
 
 .route_image{
