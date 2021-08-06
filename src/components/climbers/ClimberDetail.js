@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { ClimberContext } from "./ClimberProvider";
-import { useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import { FriendsList } from "../friends/FriendsList";
 import { ClimberGearList } from "../climbergear/ClimberGearList";
 import { TickList } from "../ticklist/TickList";
@@ -26,6 +26,9 @@ export const ClimberDetail = () => {
   const currentUser = parseInt(localStorage.getItem("arete_customer"));
 
   const [ isFriend, setIsFriend] = useState(false)
+  const history = useHistory()
+
+  const isAdmin = climber.isAdmin
 
   useEffect(() => {
     getClimberById(climberId);
@@ -162,7 +165,9 @@ export const ClimberDetail = () => {
 
     
   }
-
+const handleIsAdmin = () =>{
+  history.push("/admin")
+}
 
 
   return (
@@ -179,7 +184,7 @@ export const ClimberDetail = () => {
         <section className="climber">
           <div className="climber_badge">
             <h3 className="climber_name">{climber.userName}</h3>
-       
+            {isAdmin ? <div onClick={handleIsAdmin}>Admin </div> : <></>}
             {friendButton()}
           </div>
           <div className="climber_details">

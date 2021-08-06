@@ -39,6 +39,8 @@ import { AreaDetails } from "./components/areas/AreaDetails";
 import { RouteCommentProvider } from "./components/routecoments/RouteCommentsProvider";
 import { UploadRoutePics } from "./components/routes/UploadRoutePics";
 import { WeatherProvider } from "./components/weather/WeatherProvider";
+import { AdminProvider } from "./components/admin/AdminProvider";
+import { AdminList } from "./components/admin/AdminList";
 
 export const ApplicationViews = () => {
   return (
@@ -83,6 +85,7 @@ export const ApplicationViews = () => {
       </RouteProvider>
 
       <RouteProvider>
+        <AdminProvider>
         <WallProvider>
           <AreaProvider>
         <CragProvider>
@@ -94,6 +97,7 @@ export const ApplicationViews = () => {
         </CragProvider>
         </AreaProvider>
         </WallProvider>
+        </AdminProvider>
       </RouteProvider>
 
       <RouteProvider>
@@ -200,6 +204,14 @@ export const ApplicationViews = () => {
     </WeatherProvider>
       </CragProvider>
 
+
+    <AdminProvider>
+      <RouteProvider>
+      <Route exact path="/admin">
+        <AdminList/>
+      </Route>
+      </RouteProvider>
+    </AdminProvider>
 
     </>
   );
