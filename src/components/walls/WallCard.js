@@ -16,7 +16,7 @@ export const WallCard = ({ wall }) => {
       onClick={handleOnClick}
       className="list-group-item d-flex justify-content-between align-items-center"
     >
-      {wall.name}
+      <h5>{wall.name}</h5>
       <span className={pillColor}>{wall.area.name}</span>
     </li>
   );

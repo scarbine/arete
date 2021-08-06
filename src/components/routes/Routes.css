@@ -124,6 +124,7 @@
 
 .ticks_todos_container{
   flex-basis: 25%;
+  min-width: 237px;
 }
 
 .route_image{
@@ -156,5 +157,5 @@
 }
 
 .route_main_body{
-  width: 1250px;
+  width: 1300px;
 }
