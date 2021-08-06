@@ -6,6 +6,7 @@ import { useParams } from "react-router";
 import { useHistory } from "react-router";
 import { WallContext } from "../walls/WallProvider";
 import { AreaContext } from "../areas/AreaProvider";
+import Swal from "sweetalert2";
 
 import { AdminContext } from "../admin/AdminProvider";
 
@@ -71,40 +72,58 @@ export const NewRouteForm = () => {
   };
 
   const handleSaveRoute = () => {
-    addAdminTask({
-      dateSubmitted: Date.now(),
-      climberId: parseInt(currentUser),
-      isApproved: false,
-      taskCode: 101,
-      taskObj: {
-        routeName: route.routeName,
-        firstAscensionists: route.firstAscensionists,
-        description: route.routeDescription,
-        length: parseInt(route.length),
-        drawsNeeded: route.drawsNeeded,
-        type: route.type,
-        wallGradeId: parseInt(route.wallGradeId),
-        cragId: parseInt(route.cragId),
-        areaId: parseInt(route.areaId),
-        wallId: parseInt(route.wallId),
-      },
-    })
-      .then(() =>
-        setRoute({
-          routeName: "",
-          firstAscensionists: "",
-          description: "",
-          length: "",
-          drawsNeeded: "",
-          type: 0,
-          wallGrade: 0,
-          cragId: 0,
-          areaId: 0,
-          wallId: 0,
+
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You want to submit this route!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, Submit it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        addAdminTask({
+          dateSubmitted: Date.now(),
+          climberId: parseInt(currentUser),
+          isApproved: false,
+          taskCode: 101,
+          taskObj: {
+            routeName: route.routeName,
+            firstAscensionists: route.firstAscensionists,
+            description: route.routeDescription,
+            length: parseInt(route.length),
+            drawsNeeded: route.drawsNeeded,
+            type: route.type,
+            wallGradeId: parseInt(route.wallGradeId),
+            cragId: parseInt(route.cragId),
+            areaId: parseInt(route.areaId),
+            wallId: parseInt(route.wallId),
+          },
         })
-      )
-      .then(history.push("/routes"));
-  };
+          .then(()=>{
+            setRoute({
+              routeName: "",
+              firstAscensionists: "",
+              description: "",
+              length: "",
+              drawsNeeded: "",
+              type: 0,
+              wallGrade: 0,
+              cragId: 0,
+              areaId: 0,
+              wallId: 0,
+            })}
+          )
+          .then((Swal.fire(
+            'Submitted!',
+            'Your Route has been submitted for review.',
+            'success'
+            )))
+            .then(history.push("/routes"))
+      }
+        })
+      };
 
   return (
     <>
