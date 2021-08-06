@@ -4,9 +4,10 @@ import { GradesContext } from "../grades/GradesProvider";
 import { CragContext } from "../crags/CragProvider";
 import { useParams } from "react-router";
 import { useHistory } from "react-router";
-import { addRoute } from "workbox-precaching";
 import { WallContext } from "../walls/WallProvider";
 import { AreaContext } from "../areas/AreaProvider";
+
+import { AdminContext } from "../admin/AdminProvider";
 
 export const NewRouteForm = () => {
   const { getRouteById, updateRoute, addRoute } = useContext(RoutesContext);
@@ -15,25 +16,29 @@ export const NewRouteForm = () => {
   const { crags, getCrags } = useContext(CragContext);
   const { walls, getWalls } = useContext(WallContext);
   const { areas, getAreas } = useContext(AreaContext);
+
+  const { addAdminTask } = useContext(AdminContext);
   const [route, setRoute] = useState({
     routeName: "",
     firstAscensionists: "",
     routeDescription: "",
-    length:"",
-    type:"",
+    length: "",
+    type: "",
     wallGrade: 0,
     cragId: 0,
     areaId: 0,
     wallId: 0,
-    drawsNeeded:""
+    drawsNeeded: "",
   });
 
-  const [filteredWalls, setFilteredWalls] = useState([])
+  const [filteredWalls, setFilteredWalls] = useState([]);
 
   //   const [boulderGrades, setBoulderGrades] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   const history = useHistory();
+
+  const currentUser = localStorage.getItem("arete_customer")
 
   const routeId = useParams();
   console.log(routeId);
@@ -50,10 +55,12 @@ export const NewRouteForm = () => {
     setIsLoading(false);
   }, []);
 
-  useEffect(()=>{
-    const filtered = walls.filter( wall => wall.areaId === parseInt(route.areaId))
-    setFilteredWalls(filtered)
-  },[route.areaId])
+  useEffect(() => {
+    const filtered = walls.filter(
+      (wall) => wall.areaId === parseInt(route.areaId)
+    );
+    setFilteredWalls(filtered);
+  }, [route.areaId]);
 
   const handleControlledInputChange = (event) => {
     event.preventDefault();
@@ -64,32 +71,39 @@ export const NewRouteForm = () => {
   };
 
   const handleSaveRoute = () => {
-    addRoute({
-      routeName: route.routeName,
-      firstAscensionists: route.firstAscensionists,
-      description: route.routeDescription,
-      length: parseInt(route.length),
-      drawsNeeded:route.drawsNeeded,
-      type:route.type,
-      wallGradeId: parseInt(route.wallGradeId),
-      cragId: parseInt(route.cragId),
-      areaId: parseInt(route.areaId),
-      wallId: parseInt(route.wallId),
+    addAdminTask({
+      dateSubmitted: Date.now(),
+      climberId: parseInt(currentUser),
+      isApproved: false,
+      taskCode: 101,
+      taskObj: {
+        routeName: route.routeName,
+        firstAscensionists: route.firstAscensionists,
+        description: route.routeDescription,
+        length: parseInt(route.length),
+        drawsNeeded: route.drawsNeeded,
+        type: route.type,
+        wallGradeId: parseInt(route.wallGradeId),
+        cragId: parseInt(route.cragId),
+        areaId: parseInt(route.areaId),
+        wallId: parseInt(route.wallId),
+      },
     })
-    .then(()=>setRoute(
-      {
-        routeName: "",
-        firstAscensionists: "",
-        description: "",
-        length:"",
-        drawsNeeded:"",
-        type:0,
-        wallGrade: 0,
-        cragId: 0,
-        areaId: 0,
-        wallId: 0,
-      }
-    )).then(history.push("/routes"));
+      .then(() =>
+        setRoute({
+          routeName: "",
+          firstAscensionists: "",
+          description: "",
+          length: "",
+          drawsNeeded: "",
+          type: 0,
+          wallGrade: 0,
+          cragId: 0,
+          areaId: 0,
+          wallId: 0,
+        })
+      )
+      .then(history.push("/routes"));
   };
 
   return (
@@ -168,11 +182,13 @@ export const NewRouteForm = () => {
             className="form-control"
             onChange={handleControlledInputChange}
           >
-            <option value='0'>Select a Type</option>
-            <option key="1" value="sport">Sport</option>
-            <option key="2" value="trad">Trad</option>
-           
-            
+            <option value="0">Select a Type</option>
+            <option key="1" value="sport">
+              Sport
+            </option>
+            <option key="2" value="trad">
+              Trad
+            </option>
           </select>
           <select
             name="wallGradeId"
@@ -180,7 +196,7 @@ export const NewRouteForm = () => {
             className="form-control"
             onChange={handleControlledInputChange}
           >
-            <option value='0'>Select a Grade</option>
+            <option value="0">Select a Grade</option>
             {wallGrades.map((grade) => (
               <option key={grade.id} value={grade.id}>
                 {grade.grade}
@@ -193,7 +209,7 @@ export const NewRouteForm = () => {
             className="form-control"
             onChange={handleControlledInputChange}
           >
-            <option value='0'>Select a Crag</option>
+            <option value="0">Select a Crag</option>
             {crags.map((c) => (
               <option key={c.id} value={c.id}>
                 {c.name}
@@ -206,7 +222,7 @@ export const NewRouteForm = () => {
             className="form-control"
             onChange={handleControlledInputChange}
           >
-            <option value='0'>Select an Area</option>
+            <option value="0">Select an Area</option>
             {areas.map((a) => (
               <option key={a.id} value={a.id}>
                 {a.name}
@@ -219,7 +235,7 @@ export const NewRouteForm = () => {
             className="form-control"
             onChange={handleControlledInputChange}
           >
-            <option value='0'>Select a Wall</option>
+            <option value="0">Select a Wall</option>
             {filteredWalls?.map((w) => (
               <option key={w.id} value={w.id}>
                 {w.name}
