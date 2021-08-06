@@ -7,8 +7,8 @@ import "./Admin.css"
 
 export const AdminList =()=> {
 
-	const {adminTasks, getAdminTasks, setAdminTasks} = useContext(AdminContext)
-	const {routes} =useContext(RoutesContext)
+	const {adminTasks, getAdminTasks} = useContext(AdminContext)
+	
 
 	const [filteredTasks , setFilteredTasks] = useState([])
 	const [approvedTasks, setApprovedTasks] = useState([])
