@@ -90,6 +90,7 @@ export const NewRouteForm = () => {
           isDenied: false,
           taskCode: 101,
           taskObj: {
+            climberId: parseInt(currentUser),
             routeName: route.routeName,
             firstAscensionists: route.firstAscensionists,
             description: route.description,

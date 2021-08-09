@@ -71,7 +71,7 @@ export const AdminList =()=> {
 	return(
 		<>
 		<section className="admin_header">
-			<h3>Admin List</h3>
+			<h3>Admin Panel</h3>
 			<div className="btn" onClick={handlePendingView}>Pending</div>
 			<div className="btn" onClick={handleApprovedView}>Approved </div>
 			<div className="btn" onClick={handleDeniedView}>Denied </div>

@@ -22,12 +22,12 @@ import { ClimbersHeaderImage } from "./backgrounds/ClimbersHeader";
 import { RoutesHeaderImage } from "./backgrounds/RoutesHeader";
 import { TickListProvider } from "./components/ticklist/TickListProvider";
 import { TickForm } from "./components/ticklist/TickForm";
-import {  ToDoListProvider } from "./components/todo/ToDoProvider";
+import { ToDoListProvider } from "./components/todo/ToDoProvider";
 import { TickList } from "./components/ticklist/TickList";
 import { ToDoList } from "./components/todo/ToDoList";
 import { FriendsList } from "./components/friends/FriendsList";
 import { FriendsProvider } from "./components/friends/FriendsProvider";
-import { RouteDetail} from './components/routes/RouteDetail'
+import { RouteDetail } from "./components/routes/RouteDetail";
 import { AreaProvider } from "./components/areas/AreaProvider";
 import { WallsForm } from "./components/walls/WallsForm";
 import { AreaList } from "./components/areas/AreaList";
@@ -47,11 +47,18 @@ import { MainFeedList } from "./components/mainfeed/MainFeedList";
 export const ApplicationViews = () => {
   return (
     <>
-      <Route exact path="/">
-        <MainFeedProvider>
-        <Home />
-        </MainFeedProvider>
-      </Route>
+      <MainFeedProvider>
+        <RouteProvider>
+          <GradesProvider>
+            <FriendsProvider>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        </FriendsProvider>
+        </GradesProvider>
+        </RouteProvider>
+      </MainFeedProvider>
+
       <ClimberProvider>
         <Route exact path="/climbers">
           <ClimberList />
@@ -60,70 +67,70 @@ export const ApplicationViews = () => {
 
       <ClimberProvider>
         <RouteProvider>
-        <FriendsProvider>
-        <ToDoListProvider>
-        <TickListProvider>
-        <ClimberGearProvider>
-          <Route exact path="/climbers/detail/:climberId(\d+)">
-            <ClimberDetail />
-          </Route>
-        </ClimberGearProvider>
-        </TickListProvider>
-        </ToDoListProvider>
-        </FriendsProvider>
+          <FriendsProvider>
+            <ToDoListProvider>
+              <TickListProvider>
+                <ClimberGearProvider>
+                  <Route exact path="/climbers/detail/:climberId(\d+)">
+                    <ClimberDetail />
+                  </Route>
+                </ClimberGearProvider>
+              </TickListProvider>
+            </ToDoListProvider>
+          </FriendsProvider>
         </RouteProvider>
       </ClimberProvider>
 
       <RouteProvider>
         <ToDoListProvider>
-        <TickListProvider>
-          <GradesProvider>
-            <Route exact path="/routes">
-              <RouteList />
-            </Route>
-          </GradesProvider>
-        </TickListProvider>
+          <TickListProvider>
+            <GradesProvider>
+              <Route exact path="/routes">
+                <RouteList />
+              </Route>
+            </GradesProvider>
+          </TickListProvider>
         </ToDoListProvider>
       </RouteProvider>
 
       <RouteProvider>
         <AdminProvider>
-        <WallProvider>
-          <AreaProvider>
-        <CragProvider>
-          <GradesProvider>
-            <Route exact path="/routes/create">
-              <NewRouteForm />
-            </Route>
-          </GradesProvider>
-        </CragProvider>
-        </AreaProvider>
-        </WallProvider>
+          <WallProvider>
+            <AreaProvider>
+              <CragProvider>
+                <GradesProvider>
+                  <Route exact path="/routes/create">
+                    <NewRouteForm />
+                  </Route>
+                </GradesProvider>
+              </CragProvider>
+            </AreaProvider>
+          </WallProvider>
         </AdminProvider>
       </RouteProvider>
 
       <RouteProvider>
         <RouteRatingsProvider>
           <RouteCommentProvider>
-        <TickListProvider>
-          <ToDoListProvider>
-        <CragProvider>
-          <GradesProvider>
-            <Route exact path="/routes/detail/:routeId(\d+)">
-              <RouteDetail />
-            </Route>
-            <Route exact path="/routes/pics/upload">
-              <UploadRoutePics />
-            </Route>
-          </GradesProvider>
-        </CragProvider>
-        </ToDoListProvider>
-        </TickListProvider>
-       </RouteCommentProvider>
+            <TickListProvider>
+              <ToDoListProvider>
+                <CragProvider>
+                  <GradesProvider>
+                    <Route exact path="/routes/detail/:routeId(\d+)">
+                      <RouteDetail />
+                    </Route>
+                    <Route exact path="/routes/pics/upload">
+                      <UploadRoutePics />
+                    </Route>
+                  </GradesProvider>
+                </CragProvider>
+              </ToDoListProvider>
+            </TickListProvider>
+          </RouteCommentProvider>
         </RouteRatingsProvider>
       </RouteProvider>
 
-      <GearProvider> 
+      <GearProvider>
         <ClimberGearProvider>
           <Route exact path="/gear">
             <GearList />
@@ -141,27 +148,24 @@ export const ApplicationViews = () => {
       </GearProvider>
 
       <RouteProvider>
-      <WallProvider>
-        <Route exact path="/walls">
-          <WallList />
-        </Route>
+        <WallProvider>
+          <Route exact path="/walls">
+            <WallList />
+          </Route>
         </WallProvider>
       </RouteProvider>
 
-
-
       <RouteProvider>
-      <WallProvider>
-        <TickListProvider>
-          <ToDoListProvider>
-        <Route exact path="/walls/details/:wallId(\d+)">
-          <WallDetail />
-        </Route>
-        </ToDoListProvider>
-        </TickListProvider>
-      </WallProvider>
+        <WallProvider>
+          <TickListProvider>
+            <ToDoListProvider>
+              <Route exact path="/walls/details/:wallId(\d+)">
+                <WallDetail />
+              </Route>
+            </ToDoListProvider>
+          </TickListProvider>
+        </WallProvider>
       </RouteProvider>
-
 
       <Route exact path="/training">
         <TrainingHeaderImage />
@@ -177,43 +181,43 @@ export const ApplicationViews = () => {
 
       <WallProvider>
         <WeatherProvider>
-        <CragProvider>
-          <AreaProvider>
-          <Route exact path="/walls/create">
-            <WallsForm />
-          </Route>
+          <CragProvider>
+            <AreaProvider>
+              <Route exact path="/walls/create">
+                <WallsForm />
+              </Route>
 
-          <Route exact path="/areas/detail/:areaId(\d+)">
-            <AreaDetails />
-          </Route>
-          </AreaProvider>
-        </CragProvider>
+              <Route exact path="/areas/detail/:areaId(\d+)">
+                <AreaDetails />
+              </Route>
+            </AreaProvider>
+          </CragProvider>
         </WeatherProvider>
       </WallProvider>
 
-    <CragProvider>
-      <WeatherProvider>
-      <AreaProvider>
-      <Route exact path="/areas">
-        <AreaList />
-      </Route>
+      <CragProvider>
+        <WeatherProvider>
+          <AreaProvider>
+            <Route exact path="/areas">
+              <AreaList />
+            </Route>
 
-      <Route exact path="/areas/create">
-        <NewAreaForm />
-      </Route>
-      </AreaProvider>
-    </WeatherProvider>
+            <Route exact path="/areas/create">
+              <NewAreaForm />
+            </Route>
+          </AreaProvider>
+        </WeatherProvider>
       </CragProvider>
 
-
-    <AdminProvider>
-      <RouteProvider>
-      <Route exact path="/admin">
-        <AdminList/>
-      </Route>
-      </RouteProvider>
-    </AdminProvider>
-
+      <AdminProvider>
+        <MainFeedProvider>
+          <RouteProvider>
+            <Route exact path="/admin">
+              <AdminList />
+            </Route>
+          </RouteProvider>
+        </MainFeedProvider>
+      </AdminProvider>
     </>
   );
 };

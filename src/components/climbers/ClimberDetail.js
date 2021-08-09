@@ -177,7 +177,7 @@ const handleIsAdmin = () =>{
         <div className="btn" onClick={handleGearButtonClick}>Gear</div>
         <div className="btn" onClick={handlePicsButtonClick}>Pics</div>
         <div className="btn" onClick={handleFriendsButtonClick}>Friends</div>
-            {isAdmin ? <div className="btn" onClick={handleIsAdmin}>Admin </div> : <></>}
+            {isAdmin && climber.id === currentUser ? <div className="btn" onClick={handleIsAdmin}>Admin </div> : <></>}
       </div>
       <article className="climber_detail_page">
           <div className="left_bar">
