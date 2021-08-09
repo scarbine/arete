@@ -41,16 +41,19 @@ import { UploadRoutePics } from "./components/routes/UploadRoutePics";
 import { WeatherProvider } from "./components/weather/WeatherProvider";
 import { AdminProvider } from "./components/admin/AdminProvider";
 import { AdminList } from "./components/admin/AdminList";
+import { MainFeedProvider } from "./components/mainfeed/MainFeedProvider";
+import { MainFeedList } from "./components/mainfeed/MainFeedList";
 
 export const ApplicationViews = () => {
   return (
     <>
       <Route exact path="/">
+        <MainFeedProvider>
         <Home />
+        </MainFeedProvider>
       </Route>
       <ClimberProvider>
         <Route exact path="/climbers">
-          {/* <ClimbersHeaderImage /> */}
           <ClimberList />
         </Route>
       </ClimberProvider>
@@ -76,7 +79,6 @@ export const ApplicationViews = () => {
         <TickListProvider>
           <GradesProvider>
             <Route exact path="/routes">
-              {/* <RoutesHeaderImage /> */}
               <RouteList />
             </Route>
           </GradesProvider>
@@ -125,7 +127,6 @@ export const ApplicationViews = () => {
         <ClimberGearProvider>
           <Route exact path="/gear">
             <GearList />
-            {/* <GearShopBackground /> */}
           </Route>
         </ClimberGearProvider>
       </GearProvider>

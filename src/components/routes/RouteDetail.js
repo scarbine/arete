@@ -33,7 +33,8 @@ export const RouteDetail = () => {
   const routeId = parseInt(routeIdAsString.routeId);
   const thumbWidth ="250"
 	// const thumbHeight = "150"
-  const fullWidth = "1250"
+  const fullWidth = "1000"
+  // const fullHeight = ",h_1000"
 
 const [galleryImages, setGalleryImages]= useState([])
 const [routeRating, setRouteRating] = useState(0)
@@ -214,7 +215,7 @@ const [routeRating, setRouteRating] = useState(0)
          
             <ImageGallery items={galleryImages} />
       </div>
-            <div className="route_detail">{route.description}</div>
+            <div className="route_description">{route.description}</div>
             {/* <RouteRatingList /> */}
             <ReactStars count={5} onChange={ratingChanged} size={24} activeColor="#ffd700" value={routeRating} isHalf={true}/>
           </section>
