@@ -13,7 +13,7 @@
 .main_feed_card {
   margin: 2rem 3rem 0rem 3rem;
   padding: 2rem 3rem 0rem 3rem;
-  border: 0.1rem rgba(128, 128, 128, 0.276) solid;
+  /* border: 0.1rem rgba(128, 128, 128, 0.276) solid; */
   box-shadow: 0rem 0rem 1rem rgb(112 128 144 / 47%);
   border-radius: 1rem;
 }
@@ -30,8 +30,7 @@
 }
 
 .card_container {
-  border: solid 0.1rem grey;
- 
+  border: 0.1rem rgba(128, 128, 128, 0.276) solid;
   width: auto;
 }
 
@@ -44,11 +43,9 @@
 }
 
 .graphics {
-  
   height: 390px;
   background-image: url("https://res.cloudinary.com/ddaeunjfu/image/upload/v1628536707/Arete/Backgrounds/gvzhmcwuhojbqh9tc0or.jpg");
-  opacity: .75;
-  
+  opacity: 0.75;
 }
 
 .main_box_header {
@@ -56,15 +53,24 @@
   justify-content: space-between;
 }
 
-.detail_container{
-	color: whitesmoke;
+.detail_container {
+  color: whitesmoke;
 }
 
-.feed_detail{
-	margin-left: 2rem;
+.feed_detail {
+  margin-left: 2rem;
 }
 
-.feed_detail_top{
-	padding-top: 2rem;
-	margin-left: 2rem;
+.feed_detail_top {
+  padding-top: 2rem;
+  margin-left: 2rem;
+}
+
+.detail_container_img {
+  margin: 1.2rem;
+}
+
+.new_image {
+  box-shadow: 0rem 0rem 1rem rgb(112 128 144 / 47%);
+  width:485px;
 }

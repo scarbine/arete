@@ -110,6 +110,7 @@ export const ApplicationViews = () => {
       </RouteProvider>
 
       <RouteProvider>
+        <MainFeedProvider>
         <RouteRatingsProvider>
           <RouteCommentProvider>
             <TickListProvider>
@@ -128,6 +129,7 @@ export const ApplicationViews = () => {
             </TickListProvider>
           </RouteCommentProvider>
         </RouteRatingsProvider>
+        </MainFeedProvider>
       </RouteProvider>
 
       <GearProvider>

@@ -15,6 +15,8 @@ export const MainFeedCard = ({ feedEvent }) => {
 
   const [foundGrade, setFoundGrade] = useState({});
 
+  const fullName = `${feedEvent.climber.firstName} ${feedEvent.climber.lastName}`;
+
   useEffect(() => {
     getWallGrades(feedEvent.feedObj.wallGradeId);
     const found = wallGrades.find(
@@ -41,17 +43,29 @@ export const MainFeedCard = ({ feedEvent }) => {
             </div>
             <div className="card_container">
               <div className="graphics">
-		      <div className="detail_container">
-                <h5 className="feed_detail_top">{feedEvent?.feedObj.routeName} {foundGrade?.grade}</h5>
-                <div className="feed_detail">First Ascensionists: </div>
-		<div className="feed_detail"> {feedEvent?.feedObj.firstAscensionists}</div>
-                <div className="feed_detail">Route Length: {parseInt(feedEvent.feedObj.length)} ft</div>
-                <div className="feed_detail"> Route Type: {feedEvent?.feedObj.type}</div>
-                <div className="feed_detail">Bolts: {feedEvent?.feedObj.drawsNeeded}</div>
-                <div className="feed_detail">{feedEvent?.feedObj.cragId}</div>
-                <div className="feed_detail">{feedEvent?.feedObj.areaId}</div>
-                <div className="feed_detail">{feedEvent?.feedObj.wallId}</div>
-		</div>
+                <div className="detail_container">
+                  <h5 className="feed_detail_top">
+                    {feedEvent?.feedObj.routeName} {foundGrade?.grade}
+                  </h5>
+                  <div className="feed_detail">First Ascensionists: </div>
+                  <div className="feed_detail">
+                    {" "}
+                    {feedEvent?.feedObj.firstAscensionists}
+                  </div>
+                  <div className="feed_detail">
+                    Route Length: {parseInt(feedEvent.feedObj.length)} ft
+                  </div>
+                  <div className="feed_detail">
+                    {" "}
+                    Route Type: {feedEvent?.feedObj.type}
+                  </div>
+                  <div className="feed_detail">
+                    Bolts: {feedEvent?.feedObj.drawsNeeded}
+                  </div>
+                  <div className="feed_detail">{feedEvent?.feedObj.cragId}</div>
+                  <div className="feed_detail">{feedEvent?.feedObj.areaId}</div>
+                  <div className="feed_detail">{feedEvent?.feedObj.wallId}</div>
+                </div>
               </div>
             </div>
           </div>
@@ -61,6 +75,39 @@ export const MainFeedCard = ({ feedEvent }) => {
         </div>
       ) : (
         <> </>
+      )}
+      {feedEvent.postType === 301 ? (
+        <>
+          <div className="main_feed_card">
+            <div className="main_box_feed">
+              <div className="main_box_header">
+                <div className="title">
+                  {" "}
+                  {feedEvent.climber.firstName} {feedEvent.climber.lastName} has
+                  added a new image!
+                </div>
+                  <div>
+                    {month}-{day}-{year}
+                  </div>
+              </div>
+              <div className="card_container">
+                <div className="graphics_img">
+                  <div className="detail_container_img">
+                    <img className="new_image" src={feedEvent?.feedObj.picURL} alt={fullName} />
+                  </div>
+                </div>
+              </div>
+
+              <div className="card_banner">
+                <div className="description">
+                  {feedEvent?.feedObj.description}
+                </div>
+              </div>
+            </div>
+          </div>
+        </>
+      ) : (
+        <></>
       )}
     </>
   );
