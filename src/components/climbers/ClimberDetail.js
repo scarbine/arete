@@ -177,6 +177,7 @@ const handleIsAdmin = () =>{
         <div className="btn" onClick={handleGearButtonClick}>Gear</div>
         <div className="btn" onClick={handlePicsButtonClick}>Pics</div>
         <div className="btn" onClick={handleFriendsButtonClick}>Friends</div>
+            {isAdmin ? <div className="btn" onClick={handleIsAdmin}>Admin </div> : <></>}
       </div>
       <article className="climber_detail_page">
           <div className="left_bar">
@@ -184,7 +185,6 @@ const handleIsAdmin = () =>{
         <section className="climber">
           <div className="climber_badge">
             <h3 className="climber_name">{climber.userName}</h3>
-            {isAdmin ? <div onClick={handleIsAdmin}>Admin </div> : <></>}
             {friendButton()}
           </div>
           <div className="climber_details">

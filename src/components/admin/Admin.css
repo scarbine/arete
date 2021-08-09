@@ -11,10 +11,6 @@
 	/* justify-content: space-between; */
 }
 
-.admin_header{
-	margin: 1rem;
-}
-
 .request_info{
 	display: flex;
 }
@@ -36,4 +32,10 @@
 .click{
 	margin: 0rem .25rem 0rem 0rem;
 	cursor: pointer;
+}
+
+.admin_header{
+	box-shadow: 0rem 0rem 1rem rgb(112 128 144 / 47%);
+	padding: 1rem 3rem 1rem 1rem;
+	display: flex;
 }

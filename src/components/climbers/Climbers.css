@@ -1,14 +1,15 @@
 .climber {
   margin: 1rem 2rem 2rem 2rem ;
   padding: 1rem;
-  border: solid grey 0.05rem;
+  width: max-content;
+  border: rgba(128, 128, 128, 0.363) solid .1rem;
   display: flex;
   flex-basis: auto;
   vertical-align: bottom;
   display: flex;
   flex-direction: column;
   border-radius: .5rem;
-  /* box-shadow: 0rem 0rem 2rem rgba(181, 182, 184, 0.384); */
+  box-shadow: 0rem 0rem 2rem rgba(181, 182, 184, 0.384);
 
 }
 
@@ -105,6 +106,8 @@
 .climber_img {
   width: 250px;
   margin: 3rem 2rem 1rem 2rem;
+  box-shadow: 0rem 0rem 2rem rgba(181, 182, 184, 0.384);
+  border-radius: 1rem;
 }
 
 .climber_detail_page {
@@ -149,7 +152,11 @@
 }
 
 .climber_pics{
-  padding:6rem;
+  margin:3rem;
+  padding: 3rem;
+  border-radius: 1rem;
+  border: rgba(128, 128, 128, 0.363) solid .1rem;
+  box-shadow: 0rem 0rem 1rem rgb(112 128 144 / 47%);
 }
 
 .left_bar{

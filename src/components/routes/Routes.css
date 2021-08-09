@@ -26,7 +26,9 @@
 .grow:hover { transform: scale(1.1); } */
 
 .route_detail {
-  padding: .375rem 0rem;
+  /* padding: .375rem 0rem; */
+  width:
+
 }
 
 .routes-header {
@@ -56,14 +58,9 @@
   flex-direction: column;
   padding: 1rem 1rem 1rem 1rem;
   text-align: center;
-  
-  /* background-image: url("https://res.cloudinary.com/ddaeunjfu/image/upload/a_90/v1627341375/Arete/Backgrounds/vsrdohkremfqe8g4kvem.jpg") ; */
-  /* background-image: url("https://res.cloudinary.com/ddaeunjfu/image/upload/a_090/v1627511208/Arete/Backgrounds/ra3wdohcuy6crvdcptun.jpg") ; */
   background-size: 100%;
   background-image: no-repeat;
- 
   overflow: scroll;
-  /* height: 1025px; */
  
 
 }
@@ -76,8 +73,6 @@
 
 .route_search_wrapper {
   margin: 0rem 1rem 1rem 0rem;
- 
-  /* align-self: flex-end; */
   float: right;
   display: flex;
   flex-direction: column;
@@ -87,6 +82,7 @@
   padding: 2rem;
   display: flex;
   flex-direction: column;
+  width: max-content;
 }
 
 .route_list_header{
@@ -94,7 +90,7 @@
 	padding: 1rem;
 	display: flex;
 	justify-content: space-between;
-	/* background-color: rgba(61, 71, 80, 0.527); */
+
 }
 
 .to_route_list_form{
@@ -109,13 +105,12 @@
 
 .route_list_header_name{
 	display: flex;
-	/* color: whitesmoke; */
-	
 }
 
 .routes_tick_list_container{
   display: flex;
   margin: 2rem;
+  width: max-content;
 }
 
 .route_detail_body{
@@ -123,17 +118,17 @@
 }
 
 .ticks_todos_container{
-  flex-basis: 25%;
-  min-width: 237px;
+
+  width:max-content;
 }
 
 .route_image{
-  height:200px;
-  width:auto;
+  height: auto;
+  width:max-content;
 }
 
 .image_gallery{
-  width: 450px;
+  width: max-content;
   height: auto;
 }
 
@@ -148,14 +143,18 @@
   display: flex;
   flex-wrap: wrap;
   overflow-x: scroll;
-  /* width:600px; */
 
 }
 
 .route_about{
   margin:2rem;
+  width: max-content;
 }
 
 .route_main_body{
-  width: 1300px;
+  width:max-content;
+}
+.route_description{
+  width:1000px;
+  padding: 1rem;
 }
