@@ -3,9 +3,11 @@ import axios from "axios";
 import { RoutesContext } from "./RouteProvider";
 import { useHistory } from "react-router-dom";
 import Swal from "sweetalert2";
+import { MainFeedContext } from "../mainfeed/MainFeedProvider";
 
 export const UploadRoutePics = () => {
   const { routeId, addRoutePic } = useContext(RoutesContext);
+  const { addMainFeed} = useContext(MainFeedContext)
   console.log("routeID State", routeId);
 
   const history = useHistory();
@@ -18,22 +20,45 @@ export const UploadRoutePics = () => {
     if (imageSelected) {
       console.log("im here", imageSelected);
       const formData = new FormData();
-      formData.append("file", imageSelected);
-      formData.append("upload_preset", "arete-app");
-      axios
-        .post(
-          "https://api.cloudinary.com/v1_1/ddaeunjfu/image/upload",
-          formData
+//       const approvedObj = {
+// 	routeName: task.taskObj.routeName,
+// 	firstAscensionists: task.taskObj.firstAscensionists,
+// 	description: task.taskObj.description,
+// 	length: parseInt(task.taskObj.length),
+// 	type: task.taskObj.type,
+// 	wallGradeId: task.taskObj.wallGradeId,
+// 	cragId: task.taskObj.cragId,
+// 	areaId: task.taskObj.areaId,
+// 	wallId: task.taskObj.wallId,
+// 	drawsNeeded: task.taskObj.drawsNeeded,
+// 	climberId: task.climber.id
+//       };
+  
+formData.append("file", imageSelected);
+formData.append("upload_preset", "arete-app");
+axios
+.post(
+	"https://api.cloudinary.com/v1_1/ddaeunjfu/image/upload",
+	formData
         )
         .then((res) => {
-          const routePicObj = {
-            picURL: res.data.secure_url,
-            climberId: parseInt(currentUser),
-            routeId: routeId,
-            dateAdded: Date.now(),
-          };
-          console.log(routePicObj);
+		const routePicObj = {
+			picURL: res.data.secure_url,
+			climberId: parseInt(currentUser),
+			routeId: routeId,
+			dateAdded: Date.now(),
+		};
+		const mainFeedObj = {
+		    
+		    datePosted: 1628276340724,
+		    climberId: parseInt(currentUser),
+		    postType: 301,
+		    feedObj: routePicObj
+		    
+		}
+          console.log(routePicObj, mainFeedObj);
           addRoutePic(routePicObj);
+	  addMainFeed(mainFeedObj)
         })
         .then(history.push(`/routes/detail/${routeId}`));
     } else {

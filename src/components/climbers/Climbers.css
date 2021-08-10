@@ -50,6 +50,7 @@
   /* border: 1px solid rgba(18, 25, 93, 0.125); */
   border-radius: 1rem;
   transition: all 0.2s ease-in-out;
+  box-shadow: 0rem 0rem 1rem rgb(112 128 144 / 47%);
 }
 /* .grow { transition: all .2s ease-in-out; }
 .grow:hover { transform: scale(1.1); } */
@@ -105,9 +106,9 @@
 
 .climber_img {
   width: 250px;
-  margin: 3rem 2rem 1rem 2rem;
-  box-shadow: 0rem 0rem 2rem rgba(181, 182, 184, 0.384);
-  border-radius: 1rem;
+    margin: 3rem 2rem 1rem 3rem;
+    box-shadow: 0rem 0rem 2rem rgb(181 182 184 / 38%);
+    border-radius: 1rem;
 }
 
 .climber_detail_page {

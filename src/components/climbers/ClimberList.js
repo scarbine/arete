@@ -18,9 +18,11 @@ export const ClimberList = () => {
       const subset = climbers.filter((climber) =>
         climber.lastName.toLowerCase().includes(searchTerms)
       );
-      setFilteredClimbers(subset);
+      const sorted = subset.sort((a,b) => b.id -a.id)
+      setFilteredClimbers(sorted);
     } else {
-      setFilteredClimbers(climbers);
+      const sorted = climbers.sort((a,b)=> b.id - a.id)
+      setFilteredClimbers(sorted);
     }
   }, [searchTerms, climbers]);
 

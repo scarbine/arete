@@ -2,10 +2,12 @@ import React, { useContext } from "react";
 import { RoutesContext } from "../routes/RouteProvider";
 import { AdminContext } from "./AdminProvider";
 import "./Admin.css";
+import { MainFeedContext } from "../mainfeed/MainFeedProvider";
 
 export const AdminCard = ({ task }) => {
   const { updateAdminTask } = useContext(AdminContext);
   const { addRoute } = useContext(RoutesContext);
+  const { addMainFeed} = useContext(MainFeedContext)
 
   const currentUser = localStorage.getItem("arete_customer");
 
@@ -21,7 +23,18 @@ export const AdminCard = ({ task }) => {
       areaId: task.taskObj.areaId,
       wallId: task.taskObj.wallId,
       drawsNeeded: task.taskObj.drawsNeeded,
+      climberId: task.climber.id
     };
+
+    const mainFeedObj = {
+	
+	datePosted: 1628276340724,
+	climberId: task.taskObj.climberId,
+	postType: 201,
+	approvedBy:parseInt(currentUser),
+	feedObj: approvedObj
+	
+    }
 
     const approvedToggle = {
       isApproved: true,
@@ -30,8 +43,9 @@ export const AdminCard = ({ task }) => {
       dateApproved: Date.now(),
     };
     const id = task.id;
-    addRoute(approvedObj).then(updateAdminTask(id, approvedToggle));
+    addRoute(approvedObj).then(updateAdminTask(id, approvedToggle).then(addMainFeed(mainFeedObj)));
   };
+
   const handleDenyClick = () => {
     const denyToggle = {
       dateDenied: Date.now(),
@@ -51,10 +65,10 @@ export const AdminCard = ({ task }) => {
               {/* <div>{task?.id}</div> */}
               <div>
                 Task Approved status:
-                {(task?.isApproved || task?.isDenied) ? (
+                {(task?.isApproved ) ? (
                   <div>Approved</div>
                 ) : (
-                  <div>Not Approved</div>
+                  <div>Pending/Denied</div>
                 )}
               </div>
               <div>Submitted by: </div>
@@ -63,7 +77,7 @@ export const AdminCard = ({ task }) => {
               </div>
               <div>Task Code: {task?.taskCode} </div>
             <section className="buttons">
-              {task?.isApproved ? (
+              {task?.isApproved || task?.isDenied ? (
                 <></>
               ) : (
                 <>
@@ -78,12 +92,13 @@ export const AdminCard = ({ task }) => {
             </section>
             </section>
             <section className="obj_details">
+		    
               <div>Route Name: {task?.taskObj.routeName}</div>
               <div>
                 First Ascensionists : {task?.taskObj.firstAscensionists}
               </div>
               <div>Description : {task?.taskObj.description}</div>
-              <div>Route Length : {task?.taskObj.length}</div>
+              <div>Route Length : {task?.taskObj.length} ft</div>
               <div>Bolts : {task?.taskObj.drawsNeeded}</div>
               <div>Route Type : {task?.taskObj.type}</div>
               <div>Wall Grade Id :{task?.taskObj.wallGradeId} </div>

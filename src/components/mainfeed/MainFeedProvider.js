@@ -4,7 +4,8 @@ export const MainFeedContext = createContext()
 
 export const MainFeedProvider = (props) => {
 
-	const [mainFeed, setMainFeed] = useState([])
+	const [mainFeed, setMainFeed] = useState([
+	])
 
 
 	const getMainFeed = () => {
@@ -13,8 +14,20 @@ export const MainFeedProvider = (props) => {
 		.then(setMainFeed)
 	}
 
+	const addMainFeed = (mainFeedObj) => {
+		return fetch("http://localhost:8088/mainFeed",{
+			method: "POST",
+			headers: {
+			    "Content-Type": "application/json"
+			},
+			body: JSON.stringify(mainFeedObj)
+		    })
+		    .then(getMainFeed)	
+		
+	}
+
 	return(
-		<MainFeedContext.Provider value={{mainFeed , getMainFeed}}>
+		<MainFeedContext.Provider value={{mainFeed , getMainFeed, addMainFeed}}>
 			{props.children}
 			</MainFeedContext.Provider>
 	)
