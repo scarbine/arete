@@ -152,9 +152,9 @@
 }
 
 .route_main_body{
-  width:max-content;
+  width:min-content;
 }
 .route_description{
-  width:1000px;
+  width:900px;
   padding: 1rem;
 }

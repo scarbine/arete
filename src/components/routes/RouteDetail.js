@@ -16,6 +16,7 @@ import { RouteCommentsContext } from "../routecoments/RouteCommentsProvider";
 import ReactStars from "react-rating-stars-component"
 import { RouteRatingsContext } from "../routeratings/RouteRatingsProvider";
 import { RouteRatingAverage } from "../routeratings/RouteRatingAverage";
+import { MainFeedContext } from "../mainfeed/MainFeedProvider";
 
 
 
@@ -26,6 +27,7 @@ export const RouteDetail = () => {
   const { addTodo } = useContext(ToDoListContext);
   const {addRouteComment} = useContext(RouteCommentsContext)
   const {addRouteRating} = useContext(RouteRatingsContext)
+  const {addMainFeed} = useContext(MainFeedContext)
 
   const currentUser = parseInt(localStorage.getItem("arete_customer"));
 
@@ -33,7 +35,7 @@ export const RouteDetail = () => {
   const routeId = parseInt(routeIdAsString.routeId);
   const thumbWidth ="250"
 	// const thumbHeight = "150"
-  const fullWidth = "1000"
+  const fullWidth = "900"
   // const fullHeight = ",h_1000"
 
 const [galleryImages, setGalleryImages]= useState([])
@@ -44,7 +46,8 @@ const [routeRating, setRouteRating] = useState(0)
  
 
   useEffect(() => {
-    getRouteById(routeId);
+    getRouteById(routeId)
+    .then(console.log(route));
   }, []);
 
   useEffect(()=>{
@@ -80,23 +83,32 @@ const [routeRating, setRouteRating] = useState(0)
 
 
   const handleAddTick = () => {
-
-    Swal.fire({
-      title: 'Are you sure?',
-      text: "You want to tick this route!",
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, Tick it!'
-    }).then((result) => {
-      if (result.isConfirmed) {
-        const newTick = {
-          climberId: currentUser,
-          routeId: route.id,
-          dateCompleted: Date.now(),
-        };
-        addTick(newTick).then(
+  
+  Swal.fire({
+    title: 'Are you sure?',
+    text: "You want to tick this route!",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Yes, Tick it!'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      const newTick = {
+        climberId: currentUser,
+        routeId: route.id,
+        dateCompleted: Date.now(),
+      };
+      const mainFeedObj = {
+        datePosted: Date.now(),
+        climberId: currentUser,
+        postType: 401,
+        routeId: route.id,
+        routeGrade:route.wallGrade.grade,
+        routeName: route.routeName,
+        feedObj: newTick
+         }
+        addTick(newTick).then(addMainFeed(mainFeedObj)).then(
         Swal.fire(
           'Ticked!',
           'Your Tick has been Added.',

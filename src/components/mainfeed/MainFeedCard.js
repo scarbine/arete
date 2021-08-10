@@ -86,14 +86,18 @@ export const MainFeedCard = ({ feedEvent }) => {
                   {feedEvent.climber.firstName} {feedEvent.climber.lastName} has
                   added a new image!
                 </div>
-                  <div>
-                    {month}-{day}-{year}
-                  </div>
+                <div>
+                  {month}-{day}-{year}
+                </div>
               </div>
               <div className="card_container">
                 <div className="graphics_img">
                   <div className="detail_container_img">
-                    <img className="new_image" src={feedEvent?.feedObj.picURL} alt={fullName} />
+                    <img
+                      className="new_image"
+                      src={feedEvent?.feedObj.picURL}
+                      alt={fullName}
+                    />
                   </div>
                 </div>
               </div>
@@ -108,6 +112,36 @@ export const MainFeedCard = ({ feedEvent }) => {
         </>
       ) : (
         <></>
+      )}
+      {feedEvent.postType === 401 ? (
+        <div className="main_feed_card">
+          <div className="main_box_feed">
+            <div className="main_box_header">
+              <div className="title">
+                {" "}
+                {feedEvent.climber.firstName} {feedEvent.climber.lastName} has
+                Ticked a route!
+              </div>
+              <div>
+                {month}-{day}-{year}
+              </div>
+            </div>
+            <div className="card_container">
+              <div className="graphics">
+                <div className="detail_container">
+                  <h5 className="feed_detail_top">
+                    {feedEvent?.routeName} {feedEvent.routeGrade}
+                  </h5>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="card_banner">
+            <div className="description">{feedEvent?.feedObj.description}</div>
+          </div>
+        </div>
+      ) : (
+        <> </>
       )}
     </>
   );
