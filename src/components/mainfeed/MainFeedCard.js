@@ -28,6 +28,7 @@ export const MainFeedCard = ({ feedEvent }) => {
 
   return (
     <>
+    {/* Code 301 handles adding a new route. This action only happens is a route has been approved by an admin */}
       {feedEvent.postType === 201 ? (
         <div className="main_feed_card">
           <div className="main_box_feed">
@@ -62,9 +63,9 @@ export const MainFeedCard = ({ feedEvent }) => {
                   <div className="feed_detail">
                     Bolts: {feedEvent?.feedObj.drawsNeeded}
                   </div>
-                  <div className="feed_detail">{feedEvent?.feedObj.cragId}</div>
+                  {/* <div className="feed_detail">{feedEvent?.feedObj.cragId}</div>
                   <div className="feed_detail">{feedEvent?.feedObj.areaId}</div>
-                  <div className="feed_detail">{feedEvent?.feedObj.wallId}</div>
+                  <div className="feed_detail">{feedEvent?.feedObj.wallId}</div> */}
                 </div>
               </div>
             </div>
@@ -76,6 +77,7 @@ export const MainFeedCard = ({ feedEvent }) => {
       ) : (
         <> </>
       )}
+      {/* Code 301 handles adding a new image */}
       {feedEvent.postType === 301 ? (
         <>
           <div className="main_feed_card">
@@ -113,6 +115,7 @@ export const MainFeedCard = ({ feedEvent }) => {
       ) : (
         <></>
       )}
+      {/* Code 401 handles adding a new Tick */}
       {feedEvent.postType === 401 ? (
         <div className="main_feed_card">
           <div className="main_box_feed">
@@ -127,9 +130,9 @@ export const MainFeedCard = ({ feedEvent }) => {
               </div>
             </div>
             <div className="card_container">
-              <div className="graphics">
+              <div className="graphics_tick">
                 <div className="detail_container">
-                  <h5 className="feed_detail_top">
+                  <h5 className="feed_detail_top_tick">
                     {feedEvent?.routeName} {feedEvent.routeGrade}
                   </h5>
                 </div>

@@ -47,6 +47,12 @@
   background-image: url("https://res.cloudinary.com/ddaeunjfu/image/upload/v1628536707/Arete/Backgrounds/gvzhmcwuhojbqh9tc0or.jpg");
   opacity: 0.75;
 }
+.graphics_tick {
+  height: 390px;
+  background-image: url("https://res.cloudinary.com/ddaeunjfu/image/upload/c_scale,h_390/v1629141209/Arete/Backgrounds/dvibdcgy1hxricdtbxej.png");
+  opacity: 0.75;
+  color: black;
+}
 
 .main_box_header {
   display: flex;
@@ -64,6 +70,12 @@
 .feed_detail_top {
   padding-top: 2rem;
   margin-left: 2rem;
+  /* color: black; */
+}
+.feed_detail_top_tick {
+  padding-top: 2rem;
+  margin-left: 2rem;
+  color: black;
 }
 
 .detail_container_img {
