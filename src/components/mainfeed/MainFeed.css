@@ -19,7 +19,7 @@
 }
 
 .main_feed_wrapper {
-  margin: 5rem 15rem 0rem 15rem;
+  /* margin: 5rem 15rem 0rem 15rem; */
   display: flex;
   flex-direction: column;
   width: min-content;
@@ -88,4 +88,11 @@
 .new_image {
   box-shadow: 0rem 0rem 1rem rgb(112 128 144 / 47%);
   width:485px;
+}
+
+
+.main_feed{
+	display: flex;
+	justify-content: center;
+
 }

@@ -34,11 +34,13 @@ export const MainFeedList = () => {
 
   return (
     <>
+    <div className="main_feed">
       <section className="main_feed_wrapper">
         {filteredFeed.map((feedEvent) => (
           <MainFeedCard key={feedEvent.id} feedEvent={feedEvent} />
         ))}
       </section>
+      </div>
     </>
   );
 };
