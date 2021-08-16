@@ -207,7 +207,7 @@ const [routeRating, setRouteRating] = useState(0)
           <div className="ticks_todos_container">
             <div className="route_about">
             <h4>About</h4>
-            <div className="route_detail">FA: {route.firstAscensionists}</div>
+            <div className="route_detail route_detail_fa">FA: {route.firstAscensionists}</div>
             <div className="route_detail">{route?.wall.name}</div>
             <div className="route_detail"> {route?.area.name}</div>
             <div className="route_detail">{route?.crag.name}</div>

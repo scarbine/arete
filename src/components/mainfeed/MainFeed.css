@@ -20,6 +20,9 @@
 
 .main_feed_wrapper {
   margin: 5rem 15rem 0rem 15rem;
+  display: flex;
+  flex-direction: column;
+  width: min-content;
 }
 
 .main_box_feed {
@@ -31,7 +34,7 @@
 
 .card_container {
   border: 0.1rem rgba(128, 128, 128, 0.276) solid;
-  width: auto;
+  width: 522px
 }
 
 .description {
