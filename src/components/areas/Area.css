@@ -24,6 +24,7 @@
 
 .area{
 	margin: 1rem 7rem 1rem 7rem;
+	cursor: pointer;
 }
 
 .new_area_form{
