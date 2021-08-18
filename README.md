@@ -12,6 +12,7 @@
 1. Run `npm install react-image-gallery` to install the image gallery.
 1. Run `npm install react-rating-stars-component --save` to install the stars rating.
 1. Run `npm install bootstrap` to install Bootstrap.
+1. Run `npm install axios` to install Axios
 
 > **Note:** Your `database.json` file is already in the `.gitignore` file for this project, so it will never be added to the repo or pushed to Github.
 
