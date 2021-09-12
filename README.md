@@ -5,14 +5,9 @@
 1. Clone this repository
 1. `cd` into the directory it creates
 1. In the `api` directory, create a copy of the `database.json.example` and remove the `.example` extension.
-1. Run `json-server -p 8088 -w database.json` from the `api` directory.
 1. Run `npm install` and wait for all dependencies to be installed.
 1. Run `npm start` to verify that installation was successful.
-1. Run `npm install sweetalert2` to install Sweetalert2.
-1. Run `npm install react-image-gallery` to install the image gallery.
-1. Run `npm install react-rating-stars-component --save` to install the stars rating.
-1. Run `npm install bootstrap` to install Bootstrap.
-1. Run `npm install axios` to install Axios
+2. 1. Run `json-server -p 8088 -w database.json` from the `api` directory
 
 > **Note:** Your `database.json` file is already in the `.gitignore` file for this project, so it will never be added to the repo or pushed to Github.
 
